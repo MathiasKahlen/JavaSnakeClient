@@ -123,10 +123,6 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SDK" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -451,12 +447,12 @@
       <created>1446318761776</created>
       <option name="number" value="Default" />
       <updated>1446318761776</updated>
-      <workItem from="1446318765609" duration="310000" />
+      <workItem from="1446318765609" duration="352000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="310000" />
+    <option name="totallyTimeSpent" value="352000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1688" y="22" width="1696" height="1026" extended-state="6" />
