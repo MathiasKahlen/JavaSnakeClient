@@ -35,8 +35,8 @@ public class JavaFXController implements Initializable {
         assert passwordTf != null : "fx:id=\"passwordTf\" was not injected: check your FXML file 'LogInPane.fxml'.";
 
         loginBtn.setOnAction(event -> {
-            api.login(usernameTf.getText(), passwordTf.getText());
-            System.out.println(api.getCurrentUser());
+            String message = api.login(usernameTf.getText(), passwordTf.getText());
+            System.out.println(message);
         });
 
 

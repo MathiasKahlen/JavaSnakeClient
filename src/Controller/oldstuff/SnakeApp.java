@@ -1,11 +1,7 @@
-package Controller;
+package Controller.oldstuff;
 
 import GUI.Swing.MainFrame;
 import SDK.Api;
-import SDK.Logic;
-import SDK.Model.Message;
-import SDK.Model.User;
-import sun.applet.Main;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

@@ -1,5 +1,4 @@
-import Controller.SnakeApp;
-import SDK.Api;
+import Controller.oldstuff.SnakeApp;
 
 /**
  * Created by Kahlen on 31-10-2015.
