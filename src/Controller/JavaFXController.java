@@ -30,9 +30,9 @@ public class JavaFXController implements Initializable {
 
     @FXML
     public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
-        assert usernameTf != null : "fx:id=\"usernameTf\" was not injected: check your FXML file 'LogInScene.fxml'.";
-        assert loginBtn != null : "fx:id=\"loginBtn\" was not injected: check your FXML file 'LogInScene.fxml'.";
-        assert passwordTf != null : "fx:id=\"passwordTf\" was not injected: check your FXML file 'LogInScene.fxml'.";
+        assert usernameTf != null : "fx:id=\"usernameTf\" was not injected: check your FXML file 'LogInPane.fxml'.";
+        assert loginBtn != null : "fx:id=\"loginBtn\" was not injected: check your FXML file 'LogInPane.fxml'.";
+        assert passwordTf != null : "fx:id=\"passwordTf\" was not injected: check your FXML file 'LogInPane.fxml'.";
 
         loginBtn.setOnAction(event -> {
             api.login(usernameTf.getText(), passwordTf.getText());

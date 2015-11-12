@@ -8,7 +8,6 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -22,10 +21,10 @@ public class SnakeAppJavaFXEdition extends Application {
     public void start(Stage primaryStage) {
 
         try {
-            Pane loginScene = FXMLLoader.load(SnakeAppJavaFXEdition.class.getResource("/GUI/JavaFX/LogInScene.fxml"));
-            Scene scene = new Scene(loginScene);
+            Pane logInPane = FXMLLoader.load(SnakeAppJavaFXEdition.class.getResource("/GUI/JavaFX/LogInPane.fxml"));
+            Scene scene = new Scene(logInPane);
             primaryStage.setScene(scene);
-            primaryStage.setTitle("FXML is Simple");
+            primaryStage.setTitle("Multiplayer Snake");
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
