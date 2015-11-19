@@ -3,12 +3,11 @@ package Controller;
  * Created by Kahlen on 06-11-2015.
  */
 
+import GUI.MainPane;
+import SDK.Api;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.util.logging.Level;
@@ -16,7 +15,10 @@ import java.util.logging.Logger;
 
 public class SnakeAppJavaFXEdition extends Application {
 
+    static Api api;
+
     public static void main(String[] args) {
+        api = new Api();
         launch(args);
     }
 
@@ -24,15 +26,16 @@ public class SnakeAppJavaFXEdition extends Application {
     public void start(Stage primaryStage) {
 
         try {
+            MainPane mainPane = new MainPane();
+            mainPane.addScreens();
+            mainPane.fadeScreen(MainPane.LOGIN_PANEL);
 
-
-            StackPane container = new StackPane();
-            container.getChildren().add(0, FXMLLoader.load(SnakeAppJavaFXEdition.class.getResource("/GUI/JavaFX/LogInPane.fxml")));
 
             Group root = new Group();
+            root.getChildren().addAll(mainPane);
 
-            root.getChildren().addAll(container);
             Scene scene = new Scene(root);
+
             primaryStage.setScene(scene);
             primaryStage.setTitle("Multiplayer Snake");
             primaryStage.show();

@@ -1,6 +1,0 @@
-{
-  "host": "localhost",
-  "port": "9998",
-  "hashingsalt": "123456",
-  "encryptionkey": "123456"
-}
