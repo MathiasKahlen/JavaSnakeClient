@@ -11,12 +11,12 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
+
 import java.util.HashMap;
 
 /**
  * Created by Kahlen on 14-11-2015.
  */
-
 
 
 public class MainPane extends StackPane {
@@ -31,18 +31,16 @@ public class MainPane extends StackPane {
     public static final String HIGHSCORES_PANEL_FILE = "/GUI/fxml/HighScoresPane.fxml";
 
 
-
-    public MainPane(){
+    public MainPane() {
         super();
     }
 
-    public void setScreen(String name){
+    public void setScreen(String name) {
 
-        if(!getChildren().isEmpty()){
-                    getChildren().remove(0);
-                    getChildren().add(0,screens.get(name));
-            }
-        else
+        if (!getChildren().isEmpty()) {
+            getChildren().remove(0);
+            getChildren().add(0, screens.get(name));
+        } else
             getChildren().add(0, screens.get(name));
     }
 
@@ -57,12 +55,10 @@ public class MainPane extends StackPane {
                                 new KeyValue(opacity, 1.0)),
                         new KeyFrame(new Duration(1000),
 
-                                new EventHandler<ActionEvent>() {
-                                    @Override
-                                    public void handle(ActionEvent event) {
-
-                                //remove displayed screen
-                                getChildren().remove(0);
+                                //Anonymous lambda event listener
+                                event -> {
+                                    //remove displayed screen
+                                    getChildren().remove(0);
                                     //add new screen
                                     getChildren().add(0, screens.get(name));
                                     Timeline fadeIn = new Timeline(
@@ -71,11 +67,10 @@ public class MainPane extends StackPane {
                                             new KeyFrame(new Duration(800),
                                                     new KeyValue(opacity, 1.0)));
                                     fadeIn.play();
-                                    }
                                 }, new KeyValue(opacity, 0.0)));
                 fade.play();
             } else {
-                //no other displayed
+                //no other screen displayed
                 setOpacity(0.0);
                 getChildren().add(screens.get(name));
                 Timeline fadeIn = new Timeline(
@@ -88,17 +83,18 @@ public class MainPane extends StackPane {
         }
     }
 
-    public void addScreens(){
+    //Add all screens in the GUI to the HashMap
+    public void addScreens() {
         loadScreen(LOGIN_PANEL, LOGIN_PANEL_FILE);
         loadScreen(USER_WELCOME, USER_WELCOME_FILE);
         loadScreen(HIGHSCORES_PANEL, HIGHSCORES_PANEL_FILE);
     }
 
-    public void addScreen(String name, Node screen){
+    public void addScreen(String name, Node screen) {
         screens.put(name, screen);
     }
 
-    public void loadScreen(String name, String resource){
+    public void loadScreen(String name, String resource) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(resource));
             Parent loadScreen = fxmlLoader.load();
@@ -106,7 +102,7 @@ public class MainPane extends StackPane {
             myScreenController.setScreenParent(this);
             addScreen(name, loadScreen);
 
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

@@ -183,8 +183,13 @@ public class Api implements SnakeClient{
     }
 
 
-    public ArrayList<Score> getHighScores(String token) {
-        return null;
+    public void getHighScores(String token) {
+        ClientResponse response = get("scores", token);
+
+        if(response.getStatus()==200) {
+            ArrayList<Score> highscores = new Gson().fromJson(response.getEntity(String.class), ArrayList.class);
+            cachedData.setHighScores(highscores);
+        }
     }
 
     public Session getSession() {

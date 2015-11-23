@@ -38,10 +38,12 @@ public class MainMenuController implements Initializable, ControlledScreen {
 
         highscoresBtn.setOnAction(event -> mainPane.fadeScreen(MainPane.HIGHSCORES_PANEL));
         playBtn.setOnAction(event -> System.out.println(SnakeAppJavaFXEdition.api.getSession().getJwtToken()));
-//        gamesBtn.setOnAction(event -> {
+        gamesBtn.setOnAction(event -> {
 //            SnakeAppJavaFXEdition.api.getAllUsers(null);
 //            System.out.println(SnakeAppJavaFXEdition.api.getCachedData().getAllUsers());
-//        });
+            SnakeAppJavaFXEdition.api.getHighScores(null);
+            System.out.println(SnakeAppJavaFXEdition.api.getCachedData().getHighScores());
+        });
     }
 
     @Override

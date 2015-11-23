@@ -39,7 +39,7 @@ public interface SnakeClient {
 
     ArrayList<Score> getCurrentUsersScores(String token);
 
-    ArrayList<Score> getHighScores(String token);
+    void getHighScores(String token);
 
 
 
