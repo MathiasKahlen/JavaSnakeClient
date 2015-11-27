@@ -41,7 +41,6 @@ public class SnakeAppJavaFXEdition extends Application {
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
-            Logger.getLogger(SnakeAppJavaFXEdition.class.getName()).log(Level.SEVERE, null, e);
         }
 
     }

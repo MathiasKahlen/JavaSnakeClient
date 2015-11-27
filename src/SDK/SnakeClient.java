@@ -19,27 +19,27 @@ public interface SnakeClient {
     User getUser(int id);
 
     //Get all users
-    boolean getAllUsers(String token);
+    boolean getAllUsers();
 
     String createUser(String firstName, String lastName, String email, String username, String password);
 
-    void createGame(String token);
+    String createGame(String name, int opponentId, String hostControls);
 
-    void joinGame(String token);
+    String joinGame();
 
-    void startGame(String token);
+    void startGame();
 
-    void deleteGame(String token);
+    void deleteGame();
 
-    Game getGame(String token);
+    Game getGame();
 
-    ArrayList<Game> getCurrentUsersGames(int id, String token);
+    ArrayList<Game> getCurrentUsersGames();
 
-    ArrayList<Game> getOpenGames(String token);
+    ArrayList<Game> getOpenGames();
 
-    ArrayList<Score> getCurrentUsersScores(String token);
+    ArrayList<Score> getCurrentUsersScores();
 
-    void getHighScores(String token);
+    void getHighScores();
 
 
 

@@ -9,7 +9,6 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -58,6 +57,18 @@ public class Api implements SnakeClient{
         return response;
     }
 
+    public ClientResponse put(String json, String path, String token){
+        Client client = Client.create();
+
+        WebResource webResource = client.resource(getHostAdress() + ":" + getPort() + "/api/" + path);
+        ClientResponse response = webResource
+                .header("jwt", token)
+                .type("application/json")
+                .put(ClientResponse.class, json);
+
+        return response;
+    }
+
     public String login(String username, String password){
 
         User user = new User();
@@ -68,12 +79,7 @@ public class Api implements SnakeClient{
 
         ClientResponse response = post(json, "login", null);
 
-        JSONObject jsonObject = null;
-        try {
-            jsonObject = (JSONObject) new JSONParser().parse(response.getEntity(String.class));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        JSONObject jsonObject = responseToJson(response);
 
         if (response.getStatus() == 200){
             int id = (int)(long)jsonObject.get("userid");
@@ -104,8 +110,9 @@ public class Api implements SnakeClient{
         return user;
     }
 
-    public boolean getAllUsers(String token){
+    public boolean getAllUsers(){
 
+        String token = session.getJwtToken();
         ClientResponse response = get("users", token);
 
         if(response.getStatus()==200){
@@ -132,58 +139,86 @@ public class Api implements SnakeClient{
 
         ClientResponse response = post(json, "users", null);
 
-        JSONObject jsonObject = null;
-        try {
-            jsonObject = (JSONObject) new JSONParser().parse(response.getEntity(String.class));
-        } catch (ParseException e) {
-            e.printStackTrace();
+        return (String)responseToJson(response).get("message");
+    }
+
+
+    public String createGame(String name, int opponentId, String hostControls) {
+
+        Game game = new Game();
+        Gamer opponent = new Gamer();
+        Gamer host = new Gamer();
+
+        //If opponentId is set to 0 an open game will be created
+        //Otherwise an invitation will be sent to the user with the opponentId
+        if (opponentId == 0){
+            opponent = null;
+        } else {
+            opponent.setId(opponentId);
+            game.setOpponent(opponent);
         }
 
-            return (String)jsonObject.get("message");
+        //Sets the users controls
+        game.setHost(host);
+        game.getHost().setControls(hostControls);
+
+        //Sets the name of the game
+        game.setName(name);
+
+        String token = session.getJwtToken();
+        String json = new Gson().toJson(game);
+
+        ClientResponse response = post(json, "games", token);
+
+        JSONObject jsonObject = responseToJson(response);
+
+        return (String)jsonObject.get("message");
     }
 
 
-    public void createGame(String token) {
+    public String joinGame() {
+        String token = session.getJwtToken();
+        String json = null;
+
+        ClientResponse response = put(json, "games/join", token);
+
+        return (String)responseToJson(response).get("message");
+    }
+
+
+    public void startGame() {
 
     }
 
 
-    public void joinGame(String token) {
+    public void deleteGame() {
 
     }
 
 
-    public void startGame(String token) {
-
-    }
-
-
-    public void deleteGame(String token) {
-
-    }
-
-
-    public Game getGame(String token) {
+    public Game getGame() {
         return null;
     }
 
 
-    public ArrayList<Game> getCurrentUsersGames(int id, String token) {
+    public ArrayList<Game> getCurrentUsersGames() {
         return null;
     }
 
 
-    public ArrayList<Game> getOpenGames(String token) {
+    public ArrayList<Game> getOpenGames() {
         return null;
     }
 
 
-    public ArrayList<Score> getCurrentUsersScores(String token) {
+    public ArrayList<Score> getCurrentUsersScores() {
         return null;
     }
 
 
-    public void getHighScores(String token) {
+    public void getHighScores() {
+
+        String token = session.getJwtToken();
         ClientResponse response = get("scores", token);
 
         if(response.getStatus()==200) {
@@ -214,5 +249,19 @@ public class Api implements SnakeClient{
 
     public int getPort() {
         return port;
+    }
+
+    /*
+    Method for getting the "message" key from json in response entity
+     */
+    public JSONObject responseToJson(ClientResponse response){
+        //Used for getting the message in the response
+        JSONObject jsonObject = null;
+        try {
+            jsonObject = (JSONObject) new JSONParser().parse(response.getEntity(String.class));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return jsonObject;
     }
 }

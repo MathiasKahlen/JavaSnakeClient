@@ -41,7 +41,7 @@ public class MainMenuController implements Initializable, ControlledScreen {
         gamesBtn.setOnAction(event -> {
 //            SnakeAppJavaFXEdition.api.getAllUsers(null);
 //            System.out.println(SnakeAppJavaFXEdition.api.getCachedData().getAllUsers());
-            SnakeAppJavaFXEdition.api.getHighScores(null);
+            SnakeAppJavaFXEdition.api.getHighScores();
             System.out.println(SnakeAppJavaFXEdition.api.getCachedData().getHighScores());
         });
     }
