@@ -4,8 +4,6 @@ import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.beans.property.DoubleProperty;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -29,6 +27,9 @@ public class MainPane extends StackPane {
     public static final String USER_WELCOME_FILE = "/GUI/fxml/MainMenuPane.fxml";
     public static final String HIGHSCORES_PANEL = "HighScores";
     public static final String HIGHSCORES_PANEL_FILE = "/GUI/fxml/HighScoresPane.fxml";
+    public static final String PLAY_PANEL = "/GUI/fxml/HighScoresPane.fxml";
+    public static final String PLAY_PANEL_FILE = "/GUI/fxml/PlayMenuPane.fxml";
+
 
 
     public MainPane() {
@@ -88,6 +89,7 @@ public class MainPane extends StackPane {
         loadScreen(LOGIN_PANEL, LOGIN_PANEL_FILE);
         loadScreen(USER_WELCOME, USER_WELCOME_FILE);
         loadScreen(HIGHSCORES_PANEL, HIGHSCORES_PANEL_FILE);
+        loadScreen(PLAY_PANEL, PLAY_PANEL_FILE);
     }
 
     public void addScreen(String name, Node screen) {

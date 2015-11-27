@@ -10,6 +10,6 @@
    <children>
       <TextField fx:id="usernameTf" layoutX="226.0" layoutY="155.0" promptText="username" />
       <PasswordField fx:id="passwordTf" layoutX="226.0" layoutY="188.0" promptText="password" />
-      <Button fx:id="loginBtn" layoutX="274.0" layoutY="221.0" mnemonicParsing="false" text="Log in" textAlignment="CENTER" />
+      <Button fx:id="loginBtn" layoutX="274.0" layoutY="221.0" mnemonicParsing="false" onAction="#login" text="Log in" textAlignment="CENTER" />
    </children>
 </Pane>
