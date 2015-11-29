@@ -26,7 +26,6 @@
       <root url="jar://$PROJECT_DIR$/lib/mail-1.4.4.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/wadl-core.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/wadl2java.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/gson-2.2.2 2.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/json-simple-1.1.1.jar!/" />
     </CLASSES>
     <JAVADOC />

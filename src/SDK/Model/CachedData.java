@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class CachedData {
 
     private ArrayList<User> allUsers;
-//    private ArrayList<Game> allGames;
+    private ArrayList<Game> openGames;
     private ArrayList<Score> highScores;
 
     public void setAllUsers(ArrayList<User> allUsers) {

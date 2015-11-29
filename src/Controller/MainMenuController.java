@@ -1,7 +1,7 @@
 package Controller;
 
 import GUI.*;
-import SDK.Api;
+import SDK.ServerConnection;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -14,7 +14,6 @@ import java.util.ResourceBundle;
  */
 public class MainMenuController implements Initializable, ControlledScreen {
 
-    Api api = new Api();
     MainPane mainPane = new MainPane();
 
     @FXML
@@ -32,18 +31,18 @@ public class MainMenuController implements Initializable, ControlledScreen {
     @FXML
     public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
         logOutBtn.setOnAction(event -> {
-                SnakeAppJavaFXEdition.api.logout();
+                SnakeAppJavaFXEdition.serverConnection.logout();
                 mainPane.fadeScreen(MainPane.LOGIN_PANEL);
                 });
 
         highscoresBtn.setOnAction(event -> mainPane.fadeScreen(MainPane.HIGHSCORES_PANEL));
         playBtn.setOnAction(event -> mainPane.fadeScreen(MainPane.PLAY_PANEL));
         gamesBtn.setOnAction(event -> {
-            System.out.println(SnakeAppJavaFXEdition.api.createGame("testgame", 7, "wsdawdsd"));
-//            SnakeAppJavaFXEdition.api.getAllUsers(null);
-//            System.out.println(SnakeAppJavaFXEdition.api.getCachedData().getAllUsers());
-            //SnakeAppJavaFXEdition.api.getHighScores();
-            //System.out.println(SnakeAppJavaFXEdition.api.getCachedData().getHighScores());
+            System.out.println(SnakeAppJavaFXEdition.serverConnection.createGame("testgame", 9, "wsdawdsd") + SnakeAppJavaFXEdition.serverConnection.getSession().getJwtToken());
+//            SnakeAppJavaFXEdition.serverConnection.getAllUsers(null);
+//            System.out.println(SnakeAppJavaFXEdition.serverConnection.getCachedData().getAllUsers());
+            //SnakeAppJavaFXEdition.serverConnection.getHighScores();
+            //System.out.println(SnakeAppJavaFXEdition.serverConnection.getCachedData().getHighScores());
         });
     }
 

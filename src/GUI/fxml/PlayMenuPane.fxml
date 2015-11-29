@@ -5,30 +5,29 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.collections.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.HighScoresController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PlayMenuController">
    <children>
       <Button fx:id="backBtn" layoutX="14.0" layoutY="339.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="111.0" text="Back" />
-      <TableView layoutX="38.0" layoutY="78.0" prefHeight="245.0" prefWidth="524.0">
+      <TableView fx:id="gamesTable" layoutX="38.0" layoutY="78.0" prefHeight="245.0" prefWidth="524.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Game name" />
-          <TableColumn prefWidth="75.0" text="Host" />
-          <TableColumn prefWidth="75.0" text="Opponent" />
-          <TableColumn prefWidth="75.0" text="Status" />
-          <TableColumn prefWidth="75.0" text="Created" />
-          <TableColumn prefWidth="75.0" text="Map size" />
+          <TableColumn fx:id="gameNameColumn" prefWidth="75.0" text="Game name" />
+          <TableColumn fx:id="hostNameColumn" prefWidth="75.0" text="Host" />
+          <TableColumn fx:id="opponentNameColumn" prefWidth="75.0" text="Opponent" />
+          <TableColumn fx:id="gameStatusColumn" prefWidth="75.0" text="Status" />
+          <TableColumn fx:id="gameCreatedColumn" prefWidth="75.0" text="Created" />
+          <TableColumn fx:id="mapSizeColumn" prefWidth="75.0" text="Map size" />
+          <TableColumn fx:id="winnerColumn" prefWidth="75.0" text="Winner" />
         </columns>
       </TableView>
-
-      <ComboBox layoutX="225.0" layoutY="30.0" prefWidth="150.0" >
-       <items>
-           <FXCollections fx:factory="observableArrayList">
-               <String fx:value="Pending games" />
-               <String fx:value="Hosted games" />
-               <String fx:value="Join game" />
-               <String fx:value="Finished games" />
-           </FXCollections>
-       </items>
-   </ComboBox>
+      <MenuButton fx:id="gamesMenu" layoutX="229.0" layoutY="31.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="143.0" text="MenuButton">
+        <items>
+            <MenuItem fx:id="pendingGamesMenu" mnemonicParsing="false" onAction="#showPendingGames" text="Pending games" />
+            <MenuItem fx:id="hostedGamesMenu" mnemonicParsing="false" onAction="#showHostedGames" text="Hosted games" />
+            <MenuItem fx:id="joinGameMenu" mnemonicParsing="false" onAction="#showOpenGames" text="Join game" />
+            <MenuItem fx:id="finishedGamesMenu" mnemonicParsing="false" onAction="#showFinishedGames" text="Finished games" />
+        </items>
+      </MenuButton>
+      <Button fx:id="refreshSelectedTable" layoutX="372.0" layoutY="31.0" mnemonicParsing="false" onAction="#refreshSelectedGamesList" text="Refresh" />
 
    </children>
 </AnchorPane>

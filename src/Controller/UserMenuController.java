@@ -2,7 +2,7 @@ package Controller;
 
 import GUI.ControlledScreen;
 import GUI.MainPane;
-import SDK.Api;
+import SDK.ServerConnection;
 import SDK.Model.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -22,7 +22,7 @@ import java.util.ResourceBundle;
 public class UserMenuController implements Initializable, ControlledScreen {
 
 
-    Api api = new Api();
+    ServerConnection serverConnection = new ServerConnection();
     MainPane mainPane = new MainPane();
 
     @FXML
@@ -55,7 +55,7 @@ public class UserMenuController implements Initializable, ControlledScreen {
         User user2 = new User();
         user2.setId(2);
 
-//        ObservableList<User> data = FXCollections.observableArrayList(api.getCachedData().getAllUsers());
+//        ObservableList<User> data = FXCollections.observableArrayList(serverConnection.getCachedData().getAllUsers());
         ObservableList<User> data = FXCollections.observableArrayList(user1, user2);
 
 

@@ -4,13 +4,15 @@ import GUI.Animation.GUIAnimations;
 import GUI.MainPane;
 
 import GUI.ControlledScreen;
-import SDK.Api;
 
+import SDK.SDKConfig.Config;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
 
 import java.net.URL;
@@ -21,7 +23,6 @@ import java.util.ResourceBundle;
  */
 public class LogInController implements Initializable, ControlledScreen{
 
-    Api api = new Api();
     private MainPane mainPane = new MainPane();
 
     @FXML
@@ -51,9 +52,9 @@ public class LogInController implements Initializable, ControlledScreen{
             }
             System.out.println("fields cannot be empty");
         } else {
-            String message = SnakeAppJavaFXEdition.api.login(usernameTf.getText(), passwordTf.getText());
+            String message = SnakeAppJavaFXEdition.serverConnection.login(usernameTf.getText(), passwordTf.getText());
             clearAll();
-            if (SnakeAppJavaFXEdition.api.getSession().getCurrentUser()!=null)
+            if (SnakeAppJavaFXEdition.serverConnection.getSession().getCurrentUser()!=null)
                 mainPane.fadeScreen(MainPane.USER_WELCOME);
             else{
                 System.out.println(message);
@@ -64,6 +65,13 @@ public class LogInController implements Initializable, ControlledScreen{
     public void clearAll(){
         usernameTf.clear();
         passwordTf.clear();
+    }
+
+    @FXML
+    public void onEnter(KeyEvent event){
+        if (event.getCode()== KeyCode.ENTER){
+            login();
+        }
     }
 
     @Override

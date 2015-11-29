@@ -4,21 +4,18 @@ package Controller;
  */
 
 import GUI.MainPane;
-import SDK.Api;
+import SDK.ServerConnection;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 public class SnakeAppJavaFXEdition extends Application {
 
-    static Api api;
+    static ServerConnection serverConnection;
 
     public static void main(String[] args) {
-        api = new Api();
+        serverConnection = new ServerConnection();
         launch(args);
     }
 
@@ -39,9 +36,9 @@ public class SnakeAppJavaFXEdition extends Application {
             primaryStage.setScene(scene);
             primaryStage.setTitle("Multiplayer Snake");
             primaryStage.show();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 }

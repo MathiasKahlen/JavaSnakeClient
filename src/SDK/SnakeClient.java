@@ -25,15 +25,15 @@ public interface SnakeClient {
 
     String createGame(String name, int opponentId, String hostControls);
 
-    String joinGame();
+    String joinGame(int gameId);
 
-    void startGame();
+    Game startGame(int gameId, String controls);
 
-    void deleteGame();
+    String deleteGame(int gameId);
 
     Game getGame();
 
-    ArrayList<Game> getCurrentUsersGames();
+    void getCurrentUsersGames(String gameStatus);
 
     ArrayList<Game> getOpenGames();
 

@@ -1,7 +1,9 @@
 package SDK;
 
 import SDK.Model.*;
+import SDK.SDKConfig.Config;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
@@ -10,24 +12,21 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Kahlen on 31-10-2015.
  */
-public class Api implements SnakeClient{
+public class ServerConnection implements SnakeClient{
 
 
     private Session session;
     private CachedData cachedData;
 
-    private String hostAdress;
-    private int port;
-
-    public Api(){
+    public ServerConnection() {
         session = new Session();
         cachedData = new CachedData();
-        this.hostAdress = "http://localhost";
-        this.port = 9998;
+        Config.init();
     }
 
 
@@ -35,7 +34,7 @@ public class Api implements SnakeClient{
     public ClientResponse get(String path, String token){
         Client client = Client.create();
 
-        WebResource webResource = client.resource(getHostAdress() + ":" + getPort() + "/api/" + path);
+        WebResource webResource = client.resource(Config.getHost() + ":" + Config.getPort() + "/api/" + path);
         ClientResponse response = webResource
                 .header("jwt", token)
                 .type("application/json")
@@ -48,7 +47,7 @@ public class Api implements SnakeClient{
     public ClientResponse post(String json, String path, String token){
         Client client = Client.create();
 
-        WebResource webResource = client.resource(getHostAdress() + ":" + getPort() + "/api/" + path);
+        WebResource webResource = client.resource(Config.getHost() + ":" + Config.getPort() + "/api/" + path);
         ClientResponse response = webResource
                 .header("jwt", token)
                 .type("application/json")
@@ -60,11 +59,23 @@ public class Api implements SnakeClient{
     public ClientResponse put(String json, String path, String token){
         Client client = Client.create();
 
-        WebResource webResource = client.resource(getHostAdress() + ":" + getPort() + "/api/" + path);
+        WebResource webResource = client.resource(Config.getHost() + ":" + Config.getPort() + "/api/" + path);
         ClientResponse response = webResource
                 .header("jwt", token)
                 .type("application/json")
                 .put(ClientResponse.class, json);
+
+        return response;
+    }
+
+    public ClientResponse delete(String path, String token){
+        Client client = Client.create();
+
+        WebResource webResource = client.resource(Config.getHost() + ":" + Config.getPort() + "/api/" + path);
+        ClientResponse response = webResource
+                .header("jwt", token)
+                .type("application/json")
+                .delete(ClientResponse.class);
 
         return response;
     }
@@ -96,16 +107,10 @@ public class Api implements SnakeClient{
     }
 
     public User getUser(int id){
-        Client client = new Client();
 
-        User user;
+        ClientResponse response = get("users/" + Integer.toString(id), null);
 
-        WebResource webResource = client.resource(getHostAdress() + ":" + getPort() + "/api/users/" + Integer.toString(id));
-        ClientResponse response = webResource.type("application/json").get(ClientResponse.class);
-
-        String test = response.getEntity(String.class);
-
-        user = new Gson().fromJson(test, User.class);
+        User user = new Gson().fromJson(response.getEntity(String.class), User.class);
 
         return user;
     }
@@ -120,6 +125,7 @@ public class Api implements SnakeClient{
             cachedData.setAllUsers(users);
             return true;
         } else if (response.getStatus()==401){
+            logout();
             return false;
         }
         return false;
@@ -161,8 +167,6 @@ public class Api implements SnakeClient{
         //Sets the users controls
         game.setHost(host);
         game.getHost().setControls(hostControls);
-
-        //Sets the name of the game
         game.setName(name);
 
         String token = session.getJwtToken();
@@ -170,29 +174,69 @@ public class Api implements SnakeClient{
 
         ClientResponse response = post(json, "games", token);
 
+        //Logs out the user if unauthorized
+        if (response.getStatus()==401){
+            logout();
+        }
+
         JSONObject jsonObject = responseToJson(response);
 
         return (String)jsonObject.get("message");
     }
 
 
-    public String joinGame() {
+    public String joinGame(int gameId) {
+        //Set the token
         String token = session.getJwtToken();
-        String json = null;
-
+        //The game to join
+        Game game = new Game();
+        game.setGameId(gameId);
+        //Converting to json
+        String json = new Gson().toJson(game);
+        //Sending the put and getting a response
         ClientResponse response = put(json, "games/join", token);
-
+        //Logs out the user if unauthorized
+        if (response.getStatus()==401){
+            logout();
+        }
+        //Return the response message
         return (String)responseToJson(response).get("message");
     }
 
 
-    public void startGame() {
+    public Game startGame(int gameId, String controls) {
+        //Set the token
+        String token = session.getJwtToken();
+        //The game to play
+        Game game = new Game();
+        game.setGameId(gameId);
+        Gamer opponent = new Gamer();
+        opponent.setControls(controls);
+        game.setOpponent(opponent);
+        //Converting to json
+        String json = new Gson().toJson(game);
+        //Sending the put and getting a response
+        ClientResponse response = put(json, "games/start", token);
 
+        //Logs out the user if unauthorized
+        if (response.getStatus()==401){
+            logout();
+        }
+
+        Game finishedGame = new Gson().fromJson(response.getEntity(String.class), Game.class);
+
+        return finishedGame;
     }
 
 
-    public void deleteGame() {
+    public String deleteGame(int gameId) {
+        //Set the token
+        String token = session.getJwtToken();
+        //Sending the put and getting a response
+        ClientResponse response = delete("games/" + Integer.toString(gameId), token);
 
+        //return the response message
+        return (String)responseToJson(response).get("message");
     }
 
 
@@ -201,8 +245,30 @@ public class Api implements SnakeClient{
     }
 
 
-    public ArrayList<Game> getCurrentUsersGames() {
-        return null;
+    public void getCurrentUsersGames(String gameStatus) {
+
+        ClientResponse response;
+        String token = session.getJwtToken();
+        ArrayList<Game> games;
+
+        switch (gameStatus){
+            //Shows current users pending games
+            case "pending":
+                response = get("games/pending", token);
+                session.setPendingGames(new Gson().fromJson(response.getEntity(String.class), new TypeToken<List<Game>>(){}.getType()));
+                break;
+            //Shows games the current user hosted that are open or pending
+            case "hosted":
+                response = get("games/host", token);
+                session.setHostedGames(new Gson().fromJson(response.getEntity(String.class), new TypeToken<List<Game>>(){}.getType()));
+                break;
+            //Shows current users finished games
+            case "finished":
+                response = get("games/finished", token);
+                session.setFinishedGames(new Gson().fromJson(response.getEntity(String.class), new TypeToken<List<Game>>(){}.getType()));
+                break;
+        }
+
     }
 
 
@@ -224,6 +290,9 @@ public class Api implements SnakeClient{
         if(response.getStatus()==200) {
             ArrayList<Score> highscores = new Gson().fromJson(response.getEntity(String.class), ArrayList.class);
             cachedData.setHighScores(highscores);
+        } else if (response.getStatus()==401){
+            //Logs out the user if unauthorized
+            logout();
         }
     }
 
@@ -235,27 +304,10 @@ public class Api implements SnakeClient{
         return cachedData;
     }
 
-    public void setHostAdress(String hostAdress) {
-        this.hostAdress = hostAdress;
-    }
 
-    public void setPort(int port) {
-        this.port = port;
-    }
-
-    public String getHostAdress() {
-        return hostAdress;
-    }
-
-    public int getPort() {
-        return port;
-    }
-
-    /*
-    Method for getting the "message" key from json in response entity
-     */
+    //Parsing the entity of a ClientResponse to json
     public JSONObject responseToJson(ClientResponse response){
-        //Used for getting the message in the response
+
         JSONObject jsonObject = null;
         try {
             jsonObject = (JSONObject) new JSONParser().parse(response.getEntity(String.class));
