@@ -22,7 +22,7 @@
 
 #mainPane {
     /*-fx-background-color: radial-gradient(center 75% 75%, radius 350%, darkblue 5%,lightblue 35%);*/
-    -fx-background-color: linear-gradient(darkblue 15%, lightblue 75%);
+    -fx-background-color: linear-gradient(darkblue 15%, lightblue 75%, white 95%);
     -fx-border-radius: 20;
     -fx-padding: 10 10 10 10;
     -fx-background-radius: 20;

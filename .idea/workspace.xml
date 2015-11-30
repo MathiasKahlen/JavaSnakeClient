@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0eb8f8a2-1831-4aa0-b838-963f6ceaa8c5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GUI/CSS/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/fxml/LogInPane.fxml" afterPath="$PROJECT_DIR$/src/GUI/fxml/LogInPane.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/PlayMenuController.java" afterPath="$PROJECT_DIR$/src/Controller/PlayMenuController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/fxml/PlayMenuPane.fxml" afterPath="$PROJECT_DIR$/src/GUI/fxml/PlayMenuPane.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/SnakeAppJavaFXEdition.java" afterPath="$PROJECT_DIR$/src/Controller/SnakeAppJavaFXEdition.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/JavaSnakeClient/GUI/fxml/LogInPane.fxml" afterPath="$PROJECT_DIR$/out/production/JavaSnakeClient/GUI/fxml/LogInPane.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/CSS/style.css" afterPath="$PROJECT_DIR$/src/GUI/CSS/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="JavaSnakeClient.iws" />
@@ -64,7 +61,7 @@
         <entry file="file://$PROJECT_DIR$/src/GUI/CSS/style.css">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.5823817">
-              <caret line="24" column="71" selection-start-line="24" selection-start-column="71" selection-end-line="24" selection-end-column="71" />
+              <caret line="24" column="76" selection-start-line="24" selection-start-column="76" selection-end-line="24" selection-end-column="76" />
               <folding />
             </state>
           </provider>
@@ -884,7 +881,7 @@
       <workItem from="1448710654247" duration="9222000" />
       <workItem from="1448785500144" duration="14830000" />
       <workItem from="1448803198599" duration="9255000" />
-      <workItem from="1448881896193" duration="12264000" />
+      <workItem from="1448881896193" duration="12703000" />
     </task>
     <task id="LOCAL-00001" summary="Added JavaFX gui and functionality">
       <created>1447345506979</created>
@@ -928,11 +925,17 @@
       <option name="project" value="LOCAL" />
       <updated>1448834145718</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Played with css for the GUI">
+      <created>1448894191941</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1448894191941</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="179012000" />
+    <option name="totallyTimeSpent" value="179451000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1022,7 +1025,8 @@
     <MESSAGE value="Minor changes:&#10;Changed login method in LogInController and added an animation to the text fields if they are empty when trying to log in.&#10;Also added PlayMenuPane" />
     <MESSAGE value="Worked on joinGame, startGame and deleteGame in ServerConnection.&#10;&#10;Also added getCurrentUsersGames functionality in ServerConnection and in the PlayMenuController and PlayMenuPane. The client now properly shows the games from the session class in the TableView depending on status of the game.&#10;&#10;Session class now contains user specific ArrayLists of games and CachedData contain only data that is not user specific." />
     <MESSAGE value="Worked on joinGame, startGame and deleteGame in ServerConnection.&#10;&#10;Also added getCurrentUsersGames functionality in ServerConnection and connected it with the PlayMenuController and PlayMenuPane. The client now properly shows the games stored in the Session class in the TableView.&#10;&#10;Session class now contains user specific ArrayLists of games and CachedData contain only data that is not user specific." />
-    <option name="LAST_COMMIT_MESSAGE" value="Worked on joinGame, startGame and deleteGame in ServerConnection.&#10;&#10;Also added getCurrentUsersGames functionality in ServerConnection and connected it with the PlayMenuController and PlayMenuPane. The client now properly shows the games stored in the Session class in the TableView.&#10;&#10;Session class now contains user specific ArrayLists of games and CachedData contain only data that is not user specific." />
+    <MESSAGE value="Played with css for the GUI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Played with css for the GUI" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1471,7 +1475,7 @@
     <entry file="file://$PROJECT_DIR$/src/GUI/CSS/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5823817">
-          <caret line="24" column="71" selection-start-line="24" selection-start-column="71" selection-end-line="24" selection-end-column="71" />
+          <caret line="24" column="76" selection-start-line="24" selection-start-column="76" selection-end-line="24" selection-end-column="76" />
           <folding />
         </state>
       </provider>
