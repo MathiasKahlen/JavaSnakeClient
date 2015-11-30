@@ -8,9 +8,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainMenuController">
    <children>
-      <Button fx:id="playBtn" layoutX="245.0" layoutY="74.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="111.0" text="Play" />
-      <Button fx:id="highscoresBtn" layoutX="245.0" layoutY="132.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="111.0" text="Highscores" />
-      <Button fx:id="gamesBtn" layoutX="245.0" layoutY="189.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="111.0" text="My games" />
-      <Button fx:id="logOutBtn" layoutX="245.0" layoutY="279.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="111.0" text="Log Out" />
+      <Button id="btnMenuButton" fx:id="playBtn" layoutX="245.0" layoutY="74.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="111.0" text="Play" />
+      <Button id="btnMenuButton" fx:id="highscoresBtn" layoutX="245.0" layoutY="132.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="111.0" text="Highscores" />
+      <Button id="btnMenuButton" fx:id="gamesBtn" layoutX="245.0" layoutY="189.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="111.0" text="My games" />
+      <Button id="btnMenuButton" fx:id="logOutBtn" layoutX="245.0" layoutY="279.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="111.0" text="Log Out" />
    </children>
 </AnchorPane>

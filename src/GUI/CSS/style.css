@@ -1,24 +1,42 @@
 
 /* Table text should always be white */
 .table-cell{
-    -fx-text-fill: white;
+    -fx-text-fill: black;
     -fx-font-size: 14px;
-    -fx-background: black;
+}
+
+.table-view {
+    -fx-table-cell-border-color: orange;
+    -fx-table-header-border-color: orange;
+}
+
+#hostedGameRow{
+    -fx-background-color: rgb(88,0,0);
+    -fx-background: rgb(88,0,0);
+}
+#hostedGameRow:focused{
+    -fx-background-color: linear-gradient(rgb(88,0,0) 5%, rgb(150,0,0) 75%, rgb(200,0,0) 99%);
+}
+#invitedGameRow{
+    -fx-background-color: rgb(0,88,0);
+    -fx-background: rgb(0,88,0);
+}
+#invitedGameRow:focused{
+    -fx-background-color: linear-gradient(rgb(0,88,0) 1%, rgb(0,150,0) 75%, rgb(0,200,0) 90%);;
 }
 
 /* Style for default table rows */
-#gamesTable{
-    -fx-font-size: 12px;
-    -fx-base: rgb(0,0,0);
-    -fx-background-color: black;
-    -fx-border-color: orange;
-    -fx-border-width: 1 1 0 0;
-    -fx-table-cell-border-color: orange;
-    -fx-table-cell-border-width: 2px;
-}
+/*#gamesTable{*/
+    /*-fx-font-size: 12px;*/
+    /*-fx-base: rgba(88,0,0,50);*/
+    /*-fx-background-color: linear-gradient(rgba(88,0,0,50), rgba(176,0,0,50));;*/
+    /*-fx-border-color: rgb(20,90,20);*/
+    /*-fx-border-width: 0;*/
+    /*-fx-table-cell-border-color: rgb(20,90,20);*/
+    /*-fx-table-cell-border-width: 5;*/
+/*}*/
 
-#playMenu {
-}
+
 
 #mainPane {
     /*-fx-background-color: radial-gradient(center 75% 75%, radius 350%, darkblue 5%,lightblue 35%);*/
@@ -34,6 +52,35 @@
     -fx-background-radius: 30, 30, 29, 28;
     -fx-padding: 3px 10px 3px 10px;
     -fx-background-color: linear-gradient(orange, orangered );
+}
+
+/*#btnLogin {*/
+    /*-fx-background-radius: 30, 30, 29, 28;*/
+    /*-fx-padding: 3px 10px 3px 10px;*/
+    /*-fx-background-color: linear-gradient(rgb(20,90,20), rgb(40,180,40));*/
+    /*-fx-text-fill: rgb(88,0,0);*/
+    /*-fx-font-weight: bold;*/
+/*}*/
+#btnExit {
+    -fx-background-radius: 30, 30, 29, 28;
+    -fx-padding: 3px 10px 3px 10px;
+    -fx-background-color: linear-gradient(orange, orangered);
+}
+
+/*#btnExit {*/
+    /*-fx-background-radius: 30, 30, 29, 28;*/
+    /*-fx-padding: 3px 10px 3px 10px;*/
+    /*-fx-background-color: linear-gradient(rgba(88,0,0,50), rgba(176,0,0,50));*/
+    /*-fx-text-fill: rgb(20,90,20);*/
+    /*-fx-font-weight: bold;*/
+/*}*/
+
+#btnMenuButton{
+    -fx-background-radius: 30, 30, 29, 28;
+    -fx-padding: 3px 10px 3px 10px;
+    -fx-background-color: linear-gradient(snow, lightblue 70%);
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
 }
 
 

@@ -129,12 +129,10 @@ public class PlayMenuController implements Initializable, ControlledScreen {
 
                 if (!isEmpty()){
                     if (item.equals(SnakeAppJavaFXEdition.serverConnection.getSession().getCurrentUser().getUsername())) {
-                        currentRow.setStyle("-fx-background-color: crimson");
-                        currentRow.setStyle("-fx-background: crimson");
+                        currentRow.setId("hostedGameRow");
                     }
                     else {
-                        currentRow.setStyle("-fx-background-color: forestgreen");
-                        currentRow.setStyle("-fx-background: forestgreen");
+                        currentRow.setId("invitedGameRow");
                     }
 
                 }

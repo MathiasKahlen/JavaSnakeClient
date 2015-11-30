@@ -32,7 +32,7 @@
         </columns>
       </TableView>
 
-       <Button fx:id="backBtn" layoutX="14.0" layoutY="339.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="111.0" text="Back" />
+       <Button id="btnMenuButton" fx:id="backBtn" layoutX="38.0" layoutY="329.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="111.0" text="Back" />
        <Button fx:id="refreshSelectedTable" layoutX="356.0" layoutY="31.0" mnemonicParsing="false" onAction="#refreshSelectedGamesList" text="Refresh" />
        <Button fx:id="joinBtn" layoutX="444.0" layoutY="327.0" mnemonicParsing="false" text="Join" />
        <Button fx:id="newGameBtn" layoutX="489.0" layoutY="327.0" mnemonicParsing="false" text="New game" />

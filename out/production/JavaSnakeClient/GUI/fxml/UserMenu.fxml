@@ -10,7 +10,7 @@
       <ToolBar prefHeight="54.0" prefWidth="639.0">
         <items>
             <Button mnemonicParsing="false" text="Button" />
-          <Button mnemonicParsing="false" text="Button" />
+            <Button mnemonicParsing="false" text="Button" />
             <Button mnemonicParsing="false" text="Button" />
             <Button mnemonicParsing="false" text="Button" />
         </items>
