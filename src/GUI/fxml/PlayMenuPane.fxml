@@ -5,10 +5,22 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.collections.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PlayMenuController">
+<AnchorPane id="playMenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PlayMenuController">
    <children>
-      <Button fx:id="backBtn" layoutX="14.0" layoutY="339.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="111.0" text="Back" />
-      <TableView fx:id="gamesTable" layoutX="38.0" layoutY="78.0" prefHeight="245.0" prefWidth="524.0">
+
+
+       <ComboBox fx:id="gamesToShow" layoutX="245.0" layoutY="31.0" prefHeight="25.0" prefWidth="111.0" promptText="Games">
+           <items>
+               <FXCollections fx:factory="observableArrayList">
+                   <String fx:value="Pending games" />
+                   <String fx:value="Hosted games" />
+                   <String fx:value="Join game" />
+                   <String fx:value="Finished games" />
+               </FXCollections>
+           </items>
+       </ComboBox>
+
+       <TableView id="gamesTable" fx:id="gamesTable" layoutX="38.0" layoutY="78.0" prefHeight="245.0" prefWidth="524.0">
         <columns>
           <TableColumn fx:id="gameNameColumn" prefWidth="75.0" text="Game name" />
           <TableColumn fx:id="hostNameColumn" prefWidth="75.0" text="Host" />
@@ -19,15 +31,12 @@
           <TableColumn fx:id="winnerColumn" prefWidth="75.0" text="Winner" />
         </columns>
       </TableView>
-      <MenuButton fx:id="gamesMenu" layoutX="229.0" layoutY="31.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="143.0" text="MenuButton">
-        <items>
-            <MenuItem fx:id="pendingGamesMenu" mnemonicParsing="false" onAction="#showPendingGames" text="Pending games" />
-            <MenuItem fx:id="hostedGamesMenu" mnemonicParsing="false" onAction="#showHostedGames" text="Hosted games" />
-            <MenuItem fx:id="joinGameMenu" mnemonicParsing="false" onAction="#showOpenGames" text="Join game" />
-            <MenuItem fx:id="finishedGamesMenu" mnemonicParsing="false" onAction="#showFinishedGames" text="Finished games" />
-        </items>
-      </MenuButton>
-      <Button fx:id="refreshSelectedTable" layoutX="372.0" layoutY="31.0" mnemonicParsing="false" onAction="#refreshSelectedGamesList" text="Refresh" />
+
+       <Button fx:id="backBtn" layoutX="14.0" layoutY="339.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="111.0" text="Back" />
+       <Button fx:id="refreshSelectedTable" layoutX="356.0" layoutY="31.0" mnemonicParsing="false" onAction="#refreshSelectedGamesList" text="Refresh" />
+       <Button fx:id="joinBtn" layoutX="444.0" layoutY="327.0" mnemonicParsing="false" text="Join" />
+       <Button fx:id="newGameBtn" layoutX="489.0" layoutY="327.0" mnemonicParsing="false" text="New game" />
+       <Button fx:id="playBtn" layoutX="399.0" layoutY="327.0" mnemonicParsing="false" text="Play" />
 
    </children>
 </AnchorPane>

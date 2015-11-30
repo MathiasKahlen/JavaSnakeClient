@@ -1,0 +1,39 @@
+
+/* Table text should always be white */
+.table-cell{
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-background: black;
+}
+
+/* Style for default table rows */
+#gamesTable{
+    -fx-font-size: 12px;
+    -fx-base: rgb(0,0,0);
+    -fx-background-color: black;
+    -fx-border-color: orange;
+    -fx-border-width: 1 1 0 0;
+    -fx-table-cell-border-color: orange;
+    -fx-table-cell-border-width: 2px;
+}
+
+#playMenu {
+}
+
+#mainPane {
+    /*-fx-background-color: radial-gradient(center 75% 75%, radius 350%, darkblue 5%,lightblue 35%);*/
+    -fx-background-color: linear-gradient(darkblue 15%, lightblue 75%);
+    -fx-border-radius: 20;
+    -fx-padding: 10 10 10 10;
+    -fx-background-radius: 20;
+    -fx-effect: dropshadow(gaussian, darkblue, 20,0,0,0);
+    -fx-background-insets: 20;
+}
+
+#btnLogin {
+    -fx-background-radius: 30, 30, 29, 28;
+    -fx-padding: 3px 10px 3px 10px;
+    -fx-background-color: linear-gradient(orange, orangered );
+}
+
+
