@@ -111,6 +111,7 @@ public class LogInController implements Initializable, ControlledScreen{
             String message = SnakeAppJavaFXEdition.serverConnection.login(usernameTf.getText(), passwordTf.getText());
             clearAll();
             if (SnakeAppJavaFXEdition.serverConnection.getSession().getCurrentUser()!=null){
+
                 //If user is successfully logged in the application spawns a new Thread which repeatedly checks if the currentUser is still authenticated
                 //Get Post Put and Delete methods in ServerConnection automatically logs out the user from the application if a status code 401 Unauthorized is received
                 new Thread(new Runnable() {

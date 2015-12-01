@@ -31,7 +31,6 @@ public class MainPane extends StackPane {
     public static final String PLAY_PANEL_FILE = "/GUI/fxml/PlayMenuPane.fxml";
 
 
-
     public MainPane() {
         super();
     }
