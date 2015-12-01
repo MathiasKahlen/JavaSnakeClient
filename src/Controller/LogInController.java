@@ -11,8 +11,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontSmoothingType;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 
 
 import java.net.URL;
@@ -35,10 +41,59 @@ public class LogInController implements Initializable, ControlledScreen{
     private PasswordField passwordTf;
 
     @FXML
+    private Text christmasText;
+
+    @FXML
     public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
         assert usernameTf != null : "fx:id=\"usernameTf\" was not injected: check your FXML file 'LogInPane.fxml'.";
         assert loginBtn != null : "fx:id=\"loginBtn\" was not injected: check your FXML file 'LogInPane.fxml'.";
         assert passwordTf != null : "fx:id=\"passwordTf\" was not injected: check your FXML file 'LogInPane.fxml'.";
+
+//        Reflection r = new Reflection();
+//        r.setFraction(2.7f);
+//        christmasText.setEffect(r);
+
+        Blend blend = new Blend();
+        blend.setMode(BlendMode.MULTIPLY);
+
+        DropShadow ds = new DropShadow();
+        ds.setColor(Color.rgb(254, 235, 66, 0.3));
+        ds.setOffsetX(5);
+        ds.setOffsetY(5);
+        ds.setRadius(5);
+        ds.setSpread(0.2);
+
+        blend.setBottomInput(ds);
+
+        DropShadow ds1 = new DropShadow();
+        ds1.setColor(Color.web("#f13a00"));
+        ds1.setRadius(20);
+        ds1.setSpread(0.2);
+
+        Blend blend2 = new Blend();
+        blend2.setMode(BlendMode.MULTIPLY);
+
+        InnerShadow is = new InnerShadow();
+        is.setColor(Color.web("#feeb42"));
+        is.setRadius(9);
+        is.setChoke(0.8);
+        blend2.setBottomInput(is);
+
+        InnerShadow is1 = new InnerShadow();
+        is1.setColor(Color.web("#f13a00"));
+        is1.setRadius(5);
+        is1.setChoke(0.4);
+        blend2.setTopInput(is1);
+
+        Blend blend1 = new Blend();
+        blend1.setMode(BlendMode.MULTIPLY);
+        blend1.setBottomInput(ds1);
+        blend1.setTopInput(blend2);
+
+        blend.setTopInput(blend1);
+
+        christmasText.setEffect(blend);
+
     }
 
     public void login(){

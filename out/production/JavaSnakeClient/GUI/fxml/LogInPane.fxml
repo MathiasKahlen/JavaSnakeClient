@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LogInController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LogInController">
    <children>
       <TextField fx:id="usernameTf" layoutX="226.0" layoutY="155.0" onKeyPressed="#onEnter" promptText="username" />
       <PasswordField fx:id="passwordTf" layoutX="226.0" layoutY="188.0" onKeyPressed="#onEnter" promptText="password" />
       <Button id="btnLogin" fx:id="loginBtn" layoutX="274.0" layoutY="221.0" mnemonicParsing="false" onAction="#login" onKeyPressed="#onEnter" text="Log in" textAlignment="CENTER" />
+      <Text id="christmasText" fx:id="christmasText" layoutX="84.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Insane Christmas Edition!" textAlignment="CENTER" wrappingWidth="432.13671875" />
+      <Text id="snakeWelcomeText" layoutX="84.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Multiplayer Snake" textAlignment="CENTER" wrappingWidth="432.13671875" />
    </children>
-</Pane>
+</AnchorPane>

@@ -36,8 +36,6 @@
     /*-fx-table-cell-border-width: 5;*/
 /*}*/
 
-
-
 #mainPane {
     /*-fx-background-color: radial-gradient(center 75% 75%, radius 350%, darkblue 5%,lightblue 35%);*/
     -fx-background-color: linear-gradient(darkblue 15%, lightblue 75%, white 95%);
@@ -81,6 +79,20 @@
     -fx-background-color: linear-gradient(snow, lightblue 70%);
     -fx-font-size: 14px;
     -fx-font-weight: bold;
+}
+#snakeWelcomeText{
+    -fx-font-weight: bold;
+    -fx-font-size: 36;
+    -fx-fill: rgb(20,90,20);
+}
+#christmasText{
+    -fx-font-weight: bold;
+    -fx-font-size: 36;
+    -fx-fill: rgb(150,0,0);
+}
+
+.text{
+    -fx-font-smoothing-type: lcd;
 }
 
 
