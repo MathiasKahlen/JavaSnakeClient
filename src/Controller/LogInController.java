@@ -8,6 +8,7 @@ import GUI.ControlledScreen;
 import SDK.SDKConfig.Config;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.CacheHint;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -49,10 +50,6 @@ public class LogInController implements Initializable, ControlledScreen{
         assert loginBtn != null : "fx:id=\"loginBtn\" was not injected: check your FXML file 'LogInPane.fxml'.";
         assert passwordTf != null : "fx:id=\"passwordTf\" was not injected: check your FXML file 'LogInPane.fxml'.";
 
-//        Reflection r = new Reflection();
-//        r.setFraction(2.7f);
-//        christmasText.setEffect(r);
-
         Blend blend = new Blend();
         blend.setMode(BlendMode.MULTIPLY);
 
@@ -93,6 +90,10 @@ public class LogInController implements Initializable, ControlledScreen{
         blend.setTopInput(blend1);
 
         christmasText.setEffect(blend);
+        //Setting cache to true on the Text greatly improves performance on the application
+        //When the Text isn't cached the fadeScreen effect lags when changing to logInPane.
+        christmasText.setCache(true);
+        christmasText.setCacheHint(CacheHint.SPEED);
 
     }
 
@@ -109,8 +110,29 @@ public class LogInController implements Initializable, ControlledScreen{
         } else {
             String message = SnakeAppJavaFXEdition.serverConnection.login(usernameTf.getText(), passwordTf.getText());
             clearAll();
-            if (SnakeAppJavaFXEdition.serverConnection.getSession().getCurrentUser()!=null)
+            if (SnakeAppJavaFXEdition.serverConnection.getSession().getCurrentUser()!=null){
+                //If user is successfully logged in the application spawns a new Thread which repeatedly checks if the currentUser is still authenticated
+                //Get Post Put and Delete methods in ServerConnection automatically logs out the user from the application if a status code 401 Unauthorized is received
+                new Thread(new Runnable() {
+                    boolean authenticated = true;
+                    @Override
+                    public void run() {
+                        while (authenticated){
+                            if (SnakeAppJavaFXEdition.serverConnection.getSession().getCurrentUser()==null) {
+                                authenticated=false;
+                                mainPane.fadeScreen(MainPane.LOGIN_PANEL);
+                                break;
+                            }
+                            try{
+                                Thread.sleep(1000);
+                            } catch (Exception e){
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                }).start();
                 mainPane.fadeScreen(MainPane.USER_WELCOME);
+            }
             else{
                 System.out.println(message);
             }

@@ -54,4 +54,12 @@ public class Session {
     public ArrayList<Game> getFinishedGames() {
         return finishedGames;
     }
+
+    public void clear(){
+        jwtToken=null;
+        currentUser=null;
+        pendingGames=null;
+        hostedGames=null;
+        finishedGames=null;
+    }
 }

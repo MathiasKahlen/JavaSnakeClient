@@ -36,6 +36,14 @@ public class CachedData {
 //    }
 
 
+    public void setOpenGames(ArrayList<Game> openGames) {
+        this.openGames = openGames;
+    }
+
+    public ArrayList<Game> getOpenGames() {
+        return openGames;
+    }
+
     public void setHighScores(ArrayList<Score> highScores) {
         this.highScores = highScores;
     }

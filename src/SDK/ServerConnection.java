@@ -40,6 +40,10 @@ public class ServerConnection implements SnakeClient{
                 .type("application/json")
                 .get(ClientResponse.class);
 
+        if (response.getStatus()==401){
+            logout();
+        }
+
         return response;
     }
 
@@ -53,6 +57,10 @@ public class ServerConnection implements SnakeClient{
                 .type("application/json")
                 .post(ClientResponse.class, json);
 
+        if (response.getStatus()==401){
+            logout();
+        }
+
         return response;
     }
 
@@ -65,6 +73,10 @@ public class ServerConnection implements SnakeClient{
                 .type("application/json")
                 .put(ClientResponse.class, json);
 
+        if (response.getStatus()==401){
+            logout();
+        }
+
         return response;
     }
 
@@ -76,6 +88,10 @@ public class ServerConnection implements SnakeClient{
                 .header("jwt", token)
                 .type("application/json")
                 .delete(ClientResponse.class);
+
+        if (response.getStatus()==401){
+            logout();
+        }
 
         return response;
     }
@@ -102,8 +118,7 @@ public class ServerConnection implements SnakeClient{
     }
 
     public void logout(){
-        session.setCurrentUser(null);
-        session.setJwtToken(null);
+        session.clear();
     }
 
     public User getUser(int id){
@@ -249,7 +264,6 @@ public class ServerConnection implements SnakeClient{
 
         ClientResponse response;
         String token = session.getJwtToken();
-        ArrayList<Game> games;
 
         switch (gameStatus){
             //Shows current users pending games
@@ -272,8 +286,16 @@ public class ServerConnection implements SnakeClient{
     }
 
 
-    public ArrayList<Game> getOpenGames() {
-        return null;
+    public void getOpenGames() {
+
+        String token = session.getJwtToken();
+        ClientResponse response = get("games/open", token);
+
+        if (response.getStatus()==200){
+            cachedData.setOpenGames(new Gson().fromJson(response.getEntity(String.class), new TypeToken<List<Game>>(){}.getType()));
+        } else if (response.getStatus()==401){
+            logout();
+        }
     }
 
 

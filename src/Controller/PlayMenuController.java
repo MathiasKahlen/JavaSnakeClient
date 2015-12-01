@@ -84,8 +84,8 @@ public class PlayMenuController implements Initializable, ControlledScreen {
         gamesToShow.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> selected, String oldValue, String newValue) {
-                if (newValue!=null){
-                    switch (newValue){
+                if (newValue != null) {
+                    switch (newValue) {
                         case "Pending games":
                             playBtn.setDisable(false);
                             joinBtn.setDisable(true);
@@ -113,13 +113,14 @@ public class PlayMenuController implements Initializable, ControlledScreen {
     }
 
     public void showPendingGames() {
+        if (SnakeAppJavaFXEdition.serverConnection.getSession().getPendingGames() != null){
         ObservableList<Game> data = FXCollections.observableArrayList(SnakeAppJavaFXEdition.serverConnection.getSession().getPendingGames());
         gamesTable.setItems(data);
 
         //Colors the rows so the games the user already played are red
-        hostNameColumn.setCellFactory(column -> new TableCell<Game, String>(){
+        hostNameColumn.setCellFactory(column -> new TableCell<Game, String>() {
             @Override
-            protected void updateItem(String item, boolean empty){
+            protected void updateItem(String item, boolean empty) {
                 super.updateItem(item, empty);
 
                 setText(empty ? "" : getItem().toString());
@@ -127,30 +128,41 @@ public class PlayMenuController implements Initializable, ControlledScreen {
 
                 TableRow<Game> currentRow = getTableRow();
 
-                if (!isEmpty()){
+                if (!isEmpty()) {
                     if (item.equals(SnakeAppJavaFXEdition.serverConnection.getSession().getCurrentUser().getUsername())) {
                         currentRow.setId("hostedGameRow");
-                    }
-                    else {
+                    } else {
                         currentRow.setId("invitedGameRow");
                     }
 
                 }
             }
         });
+        } else {
+            gamesTable.getItems().clear();
+        }
     }
 
     public void showHostedGames() {
-        ObservableList<Game> data = FXCollections.observableArrayList(SnakeAppJavaFXEdition.serverConnection.getSession().getHostedGames());
-        gamesTable.setItems(data);
+        if (SnakeAppJavaFXEdition.serverConnection.getSession().getHostedGames()!=null) {
+            ObservableList<Game> data = FXCollections.observableArrayList(SnakeAppJavaFXEdition.serverConnection.getSession().getHostedGames());
+            gamesTable.setItems(data);
+        } else
+        {
+            gamesTable.getItems().clear();
+        }
     }
 
     public void showOpenGames() {
     }
 
     public void showFinishedGames() {
-        ObservableList<Game> data = FXCollections.observableArrayList(SnakeAppJavaFXEdition.serverConnection.getSession().getFinishedGames());
-        gamesTable.setItems(data);
+        if (SnakeAppJavaFXEdition.serverConnection.getSession().getFinishedGames()!=null) {
+            ObservableList<Game> data = FXCollections.observableArrayList(SnakeAppJavaFXEdition.serverConnection.getSession().getFinishedGames());
+            gamesTable.setItems(data);
+        } else {
+            gamesTable.getItems().clear();
+        }
     }
 
     public void refreshSelectedGamesList() {

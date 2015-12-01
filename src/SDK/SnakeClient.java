@@ -35,7 +35,7 @@ public interface SnakeClient {
 
     void getCurrentUsersGames(String gameStatus);
 
-    ArrayList<Game> getOpenGames();
+    void getOpenGames();
 
     ArrayList<Score> getCurrentUsersScores();
 
