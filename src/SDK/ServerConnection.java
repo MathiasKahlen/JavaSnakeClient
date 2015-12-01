@@ -130,20 +130,15 @@ public class ServerConnection implements SnakeClient{
         return user;
     }
 
-    public boolean getAllUsers(){
+    public void getAllUsers(){
 
         String token = session.getJwtToken();
         ClientResponse response = get("users", token);
 
         if(response.getStatus()==200){
-            ArrayList<User> users = new Gson().fromJson(response.getEntity(String.class), ArrayList.class);
+            ArrayList<User> users = new Gson().fromJson(response.getEntity(String.class), new TypeToken<List<User>>(){}.getType());
             cachedData.setAllUsers(users);
-            return true;
-        } else if (response.getStatus()==401){
-            logout();
-            return false;
         }
-        return false;
     }
 
 
@@ -189,11 +184,6 @@ public class ServerConnection implements SnakeClient{
 
         ClientResponse response = post(json, "games", token);
 
-        //Logs out the user if unauthorized
-        if (response.getStatus()==401){
-            logout();
-        }
-
         JSONObject jsonObject = responseToJson(response);
 
         return (String)jsonObject.get("message");
@@ -210,10 +200,6 @@ public class ServerConnection implements SnakeClient{
         String json = new Gson().toJson(game);
         //Sending the put and getting a response
         ClientResponse response = put(json, "games/join", token);
-        //Logs out the user if unauthorized
-        if (response.getStatus()==401){
-            logout();
-        }
         //Return the response message
         return (String)responseToJson(response).get("message");
     }
@@ -232,11 +218,6 @@ public class ServerConnection implements SnakeClient{
         String json = new Gson().toJson(game);
         //Sending the put and getting a response
         ClientResponse response = put(json, "games/start", token);
-
-        //Logs out the user if unauthorized
-        if (response.getStatus()==401){
-            logout();
-        }
 
         Game finishedGame = new Gson().fromJson(response.getEntity(String.class), Game.class);
 
@@ -282,7 +263,6 @@ public class ServerConnection implements SnakeClient{
                 session.setFinishedGames(new Gson().fromJson(response.getEntity(String.class), new TypeToken<List<Game>>(){}.getType()));
                 break;
         }
-
     }
 
 
@@ -293,8 +273,6 @@ public class ServerConnection implements SnakeClient{
 
         if (response.getStatus()==200){
             cachedData.setOpenGames(new Gson().fromJson(response.getEntity(String.class), new TypeToken<List<Game>>(){}.getType()));
-        } else if (response.getStatus()==401){
-            logout();
         }
     }
 
@@ -310,11 +288,8 @@ public class ServerConnection implements SnakeClient{
         ClientResponse response = get("scores", token);
 
         if(response.getStatus()==200) {
-            ArrayList<Score> highscores = new Gson().fromJson(response.getEntity(String.class), ArrayList.class);
+            ArrayList<Score> highscores = new Gson().fromJson(response.getEntity(String.class), new TypeToken<List<Score>>(){}.getType());
             cachedData.setHighScores(highscores);
-        } else if (response.getStatus()==401){
-            //Logs out the user if unauthorized
-            logout();
         }
     }
 

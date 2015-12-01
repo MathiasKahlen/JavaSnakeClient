@@ -3,18 +3,13 @@ package Controller;
  * Created by Kahlen on 06-11-2015.
  */
 
-import GUI.CustomStageDecorator;
 import GUI.MainPane;
 import SDK.ServerConnection;
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;

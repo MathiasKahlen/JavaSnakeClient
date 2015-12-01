@@ -19,7 +19,7 @@ public interface SnakeClient {
     User getUser(int id);
 
     //Get all users
-    boolean getAllUsers();
+    void getAllUsers();
 
     String createUser(String firstName, String lastName, String email, String username, String password);
 
