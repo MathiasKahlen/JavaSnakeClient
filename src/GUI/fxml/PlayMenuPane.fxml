@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.collections.*?>
 
-<AnchorPane id="playMenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PlayMenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="mainPane" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PlayMenuController">
    <children>
 
 
@@ -32,7 +32,7 @@
         </columns>
       </TableView>
 
-       <Button id="btnMenuButton" fx:id="backBtn" layoutX="38.0" layoutY="329.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="111.0" text="Back" />
+       <Button fx:id="backBtn" layoutX="38.0" layoutY="329.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="111.0" styleClass="btnMenuButton" text="Back" />
        <Button fx:id="refreshSelectedTable" layoutX="356.0" layoutY="31.0" mnemonicParsing="false" onAction="#refreshSelectedGamesList" text="Refresh" />
        <Button fx:id="joinBtn" layoutX="444.0" layoutY="327.0" mnemonicParsing="false" text="Join" />
        <Button fx:id="newGameBtn" layoutX="489.0" layoutY="327.0" mnemonicParsing="false" text="New game" />

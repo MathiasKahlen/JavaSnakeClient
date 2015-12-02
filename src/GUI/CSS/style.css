@@ -36,7 +36,7 @@
     /*-fx-table-cell-border-width: 5;*/
 /*}*/
 
-#mainPane {
+.mainPane {
     /*-fx-background-color: radial-gradient(center 75% 75%, radius 350%, darkblue 5%,lightblue 35%);*/
     -fx-background-color: linear-gradient(darkblue 15%, lightblue 75%, white 95%);
     -fx-border-radius: 20;
@@ -73,12 +73,20 @@
     /*-fx-font-weight: bold;*/
 /*}*/
 
-#btnMenuButton{
+.btnMenuButton{
     -fx-background-radius: 30, 30, 29, 28;
     -fx-padding: 3px 10px 3px 10px;
-    -fx-background-color: linear-gradient(snow, lightblue 70%);
+    -fx-background-color: linear-gradient(derive(snow, -10%), derive(lightblue, -10%) 70%);
     -fx-font-size: 14px;
     -fx-font-weight: bold;
+    -fx-focus-color: black;
+    -fx-effect: dropshadow(gaussian, black, 1,0,0,1);
+}
+.btnMenuButton:hover{
+    -fx-background-color: linear-gradient(derive(snow, 25%), derive(lightblue, 25%) 70%);
+}
+.btnMenuButton:focus{
+    -fx-opacity: 100%
 }
 #snakeWelcomeText{
     -fx-font-weight: bold;

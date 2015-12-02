@@ -7,6 +7,8 @@ import GUI.MainPane;
 import SDK.ServerConnection;
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -31,20 +33,19 @@ public class SnakeAppJavaFXEdition extends Application {
 
         try {
             MainPane mainPane = new MainPane();
-            mainPane.addScreens();
-            mainPane.setId("mainPane");
             mainPane.getStylesheets().add("GUI/CSS/style.css");
+            mainPane.addScreens();
             mainPane.fadeScreen(MainPane.LOGIN_PANEL);
 
             Button exitButton = new Button("X");
             exitButton.setOnAction(event -> Platform.exit());
             exitButton.setId("btnExit");
-            exitButton.setLayoutX(560);
-            exitButton.setLayoutY(30);
+            mainPane.getChildren().add(exitButton);
+            mainPane.setAlignment(exitButton, Pos.TOP_RIGHT);
+            mainPane.setMargin(exitButton, new Insets(25,25,0,0));
 
             Group root = new Group();
-            root.getStylesheets().add("GUI/CSS/style.css");
-            root.getChildren().addAll(mainPane, exitButton);
+            root.getChildren().addAll(mainPane);
 
             Scene scene = new Scene(root);
             scene.setFill(Color.TRANSPARENT);

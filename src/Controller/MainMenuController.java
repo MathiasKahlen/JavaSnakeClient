@@ -30,10 +30,6 @@ public class MainMenuController implements Initializable, ControlledScreen {
 
     @FXML
     public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
-        logOutBtn.setOnAction(event -> {
-                SnakeAppJavaFXEdition.serverConnection.logout();
-                mainPane.fadeScreen(MainPane.LOGIN_PANEL);
-                });
 
         highscoresBtn.setOnAction(event -> mainPane.fadeScreen(MainPane.HIGHSCORES_PANEL));
         playBtn.setOnAction(event -> mainPane.fadeScreen(MainPane.PLAY_PANEL));
@@ -46,7 +42,12 @@ public class MainMenuController implements Initializable, ControlledScreen {
         });
     }
 
+    public void logout(){
+        SnakeAppJavaFXEdition.serverConnection.logout();
 
+        //The thread that was spawned in LogInController will handle the screen swapping
+//        mainPane.fadeScreen(MainPane.LOGIN_PANEL);
+    }
 
     @Override
     public void setScreenParent(MainPane parentPane) {
