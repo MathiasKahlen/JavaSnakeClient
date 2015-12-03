@@ -4,21 +4,17 @@ import GUI.ControlledScreen;
 import GUI.MainPane;
 import SDK.Model.Game;
 
-import SDK.Model.Gamer;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.util.Callback;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.ResourceBundle;
 
@@ -27,7 +23,8 @@ import java.util.ResourceBundle;
  */
 public class PlayMenuController implements Initializable, ControlledScreen {
 
-    MainPane mainPane = new MainPane();
+    MainPane mainPane;
+    static Game selectedGame;
 
     @FXML
     private Button backBtn;
@@ -71,7 +68,7 @@ public class PlayMenuController implements Initializable, ControlledScreen {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        backBtn.setOnAction(event -> mainPane.fadeScreen(MainPane.USER_WELCOME));
+        backBtn.setOnAction(event -> mainPane.setScreen(MainPane.MAIN_MENU_PANEL));
 
         gameNameColumn.setCellValueFactory(new PropertyValueFactory<Game, String>("name"));
         hostNameColumn.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getHost().getUsername()));
@@ -110,12 +107,6 @@ public class PlayMenuController implements Initializable, ControlledScreen {
                 }
             }
         });
-    }
-
-    public void showPendingGames() {
-        if (SnakeAppJavaFXEdition.serverConnection.getSession().getPendingGames() != null){
-        ObservableList<Game> data = FXCollections.observableArrayList(SnakeAppJavaFXEdition.serverConnection.getSession().getPendingGames());
-        gamesTable.setItems(data);
 
         //Colors the rows so the games the user already played are red
         hostNameColumn.setCellFactory(column -> new TableCell<Game, String>() {
@@ -138,6 +129,12 @@ public class PlayMenuController implements Initializable, ControlledScreen {
                 }
             }
         });
+    }
+
+    public void showPendingGames() {
+        if (SnakeAppJavaFXEdition.serverConnection.getSession().getPendingGames() != null){
+        ObservableList<Game> data = FXCollections.observableArrayList(SnakeAppJavaFXEdition.serverConnection.getSession().getPendingGames());
+        gamesTable.setItems(data);
         } else {
             gamesTable.getItems().clear();
         }
@@ -154,6 +151,12 @@ public class PlayMenuController implements Initializable, ControlledScreen {
     }
 
     public void showOpenGames() {
+        if (SnakeAppJavaFXEdition.serverConnection.getSession().getOpenJoinableGames()!=null) {
+            ObservableList<Game> data = FXCollections.observableArrayList(SnakeAppJavaFXEdition.serverConnection.getSession().getOpenJoinableGames());
+            gamesTable.setItems(data);
+        } else {
+            gamesTable.getItems().clear();
+        }
     }
 
     public void showFinishedGames() {
@@ -174,10 +177,35 @@ public class PlayMenuController implements Initializable, ControlledScreen {
             SnakeAppJavaFXEdition.serverConnection.getCurrentUsersGames("hosted");
             showHostedGames();
         }
+        if (gamesToShow.getSelectionModel().getSelectedItem().equals("Join game")){
+            SnakeAppJavaFXEdition.serverConnection.getOpenGames();
+            showOpenGames();
+        }
         if (gamesToShow.getSelectionModel().getSelectedItem().equals("Finished games")){
             SnakeAppJavaFXEdition.serverConnection.getCurrentUsersGames("finished");
             showFinishedGames();
         }
+    }
+
+    public void joinGame(){
+        SnakeAppJavaFXEdition.serverConnection.joinGame(gamesTable.getSelectionModel().getSelectedItem().getGameId());
+    }
+
+    public void playGame(){
+        if (gamesTable.getSelectionModel().getSelectedItem().getHost().getId()!=SnakeAppJavaFXEdition.serverConnection.getSession().getCurrentUser().getId()){
+            selectedGame = gamesTable.getSelectionModel().getSelectedItem();
+            mainPane.setScreen(MainPane.PLAY_GAME_PANEL);
+        } else {
+            System.out.println("YOU'RE THE HOST OF THIS GAME");
+        }
+    }
+
+    public void createGame(){
+
+    }
+
+    public TableView<Game> getGamesTable() {
+        return gamesTable;
     }
 
     @Override

@@ -12,6 +12,7 @@ public class Session {
 
     private ArrayList<Game> pendingGames;
     private ArrayList<Game> hostedGames;
+    private ArrayList<Game> openJoinableGames;
     private ArrayList<Game> finishedGames;
 
 
@@ -47,6 +48,14 @@ public class Session {
         return hostedGames;
     }
 
+    public void setOpenJoinableGames(ArrayList<Game> openJoinableGames) {
+        this.openJoinableGames = openJoinableGames;
+    }
+
+    public ArrayList<Game> getOpenJoinableGames() {
+        return openJoinableGames;
+    }
+
     public void setFinishedGames(ArrayList<Game> finishedGames) {
         this.finishedGames = finishedGames;
     }
@@ -60,6 +69,7 @@ public class Session {
         currentUser=null;
         pendingGames=null;
         hostedGames=null;
+        openJoinableGames=null;
         finishedGames=null;
     }
 }

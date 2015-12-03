@@ -23,7 +23,7 @@ public class HighScoresController implements Initializable, ControlledScreen{
     public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
         assert backBtn != null : "fx:id=\"backBtn\" was not injected: check your FXML file 'HighScoresPane.fxml'.";
 
-        backBtn.setOnAction(event -> mainPane.fadeScreen(MainPane.USER_WELCOME));
+        backBtn.setOnAction(event -> mainPane.setScreen(MainPane.MAIN_MENU_PANEL));
 
     }
 

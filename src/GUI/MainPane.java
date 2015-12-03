@@ -23,12 +23,14 @@ public class MainPane extends StackPane {
 
     public static final String LOGIN_PANEL = "LoginPanel";
     public static final String LOGIN_PANEL_FILE = "/GUI/fxml/LogInPane.fxml";
-    public static final String USER_WELCOME = "UserWelcome";
-    public static final String USER_WELCOME_FILE = "/GUI/fxml/MainMenuPane.fxml";
-    public static final String HIGHSCORES_PANEL = "HighScores";
+    public static final String MAIN_MENU_PANEL = "MainMenuPanel";
+    public static final String MAIN_MENU_PANEL_FILE = "/GUI/fxml/MainMenuPane.fxml";
+    public static final String HIGHSCORES_PANEL = "HighScoresPanel";
     public static final String HIGHSCORES_PANEL_FILE = "/GUI/fxml/HighScoresPane.fxml";
-    public static final String PLAY_PANEL = "/GUI/fxml/HighScoresPane.fxml";
-    public static final String PLAY_PANEL_FILE = "/GUI/fxml/PlayMenuPane.fxml";
+    public static final String PLAY_MENU_PANEL = "PlayMenuPanel";
+    public static final String PLAY_MENU_PANEL_FILE = "/GUI/fxml/PlayMenuPane.fxml";
+    public static final String PLAY_GAME_PANEL = "PlayGamePanel";
+    public static final String PLAY_GAME_PANEL_FILE = "/GUI/fxml/PlayGamePane.fxml";
 
 
     public MainPane() {
@@ -36,15 +38,6 @@ public class MainPane extends StackPane {
     }
 
     public void setScreen(String name) {
-
-        if (!getChildren().isEmpty()) {
-            getChildren().remove(0);
-            getChildren().add(0, screens.get(name));
-        } else
-            getChildren().add(0, screens.get(name));
-    }
-
-    public void fadeScreen(String name) {
         if (screens.get(name) != null) {
             DoubleProperty opacity = opacityProperty();
 
@@ -86,9 +79,10 @@ public class MainPane extends StackPane {
     //Add all screens in the GUI to the HashMap
     public void addScreens() {
         loadScreen(LOGIN_PANEL, LOGIN_PANEL_FILE);
-        loadScreen(USER_WELCOME, USER_WELCOME_FILE);
+        loadScreen(MAIN_MENU_PANEL, MAIN_MENU_PANEL_FILE);
         loadScreen(HIGHSCORES_PANEL, HIGHSCORES_PANEL_FILE);
-        loadScreen(PLAY_PANEL, PLAY_PANEL_FILE);
+        loadScreen(PLAY_MENU_PANEL, PLAY_MENU_PANEL_FILE);
+        loadScreen(PLAY_GAME_PANEL, PLAY_GAME_PANEL_FILE);
     }
 
     public void addScreen(String name, Node screen) {
@@ -106,6 +100,16 @@ public class MainPane extends StackPane {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+
+    /**
+     * Method used for resetting all ui components
+     * Reloading the whole ui may not be the most efficient solution, but it works for now.
+     */
+    public void reloadUi(){
+        screens.clear();
+        addScreens();
     }
 
 }

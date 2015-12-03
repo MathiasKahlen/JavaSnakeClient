@@ -272,7 +272,7 @@ public class ServerConnection implements SnakeClient{
         ClientResponse response = get("games/open", token);
 
         if (response.getStatus()==200){
-            cachedData.setOpenGames(new Gson().fromJson(response.getEntity(String.class), new TypeToken<List<Game>>(){}.getType()));
+            getSession().setOpenJoinableGames(new Gson().fromJson(response.getEntity(String.class), new TypeToken<List<Game>>(){}.getType()));
         }
     }
 

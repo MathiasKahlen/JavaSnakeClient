@@ -1,13 +1,15 @@
 
 /* Table text should always be white */
 .table-cell{
-    -fx-text-fill: black;
+    -fx-text-fill: derive(gold, -25%);
     -fx-font-size: 14px;
+    -fx-border-color: -fx-table-cell-border-color -fx-table-cell-border-color -fx-table-cell-border-color -fx-table-cell-border-color;
 }
 
+
 .table-view {
-    -fx-table-cell-border-color: orange;
-    -fx-table-header-border-color: orange;
+    -fx-table-cell-border-color: derive(orange, -50%);
+    -fx-table-header-border-color: derive(orange, -50%);
 }
 
 #hostedGameRow{
@@ -39,11 +41,22 @@
 .mainPane {
     /*-fx-background-color: radial-gradient(center 75% 75%, radius 350%, darkblue 5%,lightblue 35%);*/
     -fx-background-color: linear-gradient(darkblue 15%, lightblue 75%, white 95%);
-    -fx-border-radius: 20;
-    -fx-padding: 10 10 10 10;
+    /*-fx-border-radius: 20;*/
+    /*-fx-padding: 10 10 10 10;*/
     -fx-background-radius: 20;
-    -fx-effect: dropshadow(gaussian, darkblue, 20,0,0,0);
     -fx-background-insets: 20;
+    -fx-effect: dropshadow(gaussian, darkblue, 20,0,0,0);
+}
+
+.myDialog{
+    /*-fx-background-color: linear-gradient(darkblue 15%, lightblue 75%, white 95%);*/
+    -fx-background-color: linear-gradient(rgb(88,0,0) 1%, rgb(0,88,0) 75%), rgb(0,40,0);
+    -fx-effect: dropshadow(gaussian, darkblue, 20,0,0,0);
+    -fx-background-radius: 20;
+    -fx-border-color: black;
+}
+.myDialog .label{
+    -fx-text-fill: derive(gold, -25%);
 }
 
 #btnLogin {

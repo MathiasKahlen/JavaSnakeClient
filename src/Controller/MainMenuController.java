@@ -1,7 +1,6 @@
 package Controller;
 
 import GUI.*;
-import SDK.ServerConnection;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -31,8 +30,8 @@ public class MainMenuController implements Initializable, ControlledScreen {
     @FXML
     public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
 
-        highscoresBtn.setOnAction(event -> mainPane.fadeScreen(MainPane.HIGHSCORES_PANEL));
-        playBtn.setOnAction(event -> mainPane.fadeScreen(MainPane.PLAY_PANEL));
+        highscoresBtn.setOnAction(event -> mainPane.setScreen(MainPane.HIGHSCORES_PANEL));
+        playBtn.setOnAction(event -> mainPane.setScreen(MainPane.PLAY_MENU_PANEL));
         gamesBtn.setOnAction(event -> {
             System.out.println(SnakeAppJavaFXEdition.serverConnection.createGame("testgame", 9, "wsdawdsd") + SnakeAppJavaFXEdition.serverConnection.getSession().getJwtToken());
 //            SnakeAppJavaFXEdition.serverConnection.getAllUsers(null);
@@ -44,9 +43,9 @@ public class MainMenuController implements Initializable, ControlledScreen {
 
     public void logout(){
         SnakeAppJavaFXEdition.serverConnection.logout();
-
+        mainPane.reloadUi();
         //The thread that was spawned in LogInController will handle the screen swapping
-//        mainPane.fadeScreen(MainPane.LOGIN_PANEL);
+//        mainPane.setScreen(MainPane.LOGIN_PANEL);
     }
 
     @Override

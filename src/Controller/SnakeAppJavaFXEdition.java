@@ -35,7 +35,7 @@ public class SnakeAppJavaFXEdition extends Application {
             MainPane mainPane = new MainPane();
             mainPane.getStylesheets().add("GUI/CSS/style.css");
             mainPane.addScreens();
-            mainPane.fadeScreen(MainPane.LOGIN_PANEL);
+            mainPane.setScreen(MainPane.LOGIN_PANEL);
 
             Button exitButton = new Button("X");
             exitButton.setOnAction(event -> Platform.exit());
