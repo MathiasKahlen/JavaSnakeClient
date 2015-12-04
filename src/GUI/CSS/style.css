@@ -6,25 +6,43 @@
     -fx-border-color: -fx-table-cell-border-color -fx-table-cell-border-color -fx-table-cell-border-color -fx-table-cell-border-color;
 }
 
-
 .table-view {
     -fx-table-cell-border-color: derive(orange, -50%);
     -fx-table-header-border-color: derive(orange, -50%);
 }
 
-#hostedGameRow{
-    -fx-background-color: rgb(88,0,0);
-    -fx-background: rgb(88,0,0);
-}
-#hostedGameRow:focused{
-    -fx-background-color: linear-gradient(rgb(88,0,0) 5%, rgb(150,0,0) 75%, rgb(200,0,0) 99%);
-}
-#invitedGameRow{
+.usersTable{
     -fx-background-color: rgb(0,88,0);
     -fx-background: rgb(0,88,0);
 }
-#invitedGameRow:focused{
-    -fx-background-color: linear-gradient(rgb(0,88,0) 1%, rgb(0,150,0) 75%, rgb(0,200,0) 90%);;
+
+.usersTable .column-header{
+    -fx-background-color: linear-gradient(rgb(88,0,0) 5%, rgb(150,0,0) 75%, rgb(200,0,0) 99%);
+}
+
+.usersTable .column-header .label{
+    -fx-text-fill: derive(gold, -25%);
+    -fx-font-weight: bold;
+}
+
+.usersTable .table-cell{
+    -fx-text-fill: derive(gold, -25%);
+    -fx-font-size: 14px;
+}
+
+#redRow {
+    -fx-background-color: rgb(88,0,0);
+    -fx-background: rgb(88,0,0);
+}
+#redRow:focused{
+    -fx-background-color: linear-gradient(rgb(88,0,0) 5%, rgb(150,0,0) 75%, rgb(200,0,0) 99%);
+}
+#greenRow {
+    -fx-background-color: rgb(0,88,0);
+    -fx-background: rgb(0,88,0);
+}
+#greenRow:focused{
+    -fx-background-color: linear-gradient(rgb(0,88,0) 1%, rgb(0,150,0) 75%, rgb(0,200,0) 90%);
 }
 
 /* Style for default table rows */

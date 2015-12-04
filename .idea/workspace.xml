@@ -1,28 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0eb8f8a2-1831-4aa0-b838-963f6ceaa8c5" name="Default" comment="Added functionality for showOpenGames() in PlayMenuController. The user can now see all open joinable games, meaning the user isn't the host of these.&#10;&#10;Also added functionality for playBtn and joinBtn in PlayMenuController - they now call ServerConnection's methods joinGame(). playBtn now sets a the selected game as a static variable and redirects the user to the PlayGamePane where the user can enter his/hers controls, press playBtn and get the result on a dialog box. When the user close the dialog box it is then redirected back to the PlayMenuPane where it can proceed with joining, playing or creating games.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Controller/PlayGameController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GUI/fxml/PlayGamePane.fxml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JavaSnakeClient/GUI/fxml/UserMenu.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Controller/UserMenuController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/GUI/fxml/UserMenu.fxml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+    <list default="true" id="0eb8f8a2-1831-4aa0-b838-963f6ceaa8c5" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Controller/CreateGameController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GUI/fxml/CreateGamePane.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/JavaSnakeClient/GUI/fxml/HighScoresPane.fxml" afterPath="$PROJECT_DIR$/out/production/JavaSnakeClient/GUI/fxml/HighScoresPane.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/JavaSnakeClient/GUI/fxml/LogInPane.fxml" afterPath="$PROJECT_DIR$/out/production/JavaSnakeClient/GUI/fxml/LogInPane.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/JavaSnakeClient/GUI/fxml/MainMenuPane.fxml" afterPath="$PROJECT_DIR$/out/production/JavaSnakeClient/GUI/fxml/MainMenuPane.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/HighScoresController.java" afterPath="$PROJECT_DIR$/src/Controller/HighScoresController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/LogInController.java" afterPath="$PROJECT_DIR$/src/Controller/LogInController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/MainMenuController.java" afterPath="$PROJECT_DIR$/src/Controller/MainMenuController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/PlayMenuController.java" afterPath="$PROJECT_DIR$/src/Controller/PlayMenuController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/SnakeAppJavaFXEdition.java" afterPath="$PROJECT_DIR$/src/Controller/SnakeAppJavaFXEdition.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/CSS/style.css" afterPath="$PROJECT_DIR$/src/GUI/CSS/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/MainPane.java" afterPath="$PROJECT_DIR$/src/GUI/MainPane.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/fxml/LogInPane.fxml" afterPath="$PROJECT_DIR$/src/GUI/fxml/LogInPane.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/fxml/PlayMenuPane.fxml" afterPath="$PROJECT_DIR$/src/GUI/fxml/PlayMenuPane.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SDK/Model/CachedData.java" afterPath="$PROJECT_DIR$/src/SDK/Model/CachedData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SDK/Model/Session.java" afterPath="$PROJECT_DIR$/src/SDK/Model/Session.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SDK/ServerConnection.java" afterPath="$PROJECT_DIR$/src/SDK/ServerConnection.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SDK/SnakeClient.java" afterPath="$PROJECT_DIR$/src/SDK/SnakeClient.java" />
     </list>
     <ignored path="JavaSnakeClient.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,18 +38,36 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GUI/CSS/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.1923075">
-              <caret line="50" column="10" selection-start-line="50" selection-start-column="10" selection-end-line="50" selection-end-column="10" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="43" column="1" selection-start-line="43" selection-start-column="1" selection-end-line="43" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PlayMenuController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PlayMenuController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/PlayMenuController.java">
           <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.66341466">
+              <caret line="88" column="47" selection-start-line="88" selection-start-column="47" selection-end-line="88" selection-end-column="47" />
+              <folding>
+                <element signature="e#8641#8642#0" expanded="true" />
+                <element signature="e#8703#8704#0" expanded="true" />
+                <element signature="e#8773#8774#0" expanded="true" />
+                <element signature="e#8810#8811#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PlayMenuPane.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GUI/fxml/PlayMenuPane.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="62" column="34" selection-start-line="62" selection-start-column="34" selection-end-line="62" selection-end-column="34" />
+              <caret line="38" column="111" selection-start-line="38" selection-start-column="111" selection-end-line="38" selection-end-column="111" />
               <folding />
             </state>
           </provider>
@@ -73,29 +81,6 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Session.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SDK/Model/Session.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="71" column="31" selection-start-line="71" selection-start-column="31" selection-end-line="71" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlayGamePane.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GUI/fxml/PlayGamePane.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="102" selection-start-line="11" selection-start-column="102" selection-end-line="11" selection-end-column="102" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -114,17 +99,17 @@
         <entry file="file://$PROJECT_DIR$/src/GUI/MainPane.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="32" column="84" selection-start-line="32" selection-start-column="84" selection-end-line="32" selection-end-column="84" />
+              <caret line="87" column="60" selection-start-line="87" selection-start-column="60" selection-end-line="87" selection-end-column="60" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HighScoresController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Controller/HighScoresController.java">
+      <file leaf-file-name="MainMenuController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/MainMenuController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.19349593">
-              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="35" column="98" selection-start-line="35" selection-start-column="98" selection-end-line="35" selection-end-column="98" />
               <folding />
             </state>
           </provider>
@@ -134,19 +119,32 @@
         <entry file="file://$PROJECT_DIR$/src/SDK/ServerConnection.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="252" column="133" selection-start-line="252" selection-start-column="94" selection-end-line="252" selection-end-column="133" />
+              <caret line="189" column="8" selection-start-line="189" selection-start-column="8" selection-end-line="189" selection-end-column="49" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CachedData.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SDK/Model/CachedData.java">
+      <file leaf-file-name="CreateGamePane.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GUI/fxml/CreateGamePane.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.4">
+              <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CreateGameController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/CreateGameController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="23" column="45" selection-start-line="23" selection-start-column="45" selection-end-line="23" selection-end-column="45" />
+              <caret line="108" column="9" selection-start-line="108" selection-start-column="9" selection-end-line="108" selection-end-column="9" />
               <folding>
-                <element signature="e#554#555#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -175,8 +173,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Controller/JavaFXSnakeApp.java" />
-        <option value="$PROJECT_DIR$/src/GUI/JavaFX/LogInScene.fxml" />
         <option value="$PROJECT_DIR$/src/GUI/JavaFX/LogInPane.fxml" />
         <option value="$PROJECT_DIR$/src/GUI/JavaFX/ControlledScreen.java" />
         <option value="$PROJECT_DIR$/src/GUI/JavaFX/ContentPane.java" />
@@ -213,19 +209,21 @@
         <option value="$PROJECT_DIR$/src/GUI/fxml/MainMenuPane.fxml" />
         <option value="$PROJECT_DIR$/src/GUI/fxml/HighScoresPane.fxml" />
         <option value="$PROJECT_DIR$/src/GUI/fxml/LogInPane.fxml" />
-        <option value="$PROJECT_DIR$/src/SDK/ServerConnection.java" />
         <option value="$PROJECT_DIR$/src/SDK/Model/Session.java" />
-        <option value="$PROJECT_DIR$/src/SDK/SnakeClient.java" />
-        <option value="$PROJECT_DIR$/src/GUI/fxml/PlayMenuPane.fxml" />
         <option value="$PROJECT_DIR$/src/Controller/SnakeAppJavaFXEdition.java" />
         <option value="$PROJECT_DIR$/src/Controller/LogInController.java" />
         <option value="$PROJECT_DIR$/src/SDK/Model/CachedData.java" />
-        <option value="$PROJECT_DIR$/src/Controller/MainMenuController.java" />
-        <option value="$PROJECT_DIR$/src/Controller/PlayMenuController.java" />
         <option value="$PROJECT_DIR$/src/GUI/fxml/PlayGamePane.fxml" />
-        <option value="$PROJECT_DIR$/src/GUI/CSS/style.css" />
         <option value="$PROJECT_DIR$/src/Controller/PlayGameController.java" />
+        <option value="$PROJECT_DIR$/src/SDK/ServerConnection.java" />
+        <option value="$PROJECT_DIR$/src/SDK/SnakeClient.java" />
         <option value="$PROJECT_DIR$/src/GUI/MainPane.java" />
+        <option value="$PROJECT_DIR$/src/Controller/MainMenuController.java" />
+        <option value="$PROJECT_DIR$/src/GUI/fxml/PlayMenuPane.fxml" />
+        <option value="$PROJECT_DIR$/src/GUI/fxml/CreateGamePane.fxml" />
+        <option value="$PROJECT_DIR$/src/GUI/CSS/style.css" />
+        <option value="$PROJECT_DIR$/src/Controller/CreateGameController.java" />
+        <option value="$PROJECT_DIR$/src/Controller/PlayMenuController.java" />
       </list>
     </option>
   </component>
@@ -274,7 +272,6 @@
     <panes>
       <pane id="Scratches" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -369,12 +366,57 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="GUI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fxml" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaSnakeClient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaSnakeClient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GUI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CSS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaSnakeClient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaSnakeClient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1022,7 +1064,8 @@
       <workItem from="1449049659207" duration="12816000" />
       <workItem from="1449062492099" duration="1471000" />
       <workItem from="1449064117687" duration="13117000" />
-      <workItem from="1449131211883" duration="4622000" />
+      <workItem from="1449131211883" duration="21496000" />
+      <workItem from="1449204608804" duration="2306000" />
     </task>
     <task id="LOCAL-00001" summary="Added JavaFX gui and functionality">
       <created>1447345506979</created>
@@ -1096,11 +1139,17 @@
       <option name="project" value="LOCAL" />
       <updated>1449054036983</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Added functionality for showOpenGames() in PlayMenuController. The user can now see all open joinable games, meaning the user isn't the host of these.&#10;&#10;Also added functionality for playBtn and joinBtn in PlayMenuController - they now call ServerConnection's methods joinGame(). playBtn now sets a the selected game as a static variable and redirects the user to the PlayGamePane where the user can enter his/hers controls, press playBtn and get the result on a dialog box. When the user close the dialog box it is then redirected back to the PlayMenuPane where it can proceed with joining, playing or creating games.&#10;&#10;Also made minor fixes such as renaming.">
+      <created>1449135859913</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1449135859913</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="246116000" />
+    <option name="totallyTimeSpent" value="265296000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1117,7 +1166,7 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32792208" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32719395" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1167,7 +1216,8 @@
     <MESSAGE value="Worked on GUI styling" />
     <MESSAGE value="Login method in LogInController now spawns a new Thread when a user log in.&#10;The Thread repeatedly checks if the currentUser is still authenticated.&#10;&#10;Get, Post, Put and Delete methods in ServerConnection now call the Logout method if a status code 401 Unauthorized is received in the response. &#10;&#10;The Logout method sets all values of the Session to null and the Thread that was spawned when the user logged in will redirect the user back to the LogInPane.&#10;&#10;Also made a little progress on the getOpenGames method" />
     <MESSAGE value="Minor UI improvements" />
-    <option name="LAST_COMMIT_MESSAGE" value="Minor UI improvements" />
+    <MESSAGE value="Added functionality for showOpenGames() in PlayMenuController. The user can now see all open joinable games, meaning the user isn't the host of these.&#10;&#10;Also added functionality for playBtn and joinBtn in PlayMenuController - they now call ServerConnection's methods joinGame(). playBtn now sets a the selected game as a static variable and redirects the user to the PlayGamePane where the user can enter his/hers controls, press playBtn and get the result on a dialog box. When the user close the dialog box it is then redirected back to the PlayMenuPane where it can proceed with joining, playing or creating games.&#10;&#10;Also made minor fixes such as renaming." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added functionality for showOpenGames() in PlayMenuController. The user can now see all open joinable games, meaning the user isn't the host of these.&#10;&#10;Also added functionality for playBtn and joinBtn in PlayMenuController - they now call ServerConnection's methods joinGame(). playBtn now sets a the selected game as a static variable and redirects the user to the PlayGamePane where the user can enter his/hers controls, press playBtn and get the result on a dialog box. When the user close the dialog box it is then redirected back to the PlayMenuPane where it can proceed with joining, playing or creating games.&#10;&#10;Also made minor fixes such as renaming." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1180,16 +1230,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/SDK/Model/CachedData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="45" selection-start-line="23" selection-start-column="45" selection-end-line="23" selection-end-column="45" />
-          <folding>
-            <element signature="e#554#555#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/LogInController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1472,41 +1512,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/fxml/PlayMenuPane.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.418182">
-          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SDK/SnakeClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="15" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/MainMenuController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="37" column="50" selection-start-line="37" selection-start-column="50" selection-end-line="37" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/LogInController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/fxml/PlayGamePane.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
@@ -1515,48 +1520,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="102" selection-start-line="11" selection-start-column="102" selection-end-line="11" selection-end-column="102" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/SnakeAppJavaFXEdition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="40" column="47" selection-start-line="40" selection-start-column="47" selection-end-line="40" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/CSS/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.1923075">
-          <caret line="50" column="10" selection-start-line="50" selection-start-column="10" selection-end-line="50" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SDK/ServerConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="252" column="133" selection-start-line="252" selection-start-column="94" selection-end-line="252" selection-end-column="133" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/PlayMenuController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="62" column="34" selection-start-line="62" selection-start-column="34" selection-end-line="62" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/PlayGameController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="53" column="51" selection-start-line="53" selection-start-column="51" selection-end-line="53" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1572,25 +1535,124 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="23" column="45" selection-start-line="23" selection-start-column="45" selection-end-line="23" selection-end-column="45" />
-          <folding>
-            <element signature="e#554#555#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/MainPane.java">
+    <entry file="file://$PROJECT_DIR$/src/Controller/LogInController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="84" selection-start-line="32" selection-start-column="84" selection-end-line="32" selection-end-column="84" />
+          <caret line="43" column="76" selection-start-line="43" selection-start-column="76" selection-end-line="43" selection-end-column="76" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/HighScoresController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19349593">
+        <state vertical-scroll-proportion="0.0">
           <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SDK/SnakeClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="47" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/MainPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="87" column="60" selection-start-line="87" selection-start-column="60" selection-end-line="87" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/fxml/PlayMenuPane.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="111" selection-start-line="38" selection-start-column="111" selection-end-line="38" selection-end-column="111" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/PlayGameController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="53" column="51" selection-start-line="53" selection-start-column="51" selection-end-line="53" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/MainMenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="98" selection-start-line="35" selection-start-column="98" selection-end-line="35" selection-end-column="98" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/CSS/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="1" selection-start-line="43" selection-start-column="1" selection-end-line="43" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SDK/ServerConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="189" column="8" selection-start-line="189" selection-start-column="8" selection-end-line="189" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/fxml/CreateGamePane.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.4">
+          <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/SnakeAppJavaFXEdition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="40" column="47" selection-start-line="40" selection-start-column="47" selection-end-line="40" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/CreateGameController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="108" column="9" selection-start-line="108" selection-start-column="9" selection-end-line="108" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/PlayMenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.66341466">
+          <caret line="88" column="47" selection-start-line="88" selection-start-column="47" selection-end-line="88" selection-end-column="47" />
+          <folding>
+            <element signature="e#8641#8642#0" expanded="true" />
+            <element signature="e#8703#8704#0" expanded="true" />
+            <element signature="e#8773#8774#0" expanded="true" />
+            <element signature="e#8810#8811#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

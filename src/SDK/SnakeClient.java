@@ -23,7 +23,7 @@ public interface SnakeClient {
 
     String createUser(String firstName, String lastName, String email, String username, String password);
 
-    String createGame(String name, int opponentId, String hostControls);
+    String createGame(String name, int mapSize, int opponentId, String hostControls);
 
     String joinGame(int gameId);
 

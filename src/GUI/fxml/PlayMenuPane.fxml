@@ -34,9 +34,10 @@
 
        <Button fx:id="backBtn" layoutX="38.0" layoutY="329.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="111.0" styleClass="btnMenuButton" text="Back" />
        <Button fx:id="refreshSelectedTable" layoutX="356.0" layoutY="31.0" mnemonicParsing="false" onAction="#refreshSelectedGamesList" text="Refresh" />
-       <Button fx:id="joinBtn" layoutX="444.0" layoutY="327.0" mnemonicParsing="false" onAction="#joinGame" text="Join" />
-       <Button fx:id="newGameBtn" layoutX="489.0" layoutY="327.0" mnemonicParsing="false" text="New game" />
-       <Button fx:id="playBtn" layoutX="399.0" layoutY="327.0" mnemonicParsing="false" onAction="#playGame" text="Play" />
+       <Button fx:id="joinBtn" layoutX="388.0" layoutY="327.0" mnemonicParsing="false" onAction="#joinGame" text="Join" />
+       <Button fx:id="newGameBtn" layoutX="489.0" layoutY="327.0" mnemonicParsing="false" onAction="#createGame" text="New game" />
+       <Button fx:id="playBtn" layoutX="344.0" layoutY="327.0" mnemonicParsing="false" onAction="#playGame" text="Play" />
+      <Button fx:id="deleteBtn" layoutX="432.0" layoutY="327.0" mnemonicParsing="false" onAction="#deleteGame" text="Delete" />
 
    </children>
 </AnchorPane>

@@ -159,7 +159,7 @@ public class ServerConnection implements SnakeClient{
     }
 
 
-    public String createGame(String name, int opponentId, String hostControls) {
+    public String createGame(String gameName, int mapSize, int opponentId, String hostControls) {
 
         Game game = new Game();
         Gamer opponent = new Gamer();
@@ -177,7 +177,8 @@ public class ServerConnection implements SnakeClient{
         //Sets the users controls
         game.setHost(host);
         game.getHost().setControls(hostControls);
-        game.setName(name);
+        game.setName(gameName);
+        game.setMapSize(mapSize);
 
         String token = session.getJwtToken();
         String json = new Gson().toJson(game);

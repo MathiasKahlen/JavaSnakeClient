@@ -65,7 +65,7 @@ public class PlayMenuController implements Initializable, ControlledScreen {
     @FXML
     private TableColumn<Game, String> winnerColumn;
 
-    @Override
+    @FXML
     public void initialize(URL location, ResourceBundle resources) {
 
         backBtn.setOnAction(event -> mainPane.setScreen(MainPane.MAIN_MENU_PANEL));
@@ -119,14 +119,13 @@ public class PlayMenuController implements Initializable, ControlledScreen {
 
                 TableRow<Game> currentRow = getTableRow();
 
-                if (!isEmpty()) {
-                    if (item.equals(SnakeAppJavaFXEdition.serverConnection.getSession().getCurrentUser().getUsername())) {
-                        currentRow.setId("hostedGameRow");
-                    } else {
-                        currentRow.setId("invitedGameRow");
+                    if (!isEmpty()) {
+                            if (item.equals(SnakeAppJavaFXEdition.serverConnection.getSession().getCurrentUser().getUsername())) {
+                                currentRow.setId("redRow");
+                            } else {
+                                currentRow.setId("greenRow");
+                            }
                     }
-
-                }
             }
         });
     }
@@ -200,12 +199,25 @@ public class PlayMenuController implements Initializable, ControlledScreen {
         }
     }
 
-    public void createGame(){
-
+    public void deleteGame(){
+        if (!gamesTable.getSelectionModel().getSelectedItem().getStatus().equals("finished")) {
+            if (gamesTable.getSelectionModel().getSelectedItem().getHost().getUsername().equals(SnakeAppJavaFXEdition.serverConnection.getSession().getCurrentUser().getUsername()))
+            {
+                SnakeAppJavaFXEdition.serverConnection.deleteGame(gamesTable.getSelectionModel().getSelectedItem().getGameId());
+            } else if (gamesTable.getSelectionModel().getSelectedItem().getOpponent().getUsername() != null &&
+                    gamesTable.getSelectionModel().getSelectedItem().getOpponent().getUsername().equals(SnakeAppJavaFXEdition.serverConnection.getSession().getCurrentUser().getUsername()))
+            {
+                SnakeAppJavaFXEdition.serverConnection.deleteGame(gamesTable.getSelectionModel().getSelectedItem().getGameId());
+            } else {
+                System.out.println("You are not a player in this game.");
+            }
+        } else {
+            System.out.println("You can't delete finished games");
+        }
     }
 
-    public TableView<Game> getGamesTable() {
-        return gamesTable;
+    public void createGame(){
+        mainPane.setScreen(MainPane.CREATE_GAME_PANEL);
     }
 
     @Override

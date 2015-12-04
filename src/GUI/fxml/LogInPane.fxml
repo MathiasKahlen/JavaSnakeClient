@@ -14,5 +14,6 @@
       <Button id="btnLogin" fx:id="loginBtn" layoutX="274.0" layoutY="221.0" mnemonicParsing="false" onAction="#login" onKeyPressed="#onEnter" text="Log in" textAlignment="CENTER" />
       <Text id="christmasText" fx:id="christmasText" layoutX="84.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Insane Christmas Edition!" textAlignment="CENTER" wrappingWidth="432.13671875" />
       <Text id="snakeWelcomeText" layoutX="84.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Multiplayer Snake" textAlignment="CENTER" wrappingWidth="432.13671875" />
+      <Button id="btnLogin" fx:id="createUserBtn" layoutX="258.0" layoutY="251.0" mnemonicParsing="false" onAction="#createUser" onKeyPressed="#onEnter" text="Create User!" textAlignment="CENTER" />
    </children>
 </AnchorPane>
