@@ -33,6 +33,8 @@ public class MainPane extends StackPane {
     public static final String PLAY_GAME_PANEL_FILE = "/GUI/fxml/PlayGamePane.fxml";
     public static final String CREATE_GAME_PANEL = "CreateGamePanel";
     public static final String CREATE_GAME_PANEL_FILE = "/GUI/fxml/CreateGamePane.fxml";
+    public static final String CREATE_USER_PANEL = "CreateUserPanel";
+    public static final String CREATE_USER_PANEL_FILE = "/GUI/fxml/CreateUserPane.fxml";
 
 
     public MainPane() {
@@ -86,6 +88,7 @@ public class MainPane extends StackPane {
         loadScreen(PLAY_MENU_PANEL, PLAY_MENU_PANEL_FILE);
         loadScreen(PLAY_GAME_PANEL, PLAY_GAME_PANEL_FILE);
         loadScreen(CREATE_GAME_PANEL, CREATE_GAME_PANEL_FILE);
+        loadScreen(CREATE_USER_PANEL, CREATE_USER_PANEL_FILE);
     }
 
     public void addScreen(String name, Node screen) {

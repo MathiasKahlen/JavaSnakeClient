@@ -36,6 +36,9 @@ public class LogInController implements Initializable, ControlledScreen{
     private Button loginBtn;
 
     @FXML
+    private Button createUserBtn;
+
+    @FXML
     private PasswordField passwordTf;
 
     @FXML
@@ -47,6 +50,7 @@ public class LogInController implements Initializable, ControlledScreen{
         assert loginBtn != null : "fx:id=\"loginBtn\" was not injected: check your FXML file 'LogInPane.fxml'.";
         assert passwordTf != null : "fx:id=\"passwordTf\" was not injected: check your FXML file 'LogInPane.fxml'.";
 
+        createUserBtn.setOnAction(event -> mainPane.setScreen(MainPane.CREATE_USER_PANEL));
 
         //Setting effect on the christmas text
         TextBlend blend = new TextBlend();
