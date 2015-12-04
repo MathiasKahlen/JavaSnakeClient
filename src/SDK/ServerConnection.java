@@ -19,7 +19,6 @@ import java.util.List;
  */
 public class ServerConnection implements SnakeClient{
 
-
     private Session session;
     private CachedData cachedData;
 
