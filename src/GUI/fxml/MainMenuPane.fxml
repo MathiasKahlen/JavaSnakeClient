@@ -10,7 +10,7 @@
    <children>
       <Button fx:id="playBtn" layoutX="245.0" layoutY="74.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="111.0" styleClass="btnMenuButton" text="Play" />
       <Button fx:id="highscoresBtn" layoutX="245.0" layoutY="132.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="111.0" styleClass="btnMenuButton" text="Highscores" />
-      <Button fx:id="gamesBtn" layoutX="245.0" layoutY="189.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="111.0" styleClass="btnMenuButton" text="My games" />
+      <Button fx:id="gamesBtn" disable="true" layoutX="245.0" layoutY="189.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="111.0" styleClass="btnMenuButton" text="Stats" />
       <Button fx:id="logOutBtn" layoutX="245.0" layoutY="279.0" mnemonicParsing="false" onAction="#logout" prefHeight="47.0" prefWidth="111.0" styleClass="btnMenuButton" text="Log Out" />
    </children>
 </AnchorPane>

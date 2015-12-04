@@ -116,12 +116,15 @@ public class CreateGameController implements Initializable, ControlledScreen {
 
     public void createGame(){
 
-        //SDK.ServerConnection Requires opponentId to be 0 in order to create an open game
-        if (selectedOpponent==null){
-            SnakeApp.serverConnection.createGame(gameName.getText(), Integer.parseInt(mapSize.getText()), 0, controls.getText());
-        }
-        else if (selectedOpponent!=null){
-            SnakeApp.serverConnection.createGame(gameName.getText(), Integer.parseInt(mapSize.getText()), selectedOpponent.getId(), controls.getText());
+        if (controls.getLength()<=0|| mapSize.getLength()<=0 || gameName.getLength()<=0) {
+            System.out.println("controls, mapsize and gamename can't be empty");
+        } else {
+            //SDK.ServerConnection Requires opponentId to be 0 in order to create an open game
+            if (selectedOpponent == null) {
+                SnakeApp.serverConnection.createGame(gameName.getText(), Integer.parseInt(mapSize.getText()), 0, controls.getText());
+            } else if (selectedOpponent != null) {
+                SnakeApp.serverConnection.createGame(gameName.getText(), Integer.parseInt(mapSize.getText()), selectedOpponent.getId(), controls.getText());
+            }
         }
     }
 

@@ -14,7 +14,7 @@
        <TextField fx:id="controls" layoutX="111.0" layoutY="156.0" promptText="Controls" />
       <TextField fx:id="mapSize" layoutX="111.0" layoutY="126.0" promptText="Map size" />
       <TextField fx:id="gameName" layoutX="111.0" layoutY="96.0" promptText="Game name" />
-      <TableView fx:id="usersTable" layoutX="334.0" layoutY="59.0" prefHeight="261.0" prefWidth="200.0" styleClass="usersTable">
+      <TableView fx:id="usersTable" layoutX="334.0" layoutY="59.0" prefHeight="261.0" prefWidth="200.0" styleClass="greenTable">
         <columns>
           <TableColumn fx:id="usernameColumn" prefWidth="199.0" text="Username" />
         </columns>

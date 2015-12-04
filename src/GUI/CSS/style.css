@@ -11,21 +11,21 @@
     -fx-table-header-border-color: derive(orange, -50%);
 }
 
-.usersTable{
+.greenTable {
     -fx-background-color: rgb(0,88,0);
     -fx-background: rgb(0,88,0);
 }
 
-.usersTable .column-header{
+.greenTable .column-header{
     -fx-background-color: linear-gradient(rgb(88,0,0) 5%, rgb(150,0,0) 75%, rgb(200,0,0) 99%);
 }
 
-.usersTable .column-header .label{
+.greenTable .column-header .label{
     -fx-text-fill: derive(gold, -25%);
     -fx-font-weight: bold;
 }
 
-.usersTable .table-cell{
+.greenTable .table-cell{
     -fx-text-fill: derive(gold, -25%);
     -fx-font-size: 14px;
 }
