@@ -10,6 +10,12 @@ import javafx.util.Duration;
 public class GUIAnimations {
 
 
+    /**
+     * Animation that scales a node up and down
+     * Used on empty text fields to get the user's attention
+     * @param duration duration of the animation
+     * @param node the node on which the animation is performed
+     */
     //Animation used to get the users attention on textfields with missing input
     public static void scaleTransition(int duration, Node node){
         node.setVisible(true);

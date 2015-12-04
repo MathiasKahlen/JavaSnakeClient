@@ -41,6 +41,13 @@ public class MainPane extends StackPane {
         super();
     }
 
+    /**
+     * Sets screen with a fade effect by adding and removing them to the StackPane
+     * Changing screens this way there will always only be one screen added at a time (except during transitions), which
+     * should increase performance
+     * @param name The name of the screen - all Panel names have a static final String value which can be used when the
+     *             method is called from other classes.
+     */
     public void setScreen(String name) {
         if (screens.get(name) != null) {
             DoubleProperty opacity = opacityProperty();
@@ -80,6 +87,9 @@ public class MainPane extends StackPane {
         }
     }
 
+    /**
+     * Loads all screens
+     */
     //Add all screens in the GUI to the HashMap
     public void addScreens() {
         loadScreen(LOGIN_PANEL, LOGIN_PANEL_FILE);
@@ -91,10 +101,21 @@ public class MainPane extends StackPane {
         loadScreen(CREATE_USER_PANEL, CREATE_USER_PANEL_FILE);
     }
 
+    /**
+     *
+     * @param name name of the panel
+     * @param screen the loaded fxml file(node)
+     */
     public void addScreen(String name, Node screen) {
         screens.put(name, screen);
     }
 
+    /**
+     * Loads all fxml files with the FXMLLoader and sets this class as parent
+     * Then adds the loaded screen into the screens HashMap
+     * @param name the name of the panel
+     * @param resource the resource url of the panel (to the fxml files)
+     */
     public void loadScreen(String name, String resource) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(resource));

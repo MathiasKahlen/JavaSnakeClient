@@ -65,7 +65,7 @@ public class CreateGameController implements Initializable, ControlledScreen {
 
         usernameColumn.setCellValueFactory(new PropertyValueFactory<>("username"));
 
-        //Colors the rows so the games the user already played are red
+        //Gives all rows the id "greenRow" for styling purpose
         usernameColumn.setCellFactory(column -> new TableCell<User, String>() {
             @Override
             protected void updateItem(String item, boolean empty) {
@@ -84,6 +84,9 @@ public class CreateGameController implements Initializable, ControlledScreen {
         showUsers();
     }
 
+    /**
+     * Method for showing all users in the system
+     */
     public void showUsers(){
         if (SnakeApp.serverConnection.getCachedData().getAllUsers()!=null) {
             ObservableList<User> data = FXCollections.observableArrayList(SnakeApp.serverConnection.getCachedData().getAllUsers());
@@ -93,11 +96,17 @@ public class CreateGameController implements Initializable, ControlledScreen {
         }
     }
 
+    /**
+     * Reloads and shows all users in the system
+     */
     public void refreshUsers(){
         SnakeApp.serverConnection.getAllUsers();
         showUsers();
     }
 
+    /**
+     * Sets the selectedOpponent variable and sets the opponent TextField with the opponent's username
+     */
     public void invite(){
         if (usersTable.getSelectionModel().getSelectedItem()!=null) {
             if (!usersTable.getSelectionModel().getSelectedItem().getUsername().equals(SnakeApp.serverConnection.getSession().getCurrentUser().getUsername())) {
@@ -111,11 +120,17 @@ public class CreateGameController implements Initializable, ControlledScreen {
         }
     }
 
+    /**
+     * Sets selectedOpponent to null and clears the TextField
+     */
     public void uninvite(){
         selectedOpponent = null;
         opponent.clear();
     }
 
+    /**
+     * If required TextFields are filled a game will be created as "open" if no opponent is selected and "pending" if an opponent is selected
+     */
     public void createGame(){
 
         if (controls.getLength()<=0|| mapSize.getLength()<=0 || gameName.getLength()<=0) {
@@ -135,6 +150,10 @@ public class CreateGameController implements Initializable, ControlledScreen {
         }
     }
 
+    /**
+     * Clears text fields
+     * used when a game is created or if the user leave the screen
+     */
     public void clearTextFields(){
         gameName.clear();
         mapSize.clear();
@@ -142,10 +161,17 @@ public class CreateGameController implements Initializable, ControlledScreen {
         opponent.clear();
     }
 
+    /**
+     * Clears text fields and shows Play Menu
+     */
     public void goBack(){
         clearTextFields();
         mainPane.setScreen(MainPane.PLAY_MENU_PANEL);
     }
+
+    /**
+     * Clears text fields and shows Main Menu
+     */
     public void goToMainMenu(){
         clearTextFields();
         mainPane.setScreen(MainPane.MAIN_MENU_PANEL);

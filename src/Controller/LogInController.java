@@ -50,8 +50,6 @@ public class LogInController implements Initializable, ControlledScreen{
         assert loginBtn != null : "fx:id=\"loginBtn\" was not injected: check your FXML file 'LogInPane.fxml'.";
         assert passwordTf != null : "fx:id=\"passwordTf\" was not injected: check your FXML file 'LogInPane.fxml'.";
 
-        createUserBtn.setOnAction(event -> mainPane.setScreen(MainPane.CREATE_USER_PANEL));
-
         //Setting effect on the christmas text
         TextBlend blend = new TextBlend();
         christmasText.setEffect(blend);
@@ -62,6 +60,12 @@ public class LogInController implements Initializable, ControlledScreen{
 
     }
 
+    /**
+     * Login method.
+     * If login is successful currentUser is set in serverConnection.getSession
+     * Furthermore a Thread is spawned which continuously checks if the user is still logged in.
+     * The application will automaticly log out the user whenever a status code 401 Unauthorized is received from the server.
+     */
     public void login() {
         //If textfield or passwordfield are empty
         if (usernameTf.getLength() <= 0 || passwordTf.getLength() <= 0) {
@@ -117,11 +121,17 @@ public class LogInController implements Initializable, ControlledScreen{
     }
     }
 
+    /**
+     * Redirecting to create user screen
+     */
     public void createUser(){
-        //TODO: Create screen for user creation
-        //mainPane.setScreen();
+        mainPane.setScreen(MainPane.CREATE_USER_PANEL);
     }
 
+    /**
+     * Sets KeyEvent on enter key which calls login() method.
+     * @param event
+     */
     @FXML
     public void onEnter(KeyEvent event){
         if (event.getCode()== KeyCode.ENTER){

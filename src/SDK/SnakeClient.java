@@ -37,8 +37,6 @@ public interface SnakeClient {
 
     void getOpenGames();
 
-    ArrayList<Score> getCurrentUsersScores();
-
     void getHighScores();
 
 

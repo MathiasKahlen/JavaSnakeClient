@@ -280,12 +280,6 @@ public class ServerConnection implements SnakeClient{
         }
     }
 
-
-    public ArrayList<Score> getCurrentUsersScores() {
-        return null;
-    }
-
-
     public void getHighScores() {
 
         String token = session.getJwtToken();

@@ -83,4 +83,4 @@ public class Game {
     public void setWinner(Gamer winner) {
         this.winner = winner;
     }
-} //end of class
+}

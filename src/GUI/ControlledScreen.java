@@ -5,9 +5,10 @@ package GUI;
  */
 public interface ControlledScreen {
 
-
-//    TODO: Find a more suitable name for the parameter variable
-//     Used for injecting parent pane in controllers
-     public void setScreenParent(MainPane parentPane);
+    /**
+     * Used for injecting parent pane in controller classes
+     * @param parentPane
+     */
+    void setScreenParent(MainPane parentPane);
 
 }
