@@ -33,16 +33,16 @@ public class MainMenuController implements Initializable, ControlledScreen {
         highscoresBtn.setOnAction(event -> mainPane.setScreen(MainPane.HIGHSCORES_PANEL));
         playBtn.setOnAction(event -> mainPane.setScreen(MainPane.PLAY_MENU_PANEL));
         gamesBtn.setOnAction(event -> {
-            System.out.println(SnakeAppJavaFXEdition.serverConnection.getSession().getJwtToken());
-//            SnakeAppJavaFXEdition.serverConnection.getAllUsers(null);
-//            System.out.println(SnakeAppJavaFXEdition.serverConnection.getCachedData().getAllUsers());
-            //SnakeAppJavaFXEdition.serverConnection.getHighScores();
-            //System.out.println(SnakeAppJavaFXEdition.serverConnection.getCachedData().getHighScores());
+            System.out.println(SnakeApp.serverConnection.getSession().getJwtToken());
+//            SnakeApp.serverConnection.getAllUsers(null);
+//            System.out.println(SnakeApp.serverConnection.getCachedData().getAllUsers());
+            //SnakeApp.serverConnection.getHighScores();
+            //System.out.println(SnakeApp.serverConnection.getCachedData().getHighScores());
         });
     }
 
     public void logout(){
-        SnakeAppJavaFXEdition.serverConnection.logout();
+        SnakeApp.serverConnection.logout();
         mainPane.reloadUi();
         //The thread that was spawned in LogInController will handle the screen swapping
 //        mainPane.setScreen(MainPane.LOGIN_PANEL);

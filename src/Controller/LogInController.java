@@ -26,7 +26,7 @@ import java.util.ResourceBundle;
  */
 public class LogInController implements Initializable, ControlledScreen{
 
-    private MainPane mainPane = new MainPane();
+    private MainPane mainPane;
 
     @FXML
     private TextField usernameTf;
@@ -104,9 +104,9 @@ public class LogInController implements Initializable, ControlledScreen{
             }
             System.out.println("fields cannot be empty");
         } else {
-            String message = SnakeAppJavaFXEdition.serverConnection.login(usernameTf.getText(), passwordTf.getText());
+            String message = SnakeApp.serverConnection.login(usernameTf.getText(), passwordTf.getText());
 
-            if (SnakeAppJavaFXEdition.serverConnection.getSession().getCurrentUser()!=null){
+            if (SnakeApp.serverConnection.getSession().getCurrentUser()!=null){
 
                 //If user is successfully logged in the application spawns a new Thread which repeatedly checks if the currentUser is still authenticated
                 //Get Post Put and Delete methods in ServerConnection automatically logs out the user from the application if a status code 401 Unauthorized is received
@@ -115,7 +115,7 @@ public class LogInController implements Initializable, ControlledScreen{
                     @Override
                     public void run() {
                         while (authenticated){
-                            if (SnakeAppJavaFXEdition.serverConnection.getSession().getCurrentUser()==null) {
+                            if (SnakeApp.serverConnection.getSession().getCurrentUser()==null) {
                                 authenticated=false;
                                 mainPane.setScreen(MainPane.LOGIN_PANEL);
                                 mainPane.reloadUi();
@@ -138,6 +138,11 @@ public class LogInController implements Initializable, ControlledScreen{
                 System.out.println(message);
             }
         }
+    }
+
+    public void createUser(){
+        //TODO: Create screen for user creation
+        //mainPane.setScreen();
     }
 
     @FXML

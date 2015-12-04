@@ -120,7 +120,7 @@ public class PlayMenuController implements Initializable, ControlledScreen {
                 TableRow<Game> currentRow = getTableRow();
 
                     if (!isEmpty()) {
-                            if (item.equals(SnakeAppJavaFXEdition.serverConnection.getSession().getCurrentUser().getUsername())) {
+                            if (item.equals(SnakeApp.serverConnection.getSession().getCurrentUser().getUsername())) {
                                 currentRow.setId("redRow");
                             } else {
                                 currentRow.setId("greenRow");
@@ -131,8 +131,8 @@ public class PlayMenuController implements Initializable, ControlledScreen {
     }
 
     public void showPendingGames() {
-        if (SnakeAppJavaFXEdition.serverConnection.getSession().getPendingGames() != null){
-        ObservableList<Game> data = FXCollections.observableArrayList(SnakeAppJavaFXEdition.serverConnection.getSession().getPendingGames());
+        if (SnakeApp.serverConnection.getSession().getPendingGames() != null){
+        ObservableList<Game> data = FXCollections.observableArrayList(SnakeApp.serverConnection.getSession().getPendingGames());
         gamesTable.setItems(data);
         } else {
             gamesTable.getItems().clear();
@@ -140,8 +140,8 @@ public class PlayMenuController implements Initializable, ControlledScreen {
     }
 
     public void showHostedGames() {
-        if (SnakeAppJavaFXEdition.serverConnection.getSession().getHostedGames()!=null) {
-            ObservableList<Game> data = FXCollections.observableArrayList(SnakeAppJavaFXEdition.serverConnection.getSession().getHostedGames());
+        if (SnakeApp.serverConnection.getSession().getHostedGames()!=null) {
+            ObservableList<Game> data = FXCollections.observableArrayList(SnakeApp.serverConnection.getSession().getHostedGames());
             gamesTable.setItems(data);
         } else
         {
@@ -150,8 +150,8 @@ public class PlayMenuController implements Initializable, ControlledScreen {
     }
 
     public void showOpenGames() {
-        if (SnakeAppJavaFXEdition.serverConnection.getSession().getOpenJoinableGames()!=null) {
-            ObservableList<Game> data = FXCollections.observableArrayList(SnakeAppJavaFXEdition.serverConnection.getSession().getOpenJoinableGames());
+        if (SnakeApp.serverConnection.getSession().getOpenJoinableGames()!=null) {
+            ObservableList<Game> data = FXCollections.observableArrayList(SnakeApp.serverConnection.getSession().getOpenJoinableGames());
             gamesTable.setItems(data);
         } else {
             gamesTable.getItems().clear();
@@ -159,8 +159,8 @@ public class PlayMenuController implements Initializable, ControlledScreen {
     }
 
     public void showFinishedGames() {
-        if (SnakeAppJavaFXEdition.serverConnection.getSession().getFinishedGames()!=null) {
-            ObservableList<Game> data = FXCollections.observableArrayList(SnakeAppJavaFXEdition.serverConnection.getSession().getFinishedGames());
+        if (SnakeApp.serverConnection.getSession().getFinishedGames()!=null) {
+            ObservableList<Game> data = FXCollections.observableArrayList(SnakeApp.serverConnection.getSession().getFinishedGames());
             gamesTable.setItems(data);
         } else {
             gamesTable.getItems().clear();
@@ -169,29 +169,29 @@ public class PlayMenuController implements Initializable, ControlledScreen {
 
     public void refreshSelectedGamesList() {
         if (gamesToShow.getSelectionModel().getSelectedItem().equals("Pending games")){
-            SnakeAppJavaFXEdition.serverConnection.getCurrentUsersGames("pending");
+            SnakeApp.serverConnection.getCurrentUsersGames("pending");
             showPendingGames();
         }
         if (gamesToShow.getSelectionModel().getSelectedItem().equals("Hosted games")){
-            SnakeAppJavaFXEdition.serverConnection.getCurrentUsersGames("hosted");
+            SnakeApp.serverConnection.getCurrentUsersGames("hosted");
             showHostedGames();
         }
         if (gamesToShow.getSelectionModel().getSelectedItem().equals("Join game")){
-            SnakeAppJavaFXEdition.serverConnection.getOpenGames();
+            SnakeApp.serverConnection.getOpenGames();
             showOpenGames();
         }
         if (gamesToShow.getSelectionModel().getSelectedItem().equals("Finished games")){
-            SnakeAppJavaFXEdition.serverConnection.getCurrentUsersGames("finished");
+            SnakeApp.serverConnection.getCurrentUsersGames("finished");
             showFinishedGames();
         }
     }
 
     public void joinGame(){
-        SnakeAppJavaFXEdition.serverConnection.joinGame(gamesTable.getSelectionModel().getSelectedItem().getGameId());
+        SnakeApp.serverConnection.joinGame(gamesTable.getSelectionModel().getSelectedItem().getGameId());
     }
 
     public void playGame(){
-        if (gamesTable.getSelectionModel().getSelectedItem().getHost().getId()!=SnakeAppJavaFXEdition.serverConnection.getSession().getCurrentUser().getId()){
+        if (gamesTable.getSelectionModel().getSelectedItem().getHost().getId()!= SnakeApp.serverConnection.getSession().getCurrentUser().getId()){
             selectedGame = gamesTable.getSelectionModel().getSelectedItem();
             mainPane.setScreen(MainPane.PLAY_GAME_PANEL);
         } else {
@@ -201,13 +201,13 @@ public class PlayMenuController implements Initializable, ControlledScreen {
 
     public void deleteGame(){
         if (!gamesTable.getSelectionModel().getSelectedItem().getStatus().equals("finished")) {
-            if (gamesTable.getSelectionModel().getSelectedItem().getHost().getUsername().equals(SnakeAppJavaFXEdition.serverConnection.getSession().getCurrentUser().getUsername()))
+            if (gamesTable.getSelectionModel().getSelectedItem().getHost().getUsername().equals(SnakeApp.serverConnection.getSession().getCurrentUser().getUsername()))
             {
-                SnakeAppJavaFXEdition.serverConnection.deleteGame(gamesTable.getSelectionModel().getSelectedItem().getGameId());
+                SnakeApp.serverConnection.deleteGame(gamesTable.getSelectionModel().getSelectedItem().getGameId());
             } else if (gamesTable.getSelectionModel().getSelectedItem().getOpponent().getUsername() != null &&
-                    gamesTable.getSelectionModel().getSelectedItem().getOpponent().getUsername().equals(SnakeAppJavaFXEdition.serverConnection.getSession().getCurrentUser().getUsername()))
+                    gamesTable.getSelectionModel().getSelectedItem().getOpponent().getUsername().equals(SnakeApp.serverConnection.getSession().getCurrentUser().getUsername()))
             {
-                SnakeAppJavaFXEdition.serverConnection.deleteGame(gamesTable.getSelectionModel().getSelectedItem().getGameId());
+                SnakeApp.serverConnection.deleteGame(gamesTable.getSelectionModel().getSelectedItem().getGameId());
             } else {
                 System.out.println("You are not a player in this game.");
             }

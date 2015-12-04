@@ -17,7 +17,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 
-public class SnakeAppJavaFXEdition extends Application {
+public class SnakeApp extends Application {
 
     static ServerConnection serverConnection;
     private double xOffset;

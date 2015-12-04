@@ -83,8 +83,8 @@ public class CreateGameController implements Initializable, ControlledScreen {
     }
 
     public void showUsers(){
-        if (SnakeAppJavaFXEdition.serverConnection.getCachedData().getAllUsers()!=null) {
-            ObservableList<User> data = FXCollections.observableArrayList(SnakeAppJavaFXEdition.serverConnection.getCachedData().getAllUsers());
+        if (SnakeApp.serverConnection.getCachedData().getAllUsers()!=null) {
+            ObservableList<User> data = FXCollections.observableArrayList(SnakeApp.serverConnection.getCachedData().getAllUsers());
             usersTable.setItems(data);
         } else {
             usersTable.getItems().clear();
@@ -92,13 +92,13 @@ public class CreateGameController implements Initializable, ControlledScreen {
     }
 
     public void refreshUsers(){
-        SnakeAppJavaFXEdition.serverConnection.getAllUsers();
+        SnakeApp.serverConnection.getAllUsers();
         showUsers();
     }
 
     public void invite(){
         if (usersTable.getSelectionModel().getSelectedItem()!=null) {
-            if (!usersTable.getSelectionModel().getSelectedItem().getUsername().equals(SnakeAppJavaFXEdition.serverConnection.getSession().getCurrentUser().getUsername())) {
+            if (!usersTable.getSelectionModel().getSelectedItem().getUsername().equals(SnakeApp.serverConnection.getSession().getCurrentUser().getUsername())) {
                 selectedOpponent = usersTable.getSelectionModel().getSelectedItem();
                 opponent.setText(usersTable.getSelectionModel().getSelectedItem().getUsername());
             } else {
@@ -118,10 +118,10 @@ public class CreateGameController implements Initializable, ControlledScreen {
 
         //SDK.ServerConnection Requires opponentId to be 0 in order to create an open game
         if (selectedOpponent==null){
-            SnakeAppJavaFXEdition.serverConnection.createGame(gameName.getText(), Integer.parseInt(mapSize.getText()), 0, controls.getText());
+            SnakeApp.serverConnection.createGame(gameName.getText(), Integer.parseInt(mapSize.getText()), 0, controls.getText());
         }
         else if (selectedOpponent!=null){
-            SnakeAppJavaFXEdition.serverConnection.createGame(gameName.getText(), Integer.parseInt(mapSize.getText()), selectedOpponent.getId(), controls.getText());
+            SnakeApp.serverConnection.createGame(gameName.getText(), Integer.parseInt(mapSize.getText()), selectedOpponent.getId(), controls.getText());
         }
     }
 
