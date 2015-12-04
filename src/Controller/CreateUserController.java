@@ -2,6 +2,7 @@ package Controller;
 
 import GUI.Animation.GUIAnimations;
 import GUI.ControlledScreen;
+import GUI.Dialogs.InformationDialogs;
 import GUI.MainPane;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -53,7 +54,7 @@ public class CreateUserController implements ControlledScreen
         } else {
             String message = SnakeApp.serverConnection.createUser(firstName.getText(),
                     lastName.getText(), eMail.getText(), username.getText(), password.getText());
-            System.out.println(message);
+            InformationDialogs.createUserMessage(mainPane, message);
         }
 
     }

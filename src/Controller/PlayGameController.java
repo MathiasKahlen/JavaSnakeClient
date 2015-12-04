@@ -1,6 +1,7 @@
 package Controller;
 
 import GUI.ControlledScreen;
+import GUI.Dialogs.InformationDialogs;
 import GUI.MainPane;
 import SDK.Model.Game;
 import javafx.fxml.FXML;
@@ -39,19 +40,7 @@ public class PlayGameController implements ControlledScreen{
             finishedGame.getWinner().setUsername(PlayMenuController.selectedGame.getOpponent().getUsername());
         }
 
-
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.initOwner(mainPane.getScene().getWindow());
-        alert.setTitle("Information Dialog");
-        alert.setHeaderText(null);
-        alert.setContentText(PlayMenuController.selectedGame.getHost().getUsername() + " scored: " + finishedGame.getHost().getScore() + "\n" +
-                PlayMenuController.selectedGame.getOpponent().getUsername() + " scored: " + finishedGame.getOpponent().getScore() + "\n" +
-                "The winner is: " + finishedGame.getWinner().getUsername());
-        alert.initStyle(StageStyle.UTILITY);
-        DialogPane dialogPane = alert.getDialogPane();
-        dialogPane.getStylesheets().add("GUI/CSS/style.css");
-        dialogPane.getStyleClass().add("myDialog");
-        alert.showAndWait();
+        InformationDialogs.gameResult(mainPane, PlayMenuController.selectedGame, finishedGame);
         mainPane.setScreen(MainPane.PLAY_MENU_PANEL);
     }
 

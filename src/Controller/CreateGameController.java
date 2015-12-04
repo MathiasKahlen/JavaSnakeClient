@@ -1,6 +1,8 @@
 package Controller;
 
 import GUI.ControlledScreen;
+import GUI.CustomComponents.NumberTextField;
+import GUI.Dialogs.InformationDialogs;
 import GUI.MainPane;
 import SDK.Model.Game;
 import SDK.Model.User;
@@ -29,7 +31,7 @@ public class CreateGameController implements Initializable, ControlledScreen {
     private TextField controls;
 
     @FXML
-    private TextField mapSize;
+    private NumberTextField mapSize;
 
     @FXML
     private TextField gameName;
@@ -117,21 +119,35 @@ public class CreateGameController implements Initializable, ControlledScreen {
     public void createGame(){
 
         if (controls.getLength()<=0|| mapSize.getLength()<=0 || gameName.getLength()<=0) {
-            System.out.println("controls, mapsize and gamename can't be empty");
+            String message = "controls, mapsize and gamename can't be empty";
+            InformationDialogs.createGameMessage(mainPane, message);
         } else {
             //SDK.ServerConnection Requires opponentId to be 0 in order to create an open game
             if (selectedOpponent == null) {
-                SnakeApp.serverConnection.createGame(gameName.getText(), Integer.parseInt(mapSize.getText()), 0, controls.getText());
+                String message = SnakeApp.serverConnection.createGame(gameName.getText(), Integer.parseInt(mapSize.getText()), 0, controls.getText());
+                clearTextFields();
+                InformationDialogs.createGameMessage(mainPane, message);
             } else if (selectedOpponent != null) {
-                SnakeApp.serverConnection.createGame(gameName.getText(), Integer.parseInt(mapSize.getText()), selectedOpponent.getId(), controls.getText());
+                String message = SnakeApp.serverConnection.createGame(gameName.getText(), Integer.parseInt(mapSize.getText()), selectedOpponent.getId(), controls.getText());
+                clearTextFields();
+                InformationDialogs.createGameMessage(mainPane, message);
             }
         }
     }
 
+    public void clearTextFields(){
+        gameName.clear();
+        mapSize.clear();
+        controls.clear();
+        opponent.clear();
+    }
+
     public void goBack(){
+        clearTextFields();
         mainPane.setScreen(MainPane.PLAY_MENU_PANEL);
     }
     public void goToMainMenu(){
+        clearTextFields();
         mainPane.setScreen(MainPane.MAIN_MENU_PANEL);
     }
 

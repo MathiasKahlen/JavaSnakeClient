@@ -251,17 +251,20 @@ public class ServerConnection implements SnakeClient{
             //Shows current users pending games
             case "pending":
                 response = get("games/pending", token);
-                session.setPendingGames(new Gson().fromJson(response.getEntity(String.class), new TypeToken<List<Game>>(){}.getType()));
+                if (response.getStatus()==200)
+                    session.setPendingGames(new Gson().fromJson(response.getEntity(String.class), new TypeToken<List<Game>>(){}.getType()));
                 break;
             //Shows games the current user hosted that are open or pending
             case "hosted":
                 response = get("games/host", token);
-                session.setHostedGames(new Gson().fromJson(response.getEntity(String.class), new TypeToken<List<Game>>(){}.getType()));
+                if (response.getStatus()==200)
+                    session.setHostedGames(new Gson().fromJson(response.getEntity(String.class), new TypeToken<List<Game>>(){}.getType()));
                 break;
             //Shows current users finished games
             case "finished":
                 response = get("games/finished", token);
-                session.setFinishedGames(new Gson().fromJson(response.getEntity(String.class), new TypeToken<List<Game>>(){}.getType()));
+                if (response.getStatus()==200)
+                    session.setFinishedGames(new Gson().fromJson(response.getEntity(String.class), new TypeToken<List<Game>>(){}.getType()));
                 break;
         }
     }

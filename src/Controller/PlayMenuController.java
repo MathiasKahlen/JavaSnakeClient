@@ -1,6 +1,7 @@
 package Controller;
 
 import GUI.ControlledScreen;
+import GUI.Dialogs.InformationDialogs;
 import GUI.MainPane;
 import SDK.Model.Game;
 
@@ -24,7 +25,7 @@ import java.util.ResourceBundle;
 public class PlayMenuController implements Initializable, ControlledScreen {
 
     MainPane mainPane;
-    static Game selectedGame;
+    public static Game selectedGame;
 
     @FXML
     private Button backBtn;
@@ -187,7 +188,8 @@ public class PlayMenuController implements Initializable, ControlledScreen {
     }
 
     public void joinGame(){
-        SnakeApp.serverConnection.joinGame(gamesTable.getSelectionModel().getSelectedItem().getGameId());
+        String message = SnakeApp.serverConnection.joinGame(gamesTable.getSelectionModel().getSelectedItem().getGameId());
+        InformationDialogs.joinGameMessage(mainPane, message);
     }
 
     public void playGame(){

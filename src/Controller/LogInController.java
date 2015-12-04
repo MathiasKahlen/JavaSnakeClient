@@ -1,21 +1,21 @@
 package Controller;
 
 import GUI.Animation.GUIAnimations;
+import GUI.Dialogs.InformationDialogs;
 import GUI.Effects.TextBlend;
 import GUI.MainPane;
 
 import GUI.ControlledScreen;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.CacheHint;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.effect.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
 
@@ -62,29 +62,36 @@ public class LogInController implements Initializable, ControlledScreen{
 
     }
 
-    public void login(){
+    public void login() {
         //If textfield or passwordfield are empty
-        if (usernameTf.getLength()<=0 || passwordTf.getLength()<=0){
-            if (usernameTf.getLength()<=0){
+        if (usernameTf.getLength() <= 0 || passwordTf.getLength() <= 0) {
+            if (usernameTf.getLength() <= 0) {
                 GUIAnimations.scaleTransition(400, usernameTf);
             }
-            if (passwordTf.getLength()<=0){
+            if (passwordTf.getLength() <= 0) {
                 GUIAnimations.scaleTransition(400, passwordTf);
             }
             System.out.println("fields cannot be empty");
         } else {
             String message = SnakeApp.serverConnection.login(usernameTf.getText(), passwordTf.getText());
 
-            if (SnakeApp.serverConnection.getSession().getCurrentUser()!=null){
+            if (SnakeApp.serverConnection.getSession().getCurrentUser() != null) {
 
                 //If user is successfully logged in the application spawns a new Thread which repeatedly checks if the currentUser is still authenticated
                 //Get Post Put and Delete methods in ServerConnection automatically logs out the user from the application if a status code 401 Unauthorized is received
-                Thread test = new Thread(new Runnable() {
+                Thread authenticationListener = new Thread(new Runnable() {
                     boolean authenticated = true;
                     @Override
                     public void run() {
                         while (authenticated){
                             if (SnakeApp.serverConnection.getSession().getCurrentUser()==null) {
+                                //Since JavaFX is single threaded the Platform.runLater is necessary to make it possible to show the dialog box from another thread than JavaFX's main thread.
+                                Platform.runLater(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        InformationDialogs.loggedOutMessage(mainPane);
+                                    }
+                                });
                                 authenticated=false;
                                 mainPane.setScreen(MainPane.LOGIN_PANEL);
                                 mainPane.reloadUi();
@@ -99,14 +106,15 @@ public class LogInController implements Initializable, ControlledScreen{
                     }
                 });
                 //Creating thread as a daemon which makes sure the thread will be stopped when the application is closed.
-                test.setDaemon(true);
-                test.start();
+                authenticationListener.setDaemon(true);
+                authenticationListener.start();
+
+
                 mainPane.setScreen(MainPane.MAIN_MENU_PANEL);
-            }
-            else{
+            } else {
                 System.out.println(message);
             }
-        }
+    }
     }
 
     public void createUser(){
