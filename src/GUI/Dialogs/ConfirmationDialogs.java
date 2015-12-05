@@ -6,7 +6,6 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.DialogPane;
 import javafx.stage.StageStyle;
 
-import java.awt.peer.DialogPeer;
 import java.util.Optional;
 
 /**
@@ -24,17 +23,13 @@ public class ConfirmationDialogs {
         Alert alert = createAlert(mainPane, "Delete Game");
         alert.setContentText("Are you sure you wish to delete this game?");
         Optional<ButtonType> result = alert.showAndWait();
-        if (result.get()==ButtonType.OK){
-            return true;
-        } else {
-            return false;
-        }
+        return result.get() == ButtonType.OK;
     }
 
 
 
 
-    public static Alert createAlert(MainPane mainPane, String title){
+    private static Alert createAlert(MainPane mainPane, String title){
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.initOwner(mainPane.getScene().getWindow());

@@ -7,7 +7,7 @@ public interface ControlledScreen {
 
     /**
      * Used for injecting parent pane in controller classes
-     * @param parentPane
+     * @param parentPane the parent pane
      */
     void setScreenParent(MainPane parentPane);
 

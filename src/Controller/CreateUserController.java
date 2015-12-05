@@ -5,7 +5,6 @@ import GUI.ControlledScreen;
 import GUI.Dialogs.InformationDialogs;
 import GUI.MainPane;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 

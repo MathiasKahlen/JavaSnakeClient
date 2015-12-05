@@ -23,10 +23,7 @@ import java.util.ResourceBundle;
 public class CreateGameController implements Initializable, ControlledScreen {
 
     MainPane mainPane;
-    private User selectedOpponent = new User();
-
-    @FXML
-    private Button mainMenuBtn;
+    private User selectedOpponent;
 
     @FXML
     private TextField controlsTf;
@@ -44,9 +41,6 @@ public class CreateGameController implements Initializable, ControlledScreen {
     private Button backBtn;
 
     @FXML
-    private Button createBtn;
-
-    @FXML
     private TableView<User> usersTable;
 
     @FXML
@@ -54,14 +48,12 @@ public class CreateGameController implements Initializable, ControlledScreen {
 
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
-        assert mainMenuBtn != null : "fx:id=\"mainMenuBtn\" was not injected: check your FXML file 'CreateGamePane.fxml'.";
         assert usersTable != null : "fx:id=\"usersTable\" was not injected: check your FXML file 'CreateGamePane.fxml'.";
         assert controlsTf != null : "fx:id=\"controlsTf\" was not injected: check your FXML file 'CreateGamePane.fxml'.";
         assert mapSizeTf != null : "fx:id=\"mapSizeTf\" was not injected: check your FXML file 'CreateGamePane.fxml'.";
         assert gameNameTf != null : "fx:id=\"gameNameTf\" was not injected: check your FXML file 'CreateGamePane.fxml'.";
         assert opponentTf != null : "fx:id=\"opponentTf\" was not injected: check your FXML file 'CreateGamePane.fxml'.";
         assert backBtn != null : "fx:id=\"backBtn\" was not injected: check your FXML file 'CreateGamePane.fxml'.";
-        assert createBtn != null : "fx:id=\"playBtn\" was not injected: check your FXML file 'CreateGamePane.fxml'.";
         assert usernameColumn != null : "fx:id=\"username\" was not injected: check your FXML file 'CreateGamePane.fxml'.";
 
         usernameColumn.setCellValueFactory(new PropertyValueFactory<>("username"));

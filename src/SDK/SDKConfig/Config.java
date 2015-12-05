@@ -38,9 +38,7 @@ public class Config {
             setHost((String) jsonObject.get("host"));
             setPort((String) jsonObject.get("port"));
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (org.json.simple.parser.ParseException e) {
+        } catch (IOException | org.json.simple.parser.ParseException e) {
             e.printStackTrace();
         }
     }
@@ -53,10 +51,10 @@ public class Config {
         return port;
     }
 
-    public static void setHost(String host) {
+    private static void setHost(String host) {
         Config.host = host;
     }
-    public static void setPort(String port) {
+    private static void setPort(String port) {
         Config.port = port;
     }
 

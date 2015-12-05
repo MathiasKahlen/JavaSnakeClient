@@ -1,6 +1,5 @@
 package GUI.Dialogs;
 
-import Controller.PlayMenuController;
 import GUI.MainPane;
 import SDK.Model.Game;
 import javafx.scene.control.Alert;
@@ -85,7 +84,7 @@ public class InformationDialogs {
      * @param title the title of the dialog
      * @return returns a standardized alert dialog
      */
-    public static Alert createAlert(MainPane mainPane, String title){
+    private static Alert createAlert(MainPane mainPane, String title){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         //This line sets the owner of the Alert to the stage which mainPane is connected to
         alert.initOwner(mainPane.getScene().getWindow());

@@ -124,9 +124,7 @@ public class ServerConnection implements SnakeClient{
 
         ClientResponse response = get("users/" + Integer.toString(id), null);
 
-        User user = new Gson().fromJson(response.getEntity(String.class), User.class);
-
-        return user;
+        return new Gson().fromJson(response.getEntity(String.class), User.class);
     }
 
     public void getAllUsers(){
@@ -201,10 +199,7 @@ public class ServerConnection implements SnakeClient{
         //Sending the put and getting a response
         ClientResponse response = put(json, "games/join", token);
         //Return true if game was join or false if it wasnt
-        if (response.getStatus()==200)
-            return true;
-        else
-            return false;
+        return response.getStatus() == 200;
     }
 
 
@@ -222,9 +217,7 @@ public class ServerConnection implements SnakeClient{
         //Sending the put and getting a response
         ClientResponse response = put(json, "games/start", token);
 
-        Game finishedGame = new Gson().fromJson(response.getEntity(String.class), Game.class);
-
-        return finishedGame;
+        return new Gson().fromJson(response.getEntity(String.class), Game.class);
     }
 
 

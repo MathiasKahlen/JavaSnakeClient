@@ -2,8 +2,6 @@ package SDK;
 
 import SDK.Model.*;
 
-import java.util.ArrayList;
-
 /**
  * Created by Kahlen on 18-11-2015.
  */

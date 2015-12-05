@@ -16,8 +16,7 @@ public class Game {
     private String status;
     private Date created;
     private int mapSize;
-
-    public Game(){}
+    
 
     public Date getCreated() {
         return created;

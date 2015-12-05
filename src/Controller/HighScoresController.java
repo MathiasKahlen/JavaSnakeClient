@@ -3,7 +3,6 @@ package Controller;
 import GUI.ControlledScreen;
 import GUI.Effects.TextBlend;
 import GUI.MainPane;
-import SDK.Model.Game;
 import SDK.Model.Score;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
