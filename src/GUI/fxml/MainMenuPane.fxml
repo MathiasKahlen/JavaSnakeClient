@@ -9,7 +9,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="mainPane" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainMenuController">
    <children>
       <Button fx:id="playBtn" layoutX="245.0" layoutY="74.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="111.0" styleClass="btnMenuButton" text="Play" />
-      <Button fx:id="highscoresBtn" layoutX="245.0" layoutY="132.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="111.0" styleClass="btnMenuButton" text="Highscores" />
+      <Button fx:id="highScoresBtn" layoutX="245.0" layoutY="132.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="111.0" styleClass="btnMenuButton" text="Highscores" />
       <Button fx:id="gamesBtn" disable="true" layoutX="245.0" layoutY="189.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="111.0" styleClass="btnMenuButton" text="Stats" />
       <Button fx:id="logOutBtn" layoutX="245.0" layoutY="279.0" mnemonicParsing="false" onAction="#logout" prefHeight="47.0" prefWidth="111.0" styleClass="btnMenuButton" text="Log Out" />
    </children>

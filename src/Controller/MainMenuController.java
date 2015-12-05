@@ -16,29 +16,16 @@ public class MainMenuController implements Initializable, ControlledScreen {
     MainPane mainPane = new MainPane();
 
     @FXML
-    private Button gamesBtn;
-
-    @FXML
-    private Button logOutBtn;
-
-    @FXML
     private Button playBtn;
 
     @FXML
-    private Button highscoresBtn;
+    private Button highScoresBtn;
 
     @FXML
     public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
 
-        highscoresBtn.setOnAction(event -> mainPane.setScreen(MainPane.HIGHSCORES_PANEL));
+        highScoresBtn.setOnAction(event -> mainPane.setScreen(MainPane.HIGHSCORES_PANEL));
         playBtn.setOnAction(event -> mainPane.setScreen(MainPane.PLAY_MENU_PANEL));
-        gamesBtn.setOnAction(event -> {
-            System.out.println(SnakeApp.serverConnection.getSession().getJwtToken());
-//            SnakeApp.serverConnection.getAllUsers(null);
-//            System.out.println(SnakeApp.serverConnection.getCachedData().getAllUsers());
-            //SnakeApp.serverConnection.getHighScores();
-            //System.out.println(SnakeApp.serverConnection.getCachedData().getHighScores());
-        });
     }
 
     public void logout(){

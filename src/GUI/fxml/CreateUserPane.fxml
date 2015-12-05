@@ -8,11 +8,11 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="mainPane" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.CreateUserController">
    <children>
 
-       <TextField fx:id="firstName" layoutX="217.0" layoutY="133.0" promptText="First name" />
-       <TextField fx:id="lastName" layoutX="217.0" layoutY="160.0" promptText="Last name" />
-       <TextField fx:id="eMail" layoutX="217.0" layoutY="187.0" promptText="E-mail" />
-       <TextField fx:id="username" layoutX="217.0" layoutY="214.0" promptText="Username" />
-       <PasswordField fx:id="password" layoutX="217.0" layoutY="241.0" promptText="Pasword" />
+       <TextField fx:id="firstNameTf" layoutX="217.0" layoutY="133.0" promptText="First name" />
+       <TextField fx:id="lastNameTf" layoutX="217.0" layoutY="160.0" promptText="Last name" />
+       <TextField fx:id="eMailTf" layoutX="217.0" layoutY="187.0" promptText="E-mail" />
+       <TextField fx:id="usernameTf" layoutX="217.0" layoutY="214.0" promptText="Username" />
+       <PasswordField fx:id="passwordTf" layoutX="217.0" layoutY="241.0" promptText="Pasword" />
        <Button fx:id="createBtn" layoutX="256.0" layoutY="276.0" mnemonicParsing="false" onAction="#createUser" text="Create user" />
        <Button fx:id="backBtn" layoutX="38.0" layoutY="329.0" mnemonicParsing="false" onAction="#goBack" prefHeight="47.0" prefWidth="111.0" styleClass="btnMenuButton" text="Back" />
 

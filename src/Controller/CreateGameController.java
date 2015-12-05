@@ -1,5 +1,6 @@
 package Controller;
 
+import GUI.Animation.GUIAnimations;
 import GUI.ControlledScreen;
 import GUI.CustomComponents.NumberTextField;
 import GUI.Dialogs.InformationDialogs;
@@ -28,16 +29,16 @@ public class CreateGameController implements Initializable, ControlledScreen {
     private Button mainMenuBtn;
 
     @FXML
-    private TextField controls;
+    private TextField controlsTf;
 
     @FXML
-    private NumberTextField mapSize;
+    private NumberTextField mapSizeTf;
 
     @FXML
-    private TextField gameName;
+    private TextField gameNameTf;
 
     @FXML
-    private TextField opponent;
+    private TextField opponentTf;
 
     @FXML
     private Button backBtn;
@@ -55,10 +56,10 @@ public class CreateGameController implements Initializable, ControlledScreen {
     public void initialize(URL location, ResourceBundle resources) {
         assert mainMenuBtn != null : "fx:id=\"mainMenuBtn\" was not injected: check your FXML file 'CreateGamePane.fxml'.";
         assert usersTable != null : "fx:id=\"usersTable\" was not injected: check your FXML file 'CreateGamePane.fxml'.";
-        assert controls != null : "fx:id=\"controls\" was not injected: check your FXML file 'CreateGamePane.fxml'.";
-        assert mapSize != null : "fx:id=\"mapSize\" was not injected: check your FXML file 'CreateGamePane.fxml'.";
-        assert gameName != null : "fx:id=\"gameName\" was not injected: check your FXML file 'CreateGamePane.fxml'.";
-        assert opponent != null : "fx:id=\"opponent\" was not injected: check your FXML file 'CreateGamePane.fxml'.";
+        assert controlsTf != null : "fx:id=\"controlsTf\" was not injected: check your FXML file 'CreateGamePane.fxml'.";
+        assert mapSizeTf != null : "fx:id=\"mapSizeTf\" was not injected: check your FXML file 'CreateGamePane.fxml'.";
+        assert gameNameTf != null : "fx:id=\"gameNameTf\" was not injected: check your FXML file 'CreateGamePane.fxml'.";
+        assert opponentTf != null : "fx:id=\"opponentTf\" was not injected: check your FXML file 'CreateGamePane.fxml'.";
         assert backBtn != null : "fx:id=\"backBtn\" was not injected: check your FXML file 'CreateGamePane.fxml'.";
         assert createBtn != null : "fx:id=\"playBtn\" was not injected: check your FXML file 'CreateGamePane.fxml'.";
         assert usernameColumn != null : "fx:id=\"username\" was not injected: check your FXML file 'CreateGamePane.fxml'.";
@@ -105,13 +106,13 @@ public class CreateGameController implements Initializable, ControlledScreen {
     }
 
     /**
-     * Sets the selectedOpponent variable and sets the opponent TextField with the opponent's username
+     * Sets the selectedOpponent variable and sets the opponentTf TextField with the opponentTf's username
      */
     public void invite(){
         if (usersTable.getSelectionModel().getSelectedItem()!=null) {
             if (!usersTable.getSelectionModel().getSelectedItem().getUsername().equals(SnakeApp.serverConnection.getSession().getCurrentUser().getUsername())) {
                 selectedOpponent = usersTable.getSelectionModel().getSelectedItem();
-                opponent.setText(usersTable.getSelectionModel().getSelectedItem().getUsername());
+                opponentTf.setText(usersTable.getSelectionModel().getSelectedItem().getUsername());
             } else {
                 System.out.println("You cannot invite yourself");
             }
@@ -125,25 +126,31 @@ public class CreateGameController implements Initializable, ControlledScreen {
      */
     public void uninvite(){
         selectedOpponent = null;
-        opponent.clear();
+        opponentTf.clear();
     }
 
     /**
-     * If required TextFields are filled a game will be created as "open" if no opponent is selected and "pending" if an opponent is selected
+     * If required TextFields are filled a game will be created as "open" if no opponentTf is selected and "pending" if an opponentTf is selected
      */
     public void createGame(){
 
-        if (controls.getLength()<=0|| mapSize.getLength()<=0 || gameName.getLength()<=0) {
-            String message = "controls, mapsize and gamename can't be empty";
-            InformationDialogs.createGameMessage(mainPane, message);
+        if (controlsTf.getLength()<=0|| mapSizeTf.getLength()<=0 || gameNameTf.getLength()<=0) {
+            //Animations on text fields if they are empty
+            if (controlsTf.getLength()<=0)
+                GUIAnimations.scaleTransition(400, controlsTf);
+            if (mapSizeTf.getLength()<=0)
+                GUIAnimations.scaleTransition(400, mapSizeTf);
+            if (gameNameTf.getLength()<=0)
+                GUIAnimations.scaleTransition(400, gameNameTf);
+
         } else {
             //SDK.ServerConnection Requires opponentId to be 0 in order to create an open game
             if (selectedOpponent == null) {
-                String message = SnakeApp.serverConnection.createGame(gameName.getText(), Integer.parseInt(mapSize.getText()), 0, controls.getText());
+                String message = SnakeApp.serverConnection.createGame(gameNameTf.getText(), Integer.parseInt(mapSizeTf.getText()), 0, controlsTf.getText());
                 clearTextFields();
                 InformationDialogs.createGameMessage(mainPane, message);
             } else if (selectedOpponent != null) {
-                String message = SnakeApp.serverConnection.createGame(gameName.getText(), Integer.parseInt(mapSize.getText()), selectedOpponent.getId(), controls.getText());
+                String message = SnakeApp.serverConnection.createGame(gameNameTf.getText(), Integer.parseInt(mapSizeTf.getText()), selectedOpponent.getId(), controlsTf.getText());
                 clearTextFields();
                 InformationDialogs.createGameMessage(mainPane, message);
             }
@@ -155,10 +162,10 @@ public class CreateGameController implements Initializable, ControlledScreen {
      * used when a game is created or if the user leave the screen
      */
     public void clearTextFields(){
-        gameName.clear();
-        mapSize.clear();
-        controls.clear();
-        opponent.clear();
+        gameNameTf.clear();
+        mapSizeTf.clear();
+        controlsTf.clear();
+        opponentTf.clear();
     }
 
     /**

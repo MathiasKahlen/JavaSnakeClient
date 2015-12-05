@@ -1,6 +1,7 @@
 package Controller;
 
 import GUI.ControlledScreen;
+import GUI.Dialogs.ConfirmationDialogs;
 import GUI.Dialogs.InformationDialogs;
 import GUI.MainPane;
 import SDK.Model.Game;
@@ -35,6 +36,9 @@ public class PlayMenuController implements Initializable, ControlledScreen {
 
     @FXML
     private Button joinBtn;
+
+    @FXML
+    private Button deleteBtn;
 
     @FXML
     private Button newGameBtn;
@@ -79,32 +83,33 @@ public class PlayMenuController implements Initializable, ControlledScreen {
         mapSizeColumn.setCellValueFactory(new PropertyValueFactory<Game, Double>("mapSize"));
         winnerColumn.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getWinner().getUsername()));
 
-        gamesToShow.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> selected, String oldValue, String newValue) {
-                if (newValue != null) {
-                    switch (newValue) {
-                        case "Pending games":
-                            playBtn.setDisable(false);
-                            joinBtn.setDisable(true);
-                            showPendingGames();
-                            break;
-                        case "Hosted games":
-                            joinBtn.setDisable(true);
-                            playBtn.setDisable(true);
-                            showHostedGames();
-                            break;
-                        case "Join game":
-                            joinBtn.setDisable(false);
-                            playBtn.setDisable(true);
-                            showOpenGames();
-                            break;
-                        case "Finished games":
-                            joinBtn.setDisable(true);
-                            playBtn.setDisable(true);
-                            showFinishedGames();
-                            break;
-                    }
+        gamesToShow.getSelectionModel().selectedItemProperty().addListener((selected, oldValue, newValue) -> {
+            if (newValue != null) {
+                switch (newValue) {
+                    case "Pending games":
+                        playBtn.setDisable(false);
+                        joinBtn.setDisable(true);
+                        deleteBtn.setDisable(false);
+                        showPendingGames();
+                        break;
+                    case "Hosted games":
+                        joinBtn.setDisable(true);
+                        playBtn.setDisable(true);
+                        deleteBtn.setDisable(false);
+                        showHostedGames();
+                        break;
+                    case "Join game":
+                        joinBtn.setDisable(false);
+                        playBtn.setDisable(true);
+                        deleteBtn.setDisable(true);
+                        showOpenGames();
+                        break;
+                    case "Finished games":
+                        joinBtn.setDisable(true);
+                        playBtn.setDisable(true);
+                        deleteBtn.setDisable(true);
+                        showFinishedGames();
+                        break;
                 }
             }
         });
@@ -210,18 +215,21 @@ public class PlayMenuController implements Initializable, ControlledScreen {
         if (!gamesTable.getSelectionModel().getSelectedItem().getStatus().equals("finished")) {
             if (gamesTable.getSelectionModel().getSelectedItem().getHost().getUsername().equals(SnakeApp.serverConnection.getSession().getCurrentUser().getUsername()))
             {
-                SnakeApp.serverConnection.deleteGame(gamesTable.getSelectionModel().getSelectedItem().getGameId());
-                //Next two rows updates the table locally without calling the Server after the update
-                gamesTable.getItems().remove(gamesTable.getSelectionModel().getSelectedItem());
-                gamesTable.refresh();
+                if (ConfirmationDialogs.deleteGameConfirmationDialog(mainPane)) {
+                    SnakeApp.serverConnection.deleteGame(gamesTable.getSelectionModel().getSelectedItem().getGameId());
+                    //Next two rows updates the table locally without calling the Server after the update
+                    gamesTable.getItems().remove(gamesTable.getSelectionModel().getSelectedItem());
+                    gamesTable.refresh();
+                }
             } else if (gamesTable.getSelectionModel().getSelectedItem().getOpponent().getUsername() != null &&
                     gamesTable.getSelectionModel().getSelectedItem().getOpponent().getUsername().equals(SnakeApp.serverConnection.getSession().getCurrentUser().getUsername()))
-
             {
+                if (ConfirmationDialogs.deleteGameConfirmationDialog(mainPane)){
                 SnakeApp.serverConnection.deleteGame(gamesTable.getSelectionModel().getSelectedItem().getGameId());
                 //Next two rows updates the table locally without calling the Server after the update
                 gamesTable.getItems().remove(gamesTable.getSelectionModel().getSelectedItem());
                 gamesTable.refresh();
+                }
             } else {
                 System.out.println("You are not a player in this game.");
             }

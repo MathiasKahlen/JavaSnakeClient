@@ -19,16 +19,7 @@ public class PlayGameController implements ControlledScreen{
     MainPane mainPane;
 
     @FXML
-    private Button mainMenuBtn;
-
-    @FXML
     private TextField controls;
-
-    @FXML
-    private Button backBtn;
-
-    @FXML
-    private Button playBtn;
 
     public void playGame(){
         Game finishedGame = SnakeApp.serverConnection.startGame(PlayMenuController.selectedGame.getGameId(), controls.getText());

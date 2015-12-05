@@ -9,10 +9,10 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="mainPane" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.CreateGameController">
    <children>
 
-       <TextField fx:id="gameName" layoutX="111.0" layoutY="96.0" promptText="Game name" />
-       <NumberTextField fx:id="mapSize" layoutX="111.0" layoutY="126.0" promptText="Map size" />
-       <SnakeControlsTextField fx:id="controls" layoutX="111.0" layoutY="156.0" promptText="Controls" />
-       <TextField fx:id="opponent" editable="false" layoutX="111.0" layoutY="186.0" promptText="Opponent" />
+       <TextField fx:id="gameNameTf" layoutX="111.0" layoutY="96.0" promptText="Game name" />
+       <NumberTextField fx:id="mapSizeTf" layoutX="111.0" layoutY="126.0" promptText="Map size" />
+       <SnakeControlsTextField fx:id="controlsTf" layoutX="111.0" layoutY="156.0" promptText="Controls" />
+       <TextField fx:id="opponentTf" editable="false" layoutX="111.0" layoutY="186.0" promptText="Opponent" />
 
        <Button fx:id="createBtn" layoutX="144.0" layoutY="223.0" mnemonicParsing="false" onAction="#createGame" text="Create game" />
 

@@ -18,42 +18,36 @@ public class CreateUserController implements ControlledScreen
     MainPane mainPane;
 
     @FXML
-    private TextField lastName;
+    private TextField lastNameTf;
 
     @FXML
-    private TextField firstName;
+    private TextField firstNameTf;
 
     @FXML
-    private PasswordField password;
+    private TextField eMailTf;
 
     @FXML
-    private Button backBtn;
+    private TextField usernameTf;
 
     @FXML
-    private Button createBtn;
-
-    @FXML
-    private TextField username;
-
-    @FXML
-    private TextField eMail;
+    private PasswordField passwordTf;
 
 
     public void createUser(){
-        if (firstName.getLength()<=0 || lastName.getLength()<=0 || eMail.getLength()<=0 || username.getLength()<=0 || password.getLength()<=0) {
-            if (firstName.getLength() <= 0)
-                GUIAnimations.scaleTransition(400, firstName);
-            if (lastName.getLength() <= 0)
-                GUIAnimations.scaleTransition(400, lastName);
-            if (eMail.getLength() <= 0)
-                GUIAnimations.scaleTransition(400, eMail);
-            if (username.getLength() <= 0)
-                GUIAnimations.scaleTransition(400, username);
-            if (password.getLength() <= 0)
-                GUIAnimations.scaleTransition(400, password);
+        if (firstNameTf.getLength()<=0 || lastNameTf.getLength()<=0 || eMailTf.getLength()<=0 || usernameTf.getLength()<=0 || passwordTf.getLength()<=0) {
+            if (firstNameTf.getLength() <= 0)
+                GUIAnimations.scaleTransition(400, firstNameTf);
+            if (lastNameTf.getLength() <= 0)
+                GUIAnimations.scaleTransition(400, lastNameTf);
+            if (eMailTf.getLength() <= 0)
+                GUIAnimations.scaleTransition(400, eMailTf);
+            if (usernameTf.getLength() <= 0)
+                GUIAnimations.scaleTransition(400, usernameTf);
+            if (passwordTf.getLength() <= 0)
+                GUIAnimations.scaleTransition(400, passwordTf);
         } else {
-            String message = SnakeApp.serverConnection.createUser(firstName.getText(),
-                    lastName.getText(), eMail.getText(), username.getText(), password.getText());
+            String message = SnakeApp.serverConnection.createUser(firstNameTf.getText(),
+                    lastNameTf.getText(), eMailTf.getText(), usernameTf.getText(), passwordTf.getText());
             InformationDialogs.createUserMessage(mainPane, message);
         }
 
