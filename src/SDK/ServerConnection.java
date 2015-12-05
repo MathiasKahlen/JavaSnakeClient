@@ -190,7 +190,7 @@ public class ServerConnection implements SnakeClient{
     }
 
 
-    public String joinGame(int gameId) {
+    public boolean joinGame(int gameId) {
         //Set the token
         String token = session.getJwtToken();
         //The game to join
@@ -200,8 +200,11 @@ public class ServerConnection implements SnakeClient{
         String json = new Gson().toJson(game);
         //Sending the put and getting a response
         ClientResponse response = put(json, "games/join", token);
-        //Return the response message
-        return (String)responseToJson(response).get("message");
+        //Return true if game was join or false if it wasnt
+        if (response.getStatus()==200)
+            return true;
+        else
+            return false;
     }
 
 

@@ -188,8 +188,13 @@ public class PlayMenuController implements Initializable, ControlledScreen {
     }
 
     public void joinGame(){
-        String message = SnakeApp.serverConnection.joinGame(gamesTable.getSelectionModel().getSelectedItem().getGameId());
-        InformationDialogs.joinGameMessage(mainPane, message);
+        if (SnakeApp.serverConnection.joinGame(gamesTable.getSelectionModel().getSelectedItem().getGameId())){
+            //Next two rows updates the table locally without calling the Server after the update
+            gamesTable.getItems().remove(gamesTable.getSelectionModel().getSelectedItem());
+            gamesTable.refresh();
+        } else {
+            InformationDialogs.joinGameErrorMessage(mainPane);
+        }
     }
 
     public void playGame(){
@@ -206,10 +211,17 @@ public class PlayMenuController implements Initializable, ControlledScreen {
             if (gamesTable.getSelectionModel().getSelectedItem().getHost().getUsername().equals(SnakeApp.serverConnection.getSession().getCurrentUser().getUsername()))
             {
                 SnakeApp.serverConnection.deleteGame(gamesTable.getSelectionModel().getSelectedItem().getGameId());
+                //Next two rows updates the table locally without calling the Server after the update
+                gamesTable.getItems().remove(gamesTable.getSelectionModel().getSelectedItem());
+                gamesTable.refresh();
             } else if (gamesTable.getSelectionModel().getSelectedItem().getOpponent().getUsername() != null &&
                     gamesTable.getSelectionModel().getSelectedItem().getOpponent().getUsername().equals(SnakeApp.serverConnection.getSession().getCurrentUser().getUsername()))
+
             {
                 SnakeApp.serverConnection.deleteGame(gamesTable.getSelectionModel().getSelectedItem().getGameId());
+                //Next two rows updates the table locally without calling the Server after the update
+                gamesTable.getItems().remove(gamesTable.getSelectionModel().getSelectedItem());
+                gamesTable.refresh();
             } else {
                 System.out.println("You are not a player in this game.");
             }

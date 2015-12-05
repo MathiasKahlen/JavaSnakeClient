@@ -9,20 +9,25 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="mainPane" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.CreateGameController">
    <children>
 
-       <Button fx:id="backBtn" layoutX="38.0" layoutY="329.0" mnemonicParsing="false" onAction="#goBack" prefHeight="47.0" prefWidth="111.0" styleClass="btnMenuButton" text="Back" />
-       <Button fx:id="createBtn" layoutX="144.0" layoutY="223.0" mnemonicParsing="false" onAction="#createGame" text="Create game" />
-       <Button fx:id="mainMenuBtn" layoutX="149.0" layoutY="329.0" mnemonicParsing="false" onAction="#goToMainMenu" prefHeight="47.0" prefWidth="111.0" styleClass="btnMenuButton" text="Main menu" />
-       <SnakeControlsTextField fx:id="controls" layoutX="111.0" layoutY="156.0" promptText="Controls" />
+       <TextField fx:id="gameName" layoutX="111.0" layoutY="96.0" promptText="Game name" />
        <NumberTextField fx:id="mapSize" layoutX="111.0" layoutY="126.0" promptText="Map size" />
-       <TextField fx:id="gameName" layoutX="111.0" layoutY="96.0" promptText="Game name" /><TableView fx:id="usersTable" layoutX="334.0" layoutY="59.0" prefHeight="261.0" prefWidth="200.0" styleClass="greenTable">
+       <SnakeControlsTextField fx:id="controls" layoutX="111.0" layoutY="156.0" promptText="Controls" />
+       <TextField fx:id="opponent" editable="false" layoutX="111.0" layoutY="186.0" promptText="Opponent" />
+
+       <Button fx:id="createBtn" layoutX="144.0" layoutY="223.0" mnemonicParsing="false" onAction="#createGame" text="Create game" />
+
+       <Button fx:id="refreshUsersBtn" layoutX="382.0" layoutY="329.0" mnemonicParsing="false" onAction="#refreshUsers" text="Refresh" />
+       <Button fx:id="inviteBtn" layoutX="443.0" layoutY="329.0" mnemonicParsing="false" onAction="#invite" text="Invite" />
+       <Button fx:id="uninviteBtn" layoutX="38.0" layoutY="186.0" mnemonicParsing="false" onAction="#uninvite" text="Uninvite" />
+       <Button fx:id="backBtn" layoutX="38.0" layoutY="329.0" mnemonicParsing="false" onAction="#goBack" prefHeight="47.0" prefWidth="111.0" styleClass="btnMenuButton" text="Back" />
+       <Button fx:id="mainMenuBtn" layoutX="149.0" layoutY="329.0" mnemonicParsing="false" onAction="#goToMainMenu" prefHeight="47.0" prefWidth="111.0" styleClass="btnMenuButton" text="Main menu" />
+
+       <TableView fx:id="usersTable" layoutX="334.0" layoutY="59.0" prefHeight="261.0" prefWidth="200.0" styleClass="greenTable">
         <columns>
           <TableColumn fx:id="usernameColumn" prefWidth="199.0" text="Username" />
         </columns>
        </TableView>
-       <TextField fx:id="opponent" editable="false" layoutX="111.0" layoutY="186.0" promptText="Opponent" />
-       <Button fx:id="inviteBtn" layoutX="443.0" layoutY="329.0" mnemonicParsing="false" onAction="#invite" text="Invite" />
-       <Button fx:id="refreshUsersBtn" layoutX="382.0" layoutY="329.0" mnemonicParsing="false" onAction="#refreshUsers" text="Refresh" />
-       <Button fx:id="uninviteBtn" layoutX="38.0" layoutY="186.0" mnemonicParsing="false" onAction="#uninvite" text="Uninvite" />
+
 
    </children>
 </AnchorPane>

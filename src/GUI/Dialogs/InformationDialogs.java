@@ -13,6 +13,17 @@ import javafx.stage.StageStyle;
 public class InformationDialogs {
 
     /**
+     * Message when log in fails
+     * @param mainPane shown inside mainPane
+     * @param message the message returned from the server
+     */
+    public static void logInErrorMessage(MainPane mainPane, String message){
+        Alert alert = createAlert(mainPane, "Log in Error");
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    /**
      * Message when logging out
      * @param mainPane shown inside mainPane
      */
@@ -59,13 +70,12 @@ public class InformationDialogs {
     }
 
     /**
-     * Message when joining a game
+     * Message when unable to join game
      * @param mainPane shown inside mainPane
-     * @param message message received from the server when attempting to create a game
      */
-    public static void joinGameMessage(MainPane mainPane, String message){
+    public static void joinGameErrorMessage(MainPane mainPane){
         Alert alert = createAlert(mainPane, "Join Game");
-        alert.setContentText(message);
+        alert.setContentText("Unable to join the game. Game may no longer be available.");
         alert.showAndWait();
     }
 

@@ -116,7 +116,7 @@ public class LogInController implements Initializable, ControlledScreen{
 
                 mainPane.setScreen(MainPane.MAIN_MENU_PANEL);
             } else {
-                System.out.println(message);
+                InformationDialogs.logInErrorMessage(mainPane, message);
             }
     }
     }

@@ -25,7 +25,7 @@ public interface SnakeClient {
 
     String createGame(String name, int mapSize, int opponentId, String hostControls);
 
-    String joinGame(int gameId);
+    boolean joinGame(int gameId);
 
     Game startGame(int gameId, String controls);
 
