@@ -72,7 +72,7 @@ public class LogInController implements Initializable, ControlledScreen {
      */
     public void login() throws InterruptedException {
 
-        Future<?> future = ThreadUtil.executorService.submit(new Task() {
+        ThreadUtil.executorService.submit(new Task() {
             @Override
             protected Object call() throws Exception {
                 while(!Thread.interrupted()){
@@ -124,22 +124,6 @@ public class LogInController implements Initializable, ControlledScreen {
                 return null;
             }
         });
-//
-//        try {
-//            System.out.println("Started...");
-//            future.get(5, TimeUnit.SECONDS);
-//            System.out.println("Finished.");
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-
-//        } catch (TimeoutException e) {
-//            future.cancel(true);
-//            System.out.println("Timed out");
-//            e.printStackTrace();
-//        } catch (ExecutionException e) {
-//            e.printStackTrace();
-//        }
     }
 
     /**
