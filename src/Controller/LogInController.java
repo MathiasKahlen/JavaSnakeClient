@@ -70,12 +70,11 @@ public class LogInController implements Initializable, ControlledScreen {
      * Furthermore a Thread is spawned which continuously checks if the user is still logged in.
      * The application will automaticly log out the user whenever a status code 401 Unauthorized is received from the server.
      */
-    public void login() throws InterruptedException {
+    public void login(){
 
         ThreadUtil.executorService.submit(new Task() {
             @Override
             protected Object call() throws Exception {
-                while(!Thread.interrupted()){
                 //If textfield or passwordfield are empty
                 if (usernameTf.getLength() <= 0 || passwordTf.getLength() <= 0) {
                     if (usernameTf.getLength() <= 0) {
@@ -120,7 +119,7 @@ public class LogInController implements Initializable, ControlledScreen {
                         Platform.runLater(() -> InformationDialogs.logInErrorMessage(mainPane, message));
 
                     }
-                }}
+                }
                 return null;
             }
         });
