@@ -1,9 +1,12 @@
 package Controller;
 
 import GUI.ControlledScreen;
+import GUI.Dialogs.InformationDialogs;
 import GUI.Effects.TextBlend;
 import GUI.MainPane;
 import SDK.Model.Score;
+import com.sun.jersey.api.client.ClientHandlerException;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -84,8 +87,15 @@ public class HighScoresController implements Initializable, ControlledScreen{
         ThreadUtil.executorService.execute(new Task() {
             @Override
             protected Object call() throws Exception {
-                SnakeApp.serverConnection.getHighScores();
-                showHighScores();
+                try {
+                    SnakeApp.serverConnection.getHighScores();
+                    showHighScores();
+                } catch (ClientHandlerException e) {
+                    //Cancels the task
+                    this.cancel(true);
+                    super.cancel(true);
+                    Platform.runLater(() -> InformationDialogs.noConnectionError(mainPane));
+                }
                 return null;
             }
         });

@@ -7,7 +7,7 @@ import GUI.MainPane;
 
 import GUI.ControlledScreen;
 
-import com.sun.org.apache.xpath.internal.SourceTree;
+import com.sun.jersey.api.client.ClientHandlerException;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
@@ -20,11 +20,9 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
 
-
-import java.net.ConnectException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.concurrent.*;
+
 
 /**
  * Created by Kahlen on 06-11-2015.
@@ -70,9 +68,9 @@ public class LogInController implements Initializable, ControlledScreen {
      * Furthermore a Thread is spawned which continuously checks if the user is still logged in.
      * The application will automaticly log out the user whenever a status code 401 Unauthorized is received from the server.
      */
-    public void login(){
+    public void login() {
 
-        ThreadUtil.executorService.submit(new Task() {
+        ThreadUtil.executorService.execute(new Task() {
             @Override
             protected Object call() throws Exception {
                 //If textfield or passwordfield are empty
@@ -85,44 +83,51 @@ public class LogInController implements Initializable, ControlledScreen {
                     }
                     System.out.println("fields cannot be empty");
                 } else {
-                    String message = SnakeApp.serverConnection.login(usernameTf.getText(), passwordTf.getText());
+                    try {
+                        String message = SnakeApp.serverConnection.login(usernameTf.getText(), passwordTf.getText());
 
-                    if (SnakeApp.serverConnection.getSession().getCurrentUser() != null) {
+                        if (SnakeApp.serverConnection.getSession().getCurrentUser() != null) {
 
-                        //If user is successfully logged in the application spawns a new Thread which repeatedly checks if the currentUser is still authenticated
-                        //Get Post Put and Delete methods in ServerConnection automatically logs out the user from the application if a status code 401 Unauthorized is received
-                        ThreadUtil.executorService.execute(new Task() {
-                            @Override
-                            protected Object call() throws Exception {
-                                boolean authenticated = true;
-                                while (authenticated) {
-                                    if (SnakeApp.serverConnection.getSession().getCurrentUser() == null) {
-                                        //Since JavaFX is single threaded the Platform.runLater is necessary to make it possible to show the dialog box from another thread than JavaFX's main thread.
-                                        Platform.runLater(() -> InformationDialogs.loggedOutMessage(mainPane));
+                            //If user is successfully logged in the application spawns a new Thread which repeatedly checks if the currentUser is still authenticated
+                            //Get Post Put and Delete methods in ServerConnection automatically logs out the user from the application if a status code 401 Unauthorized is received
+                            ThreadUtil.executorService.execute(new Task() {
+                                @Override
+                                protected Object call() throws Exception {
+                                    boolean authenticated = true;
+                                    while (authenticated) {
+                                        if (SnakeApp.serverConnection.getSession().getCurrentUser() == null) {
+                                            //Since JavaFX is single threaded the Platform.runLater is necessary to make it possible to show the dialog box from another thread than JavaFX's main thread.
+                                            Platform.runLater(() -> InformationDialogs.loggedOutMessage(mainPane));
 //                                        authenticated = false;
-                                        mainPane.setScreen(MainPane.LOGIN_PANEL);
-                                        mainPane.reloadUi();
-                                        break;
+                                            mainPane.setScreen(MainPane.LOGIN_PANEL);
+                                            mainPane.reloadUi();
+                                            break;
+                                        }
+                                        try {
+                                            Thread.sleep(1000);
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
+                                        }
                                     }
-                                    try {
-                                        Thread.sleep(1000);
-                                    } catch (Exception e) {
-                                        e.printStackTrace();
-                                    }
+                                    return null;
                                 }
-                                return null;
-                            }
-                        });
-                        mainPane.setScreen(MainPane.MAIN_MENU_PANEL);
-                    } else {
-                        //Since JavaFX is single threaded the Platform.runLater is necessary to make it possible to show the dialog box from another thread than JavaFX's main thread.
-                        Platform.runLater(() -> InformationDialogs.logInErrorMessage(mainPane, message));
-
+                            });
+                            mainPane.setScreen(MainPane.MAIN_MENU_PANEL);
+                        } else {
+                            //Since JavaFX is single threaded the Platform.runLater is necessary to make it possible to show the dialog box from another thread than JavaFX's main thread.
+                            Platform.runLater(() -> InformationDialogs.logInErrorMessage(mainPane, message));
+                        }
+                    } catch (ClientHandlerException e) {
+                        //Cancels the task
+                        this.cancel(true);
+                        super.cancel(true);
+                        Platform.runLater(() -> InformationDialogs.noConnectionError(mainPane));
                     }
                 }
                 return null;
             }
         });
+
     }
 
     /**

@@ -7,6 +7,7 @@ import GUI.Dialogs.InformationDialogs;
 import GUI.MainPane;
 import SDK.Model.Game;
 import SDK.Model.User;
+import com.sun.jersey.api.client.ClientHandlerException;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,7 +19,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.concurrent.RunnableFuture;
 
 /**
  * Created by Kahlen on 03-12-2015.
@@ -100,8 +100,15 @@ public class CreateGameController implements Initializable, ControlledScreen {
         ThreadUtil.executorService.execute(new Task() {
             @Override
             protected Object call() throws Exception {
-                SnakeApp.serverConnection.getAllUsers();
-                showUsers();
+                try {
+                    SnakeApp.serverConnection.getAllUsers();
+                    showUsers();
+                } catch (ClientHandlerException e) {
+                    //Cancels the task
+                    this.cancel(true);
+                    super.cancel(true);
+                    Platform.runLater(() -> InformationDialogs.noConnectionError(mainPane));
+                }
                 return null;
             }
         });
@@ -150,18 +157,25 @@ public class CreateGameController implements Initializable, ControlledScreen {
             ThreadUtil.executorService.execute(new Task() {
                 @Override
                 protected Object call() throws Exception {
-                    //SDK.ServerConnection Requires opponentId to be 0 in order to create an open game
-                    if (selectedOpponent == null) {
-                        String message = SnakeApp.serverConnection.createGame(gameNameTf.getText(), Integer.parseInt(mapSizeTf.getText()), 0, controlsTf.getText());
-                        clearTextFields();
-                        //New Runnable as lambda expression
-                        Platform.runLater(() -> InformationDialogs.createGameMessage(mainPane, message));
+                    try {
+                        //SDK.ServerConnection Requires opponentId to be 0 in order to create an open game
+                        if (selectedOpponent == null) {
+                            String message = SnakeApp.serverConnection.createGame(gameNameTf.getText(), Integer.parseInt(mapSizeTf.getText()), 0, controlsTf.getText());
+                            clearTextFields();
+                            //New Runnable as lambda expression
+                            Platform.runLater(() -> InformationDialogs.createGameMessage(mainPane, message));
 
-                    } else if (selectedOpponent != null) {
-                        String message = SnakeApp.serverConnection.createGame(gameNameTf.getText(), Integer.parseInt(mapSizeTf.getText()), selectedOpponent.getId(), controlsTf.getText());
-                        clearTextFields();
-                        //New Runnable as lambda expression
-                        Platform.runLater(() -> InformationDialogs.createGameMessage(mainPane, message));
+                        } else if (selectedOpponent != null) {
+                            String message = SnakeApp.serverConnection.createGame(gameNameTf.getText(), Integer.parseInt(mapSizeTf.getText()), selectedOpponent.getId(), controlsTf.getText());
+                            clearTextFields();
+                            //New Runnable as lambda expression
+                            Platform.runLater(() -> InformationDialogs.createGameMessage(mainPane, message));
+                        }
+                    } catch (ClientHandlerException e) {
+                        //Cancels the task
+                        this.cancel(true);
+                        super.cancel(true);
+                        Platform.runLater(() -> InformationDialogs.noConnectionError(mainPane));
                     }
                     return null;
                 }

@@ -55,9 +55,8 @@ public class SnakeApp extends Application {
             Scene scene = new Scene(root);
             scene.setFill(Color.TRANSPARENT);
 
-            /*
-            The two following lambda expressions makes it possible to move the application without the standard StageStyle
-             */
+
+            //The two following lambda expressions makes it possible to move the application without the standard StageStyle
             //Lambda mouse event handler
             scene.setOnMousePressed(event -> {
                 xOffset = primaryStage.getX() - event.getScreenX();
@@ -68,7 +67,6 @@ public class SnakeApp extends Application {
                 primaryStage.setX(event.getScreenX() + xOffset);
                 primaryStage.setY(event.getScreenY() + yOffset);
             });
-
 
             primaryStage.setScene(scene);
             primaryStage.setTitle("Multiplayer Snake");

@@ -11,6 +11,13 @@ import javafx.stage.StageStyle;
  */
 public class InformationDialogs {
 
+
+    public static void noConnectionError(MainPane mainPane){
+        Alert alert = createAlert(mainPane, "Connection Error");
+        alert.setContentText("Connection failed. Please check your internet connection.");
+        alert.showAndWait();
+    }
+
     /**
      * Message when log in fails
      * @param mainPane shown inside mainPane

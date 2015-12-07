@@ -6,6 +6,8 @@ import GUI.Dialogs.InformationDialogs;
 import GUI.MainPane;
 import SDK.Model.Game;
 
+import com.sun.jersey.api.client.ClientHandlerException;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -179,6 +181,7 @@ public class PlayMenuController implements Initializable, ControlledScreen {
             @Override
             protected Object call() throws Exception {
 
+                try {
                     if (gamesToShow.getSelectionModel().getSelectedItem().equals("Pending games")) {
                         SnakeApp.serverConnection.getCurrentUsersGames("pending");
                         showPendingGames();
@@ -195,6 +198,12 @@ public class PlayMenuController implements Initializable, ControlledScreen {
                         SnakeApp.serverConnection.getCurrentUsersGames("finished");
                         showFinishedGames();
                     }
+                } catch (ClientHandlerException e) {
+                    //Cancels the task
+                    this.cancel(true);
+                    super.cancel(true);
+                    Platform.runLater(() -> InformationDialogs.noConnectionError(mainPane));
+                }
                 return null;
             }
         });
@@ -205,12 +214,19 @@ public class PlayMenuController implements Initializable, ControlledScreen {
         ThreadUtil.executorService.execute(new Task() {
             @Override
             protected Object call() throws Exception {
-                if (SnakeApp.serverConnection.joinGame(gamesTable.getSelectionModel().getSelectedItem().getGameId())){
-                    //Next two rows updates the table locally without calling the Server after the update
-                    gamesTable.getItems().remove(gamesTable.getSelectionModel().getSelectedItem());
-                    gamesTable.refresh();
-                } else {
-                    InformationDialogs.joinGameErrorMessage(mainPane);
+                try {
+                    if (SnakeApp.serverConnection.joinGame(gamesTable.getSelectionModel().getSelectedItem().getGameId())){
+                        //Next two rows updates the table locally without calling the Server after the update
+                        gamesTable.getItems().remove(gamesTable.getSelectionModel().getSelectedItem());
+                        gamesTable.refresh();
+                    } else {
+                        InformationDialogs.joinGameErrorMessage(mainPane);
+                    }
+                } catch (ClientHandlerException e) {
+                    //Cancels the task
+                    this.cancel(true);
+                    super.cancel(true);
+                    Platform.runLater(() -> InformationDialogs.noConnectionError(mainPane));
                 }
                 return null;
             }
@@ -261,10 +277,17 @@ public class PlayMenuController implements Initializable, ControlledScreen {
         Task task = new Task() {
             @Override
             protected Object call() throws Exception {
-                SnakeApp.serverConnection.deleteGame(gamesTable.getSelectionModel().getSelectedItem().getGameId());
-                //Next two rows updates the table locally without calling the Server after the update
-                gamesTable.getItems().remove(gamesTable.getSelectionModel().getSelectedItem());
-                gamesTable.refresh();
+                try {
+                    SnakeApp.serverConnection.deleteGame(gamesTable.getSelectionModel().getSelectedItem().getGameId());
+                    //Next two rows updates the table locally without calling the Server after the update
+                    gamesTable.getItems().remove(gamesTable.getSelectionModel().getSelectedItem());
+                    gamesTable.refresh();
+                } catch (ClientHandlerException e) {
+                    //Cancels the task
+                    this.cancel(true);
+                    super.cancel(true);
+                    Platform.runLater(() -> InformationDialogs.noConnectionError(mainPane));
+                }
                 return null;
             }
         };

@@ -4,19 +4,17 @@ import GUI.Animation.GUIAnimations;
 import GUI.ControlledScreen;
 import GUI.Dialogs.InformationDialogs;
 import GUI.MainPane;
+import com.sun.jersey.api.client.ClientHandlerException;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-import java.util.concurrent.RunnableFuture;
-
 /**
  * Created by MathiasKahlen on 04/12/2015.
  */
-public class CreateUserController implements ControlledScreen
-{
+public class CreateUserController implements ControlledScreen {
 
     MainPane mainPane;
 
@@ -36,8 +34,8 @@ public class CreateUserController implements ControlledScreen
     private PasswordField passwordTf;
 
 
-    public void createUser(){
-        if (firstNameTf.getLength()<=0 || lastNameTf.getLength()<=0 || eMailTf.getLength()<=0 || usernameTf.getLength()<=0 || passwordTf.getLength()<=0) {
+    public void createUser() {
+        if (firstNameTf.getLength() <= 0 || lastNameTf.getLength() <= 0 || eMailTf.getLength() <= 0 || usernameTf.getLength() <= 0 || passwordTf.getLength() <= 0) {
             if (firstNameTf.getLength() <= 0)
                 GUIAnimations.scaleTransition(400, firstNameTf);
             if (lastNameTf.getLength() <= 0)
@@ -53,20 +51,25 @@ public class CreateUserController implements ControlledScreen
             ThreadUtil.executorService.execute(new Task() {
                 @Override
                 protected Object call() throws Exception {
-                    String message = SnakeApp.serverConnection.createUser(firstNameTf.getText(),
-                            lastNameTf.getText(), eMailTf.getText(), usernameTf.getText(), passwordTf.getText());
-                    Platform.runLater(() -> InformationDialogs.createUserMessage(mainPane, message));
+                    try {
+                        String message = SnakeApp.serverConnection.createUser(firstNameTf.getText(),
+                                lastNameTf.getText(), eMailTf.getText(), usernameTf.getText(), passwordTf.getText());
+                        Platform.runLater(() -> InformationDialogs.createUserMessage(mainPane, message));
+                    } catch (ClientHandlerException e) {
+                        //Cancels the task
+                        this.cancel(true);
+                        super.cancel(true);
+                        Platform.runLater(() -> InformationDialogs.noConnectionError(mainPane));
+                    }
                     return null;
                 }
             });
         }
     }
 
-    public void goBack(){
+    public void goBack() {
         mainPane.setScreen(MainPane.LOGIN_PANEL);
     }
-
-
 
     @Override
     public void setScreenParent(MainPane parentPane) {

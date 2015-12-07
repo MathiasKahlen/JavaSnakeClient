@@ -4,6 +4,8 @@ import GUI.ControlledScreen;
 import GUI.Dialogs.InformationDialogs;
 import GUI.MainPane;
 import SDK.Model.Game;
+import com.sun.jersey.api.client.ClientHandlerException;
+import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -23,17 +25,24 @@ public class PlayGameController implements ControlledScreen{
         ThreadUtil.executorService.execute(new Task() {
             @Override
             protected Object call() throws Exception {
-                Game finishedGame = SnakeApp.serverConnection.startGame(PlayMenuController.selectedGame.getGameId(), controls.getText());
+                try {
+                    Game finishedGame = SnakeApp.serverConnection.startGame(PlayMenuController.selectedGame.getGameId(), controls.getText());
 
-                //The server doesn't return a username on the winner so for now the winners username is found here.
-                if (finishedGame.getWinner().getId()==PlayMenuController.selectedGame.getHost().getId()) {
-                    finishedGame.getWinner().setUsername(PlayMenuController.selectedGame.getHost().getUsername());
-                } else if (finishedGame.getWinner().getId()==PlayMenuController.selectedGame.getOpponent().getId()){
-                    finishedGame.getWinner().setUsername(PlayMenuController.selectedGame.getOpponent().getUsername());
+                    //The server doesn't return a username on the winner so for now the winners username is found here.
+                    if (finishedGame.getWinner().getId()==PlayMenuController.selectedGame.getHost().getId()) {
+                        finishedGame.getWinner().setUsername(PlayMenuController.selectedGame.getHost().getUsername());
+                    } else if (finishedGame.getWinner().getId()==PlayMenuController.selectedGame.getOpponent().getId()){
+                        finishedGame.getWinner().setUsername(PlayMenuController.selectedGame.getOpponent().getUsername());
+                    }
+
+                    InformationDialogs.gameResult(mainPane, PlayMenuController.selectedGame, finishedGame);
+                    mainPane.setScreen(MainPane.PLAY_MENU_PANEL);
+                } catch (ClientHandlerException e) {
+                    //Cancels the task
+                    this.cancel(true);
+                    super.cancel(true);
+                    Platform.runLater(() -> InformationDialogs.noConnectionError(mainPane));
                 }
-
-                InformationDialogs.gameResult(mainPane, PlayMenuController.selectedGame, finishedGame);
-                mainPane.setScreen(MainPane.PLAY_MENU_PANEL);
                 return null;
             }
         });
