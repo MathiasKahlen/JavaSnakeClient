@@ -1,6 +1,7 @@
 package Controller;
 
 import GUI.ControlledScreen;
+import GUI.CustomComponents.SnakeControlsTextField;
 import GUI.Dialogs.InformationDialogs;
 import GUI.MainPane;
 import SDK.Model.Game;
@@ -18,7 +19,7 @@ public class PlayGameController implements ControlledScreen{
     MainPane mainPane;
 
     @FXML
-    private TextField controls;
+    private SnakeControlsTextField controls;
 
     public void playGame(){
         //Threading this method to avoid blocking the UI if the connection to the server is weak or offline

@@ -3,6 +3,7 @@ package Controller;
  * Created by Kahlen on 06-11-2015.
  */
 
+import GUI.CustomComponents.CustomExitButton;
 import GUI.MainPane;
 import SDK.ServerConnection;
 import javafx.application.Application;
@@ -37,36 +38,19 @@ public class SnakeApp extends Application {
             mainPane.addScreens();
             mainPane.setScreen(MainPane.LOGIN_PANEL);
 
-            Button exitButton = new Button("X");
-            exitButton.setOnAction(event -> {
-                //Shutdown the ExecutorService
-                ThreadUtil.executorService.shutdownNow();
-                //Exit the application
-                Platform.exit();
-            });
-            exitButton.setId("btnExit");
-            mainPane.getChildren().add(exitButton);
-            mainPane.setAlignment(exitButton, Pos.TOP_RIGHT);
-            mainPane.setMargin(exitButton, new Insets(25,25,0,0));
+            //Custom exit button since primaryStage's StageStyle is set to transparent
+            CustomExitButton customExitButton = new CustomExitButton();
+            //Add button to mainPane and set the Alignment and Margin for correct position
+            mainPane.getChildren().add(customExitButton);
+            mainPane.setAlignment(customExitButton, Pos.TOP_RIGHT);
+            mainPane.setMargin(customExitButton, new Insets(25,25,0,0));
 
             Group root = new Group();
             root.getChildren().addAll(mainPane);
 
             Scene scene = new Scene(root);
             scene.setFill(Color.TRANSPARENT);
-
-
-            //The two following lambda expressions makes it possible to move the application without the standard StageStyle
-            //Lambda mouse event handler
-            scene.setOnMousePressed(event -> {
-                xOffset = primaryStage.getX() - event.getScreenX();
-                yOffset = primaryStage.getY() - event.getScreenY();
-            });
-            //Lambda mouse event handler
-            scene.setOnMouseDragged(event -> {
-                primaryStage.setX(event.getScreenX() + xOffset);
-                primaryStage.setY(event.getScreenY() + yOffset);
-            });
+            setSceneDrag(primaryStage, scene);
 
             primaryStage.setScene(scene);
             primaryStage.setTitle("Multiplayer Snake");
@@ -76,5 +60,25 @@ public class SnakeApp extends Application {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * Method allows dragging the scene's position
+     * Necessary while StageStyle on primaryStage is TRANSPARENT
+     * @param primaryStage
+     * @param scene
+     */
+    public void setSceneDrag(Stage primaryStage, Scene scene){
+        //The two following lambda expressions makes it possible to move the application without the standard StageStyle
+        //Lambda mouse event handler
+        scene.setOnMousePressed(event -> {
+            xOffset = primaryStage.getX() - event.getScreenX();
+            yOffset = primaryStage.getY() - event.getScreenY();
+        });
+        //Lambda mouse event handler
+        scene.setOnMouseDragged(event -> {
+            primaryStage.setX(event.getScreenX() + xOffset);
+            primaryStage.setY(event.getScreenY() + yOffset);
+        });
     }
 }
