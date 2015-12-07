@@ -4,9 +4,13 @@ import GUI.Animation.GUIAnimations;
 import GUI.ControlledScreen;
 import GUI.Dialogs.InformationDialogs;
 import GUI.MainPane;
+import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+
+import java.util.concurrent.RunnableFuture;
 
 /**
  * Created by MathiasKahlen on 04/12/2015.
@@ -45,11 +49,17 @@ public class CreateUserController implements ControlledScreen
             if (passwordTf.getLength() <= 0)
                 GUIAnimations.scaleTransition(400, passwordTf);
         } else {
-            String message = SnakeApp.serverConnection.createUser(firstNameTf.getText(),
-                    lastNameTf.getText(), eMailTf.getText(), usernameTf.getText(), passwordTf.getText());
-            InformationDialogs.createUserMessage(mainPane, message);
+            //Threading this part of the method to avoid blocking the UI if the connection to the server is weak or offline
+            ThreadUtil.executorService.execute(new Task() {
+                @Override
+                protected Object call() throws Exception {
+                    String message = SnakeApp.serverConnection.createUser(firstNameTf.getText(),
+                            lastNameTf.getText(), eMailTf.getText(), usernameTf.getText(), passwordTf.getText());
+                    Platform.runLater(() -> InformationDialogs.createUserMessage(mainPane, message));
+                    return null;
+                }
+            });
         }
-
     }
 
     public void goBack(){

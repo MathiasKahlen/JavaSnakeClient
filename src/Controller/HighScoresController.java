@@ -7,6 +7,7 @@ import SDK.Model.Score;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -79,8 +80,15 @@ public class HighScoresController implements Initializable, ControlledScreen{
     }
 
     public void updateHighScores(){
-        SnakeApp.serverConnection.getHighScores();
-        showHighScores();
+        //Threading this method to avoid blocking the UI if the connection to the server is weak or offline
+        ThreadUtil.executorService.execute(new Task() {
+            @Override
+            protected Object call() throws Exception {
+                SnakeApp.serverConnection.getHighScores();
+                showHighScores();
+                return null;
+            }
+        });
     }
 
     @Override

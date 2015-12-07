@@ -38,7 +38,12 @@ public class SnakeApp extends Application {
             mainPane.setScreen(MainPane.LOGIN_PANEL);
 
             Button exitButton = new Button("X");
-            exitButton.setOnAction(event -> Platform.exit());
+            exitButton.setOnAction(event -> {
+                //Shutdown the ExecutorService
+                ThreadUtil.executorService.shutdownNow();
+                //Exit the application
+                Platform.exit();
+            });
             exitButton.setId("btnExit");
             mainPane.getChildren().add(exitButton);
             mainPane.setAlignment(exitButton, Pos.TOP_RIGHT);

@@ -7,8 +7,10 @@ import GUI.Dialogs.InformationDialogs;
 import GUI.MainPane;
 import SDK.Model.Game;
 import SDK.Model.User;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -16,6 +18,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.concurrent.RunnableFuture;
 
 /**
  * Created by Kahlen on 03-12-2015.
@@ -93,8 +96,15 @@ public class CreateGameController implements Initializable, ControlledScreen {
      * Reloads and shows all users in the system
      */
     public void refreshUsers(){
-        SnakeApp.serverConnection.getAllUsers();
-        showUsers();
+        //Threaded to avoid blocking the UI if the connection to the server is weak or offline
+        ThreadUtil.executorService.execute(new Task() {
+            @Override
+            protected Object call() throws Exception {
+                SnakeApp.serverConnection.getAllUsers();
+                showUsers();
+                return null;
+            }
+        });
     }
 
     /**
@@ -136,16 +146,26 @@ public class CreateGameController implements Initializable, ControlledScreen {
                 GUIAnimations.scaleTransition(400, gameNameTf);
 
         } else {
-            //SDK.ServerConnection Requires opponentId to be 0 in order to create an open game
-            if (selectedOpponent == null) {
-                String message = SnakeApp.serverConnection.createGame(gameNameTf.getText(), Integer.parseInt(mapSizeTf.getText()), 0, controlsTf.getText());
-                clearTextFields();
-                InformationDialogs.createGameMessage(mainPane, message);
-            } else if (selectedOpponent != null) {
-                String message = SnakeApp.serverConnection.createGame(gameNameTf.getText(), Integer.parseInt(mapSizeTf.getText()), selectedOpponent.getId(), controlsTf.getText());
-                clearTextFields();
-                InformationDialogs.createGameMessage(mainPane, message);
-            }
+            //Threading this part of the method to avoid blocking the UI if the connection to the server is weak or offline
+            ThreadUtil.executorService.execute(new Task() {
+                @Override
+                protected Object call() throws Exception {
+                    //SDK.ServerConnection Requires opponentId to be 0 in order to create an open game
+                    if (selectedOpponent == null) {
+                        String message = SnakeApp.serverConnection.createGame(gameNameTf.getText(), Integer.parseInt(mapSizeTf.getText()), 0, controlsTf.getText());
+                        clearTextFields();
+                        //New Runnable as lambda expression
+                        Platform.runLater(() -> InformationDialogs.createGameMessage(mainPane, message));
+
+                    } else if (selectedOpponent != null) {
+                        String message = SnakeApp.serverConnection.createGame(gameNameTf.getText(), Integer.parseInt(mapSizeTf.getText()), selectedOpponent.getId(), controlsTf.getText());
+                        clearTextFields();
+                        //New Runnable as lambda expression
+                        Platform.runLater(() -> InformationDialogs.createGameMessage(mainPane, message));
+                    }
+                    return null;
+                }
+            });
         }
     }
 

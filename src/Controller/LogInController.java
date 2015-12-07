@@ -7,7 +7,9 @@ import GUI.MainPane;
 
 import GUI.ControlledScreen;
 
+import com.sun.org.apache.xpath.internal.SourceTree;
 import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.CacheHint;
@@ -19,13 +21,15 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
 
 
+import java.net.ConnectException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.concurrent.*;
 
 /**
  * Created by Kahlen on 06-11-2015.
  */
-public class LogInController implements Initializable, ControlledScreen{
+public class LogInController implements Initializable, ControlledScreen {
 
     private MainPane mainPane;
 
@@ -66,75 +70,93 @@ public class LogInController implements Initializable, ControlledScreen{
      * Furthermore a Thread is spawned which continuously checks if the user is still logged in.
      * The application will automaticly log out the user whenever a status code 401 Unauthorized is received from the server.
      */
-    public void login() {
-        //If textfield or passwordfield are empty
-        if (usernameTf.getLength() <= 0 || passwordTf.getLength() <= 0) {
-            if (usernameTf.getLength() <= 0) {
-                GUIAnimations.scaleTransition(400, usernameTf);
-            }
-            if (passwordTf.getLength() <= 0) {
-                GUIAnimations.scaleTransition(400, passwordTf);
-            }
-            System.out.println("fields cannot be empty");
-        } else {
-            String message = SnakeApp.serverConnection.login(usernameTf.getText(), passwordTf.getText());
+    public void login() throws InterruptedException {
 
-            if (SnakeApp.serverConnection.getSession().getCurrentUser() != null) {
-
-                //If user is successfully logged in the application spawns a new Thread which repeatedly checks if the currentUser is still authenticated
-                //Get Post Put and Delete methods in ServerConnection automatically logs out the user from the application if a status code 401 Unauthorized is received
-                Thread authenticationListener = new Thread(new Runnable() {
-                    boolean authenticated = true;
-                    @Override
-                    public void run() {
-                        while (authenticated){
-                            if (SnakeApp.serverConnection.getSession().getCurrentUser()==null) {
-                                //Since JavaFX is single threaded the Platform.runLater is necessary to make it possible to show the dialog box from another thread than JavaFX's main thread.
-                                Platform.runLater(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        InformationDialogs.loggedOutMessage(mainPane);
-                                    }
-                                });
-                                authenticated=false;
-                                mainPane.setScreen(MainPane.LOGIN_PANEL);
-                                mainPane.reloadUi();
-                                break;
-                            }
-                            try{
-                                Thread.sleep(1000);
-                            } catch (Exception e){
-                                e.printStackTrace();
-                            }
-                        }
+        Future<?> future = ThreadUtil.executorService.submit(new Task() {
+            @Override
+            protected Object call() throws Exception {
+                while(!Thread.interrupted()){
+                //If textfield or passwordfield are empty
+                if (usernameTf.getLength() <= 0 || passwordTf.getLength() <= 0) {
+                    if (usernameTf.getLength() <= 0) {
+                        GUIAnimations.scaleTransition(400, usernameTf);
                     }
-                });
-                //Creating thread as a daemon which makes sure the thread will be stopped when the application is closed.
-                authenticationListener.setDaemon(true);
-                authenticationListener.start();
+                    if (passwordTf.getLength() <= 0) {
+                        GUIAnimations.scaleTransition(400, passwordTf);
+                    }
+                    System.out.println("fields cannot be empty");
+                } else {
+                    String message = SnakeApp.serverConnection.login(usernameTf.getText(), passwordTf.getText());
 
+                    if (SnakeApp.serverConnection.getSession().getCurrentUser() != null) {
 
-                mainPane.setScreen(MainPane.MAIN_MENU_PANEL);
-            } else {
-                InformationDialogs.logInErrorMessage(mainPane, message);
+                        //If user is successfully logged in the application spawns a new Thread which repeatedly checks if the currentUser is still authenticated
+                        //Get Post Put and Delete methods in ServerConnection automatically logs out the user from the application if a status code 401 Unauthorized is received
+                        ThreadUtil.executorService.execute(new Task() {
+                            @Override
+                            protected Object call() throws Exception {
+                                boolean authenticated = true;
+                                while (authenticated) {
+                                    if (SnakeApp.serverConnection.getSession().getCurrentUser() == null) {
+                                        //Since JavaFX is single threaded the Platform.runLater is necessary to make it possible to show the dialog box from another thread than JavaFX's main thread.
+                                        Platform.runLater(() -> InformationDialogs.loggedOutMessage(mainPane));
+//                                        authenticated = false;
+                                        mainPane.setScreen(MainPane.LOGIN_PANEL);
+                                        mainPane.reloadUi();
+                                        break;
+                                    }
+                                    try {
+                                        Thread.sleep(1000);
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                                return null;
+                            }
+                        });
+                        mainPane.setScreen(MainPane.MAIN_MENU_PANEL);
+                    } else {
+                        //Since JavaFX is single threaded the Platform.runLater is necessary to make it possible to show the dialog box from another thread than JavaFX's main thread.
+                        Platform.runLater(() -> InformationDialogs.logInErrorMessage(mainPane, message));
+
+                    }
+                }}
+                return null;
             }
-    }
+        });
+//
+//        try {
+//            System.out.println("Started...");
+//            future.get(5, TimeUnit.SECONDS);
+//            System.out.println("Finished.");
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+
+//        } catch (TimeoutException e) {
+//            future.cancel(true);
+//            System.out.println("Timed out");
+//            e.printStackTrace();
+//        } catch (ExecutionException e) {
+//            e.printStackTrace();
+//        }
     }
 
     /**
      * Redirecting to create user screen
      */
-    public void createUser(){
+    public void createUser() {
         mainPane.setScreen(MainPane.CREATE_USER_PANEL);
     }
 
     /**
      * Sets KeyEvent on enter key which calls login() method.
+     *
      * @param event
      */
     @FXML
-    public void onEnter(KeyEvent event){
-        if (event.getCode()== KeyCode.ENTER){
+    public void onEnter(KeyEvent event) throws InterruptedException {
+        if (event.getCode() == KeyCode.ENTER) {
             login();
         }
     }
