@@ -33,6 +33,10 @@ public class ServerConnection implements SnakeClient{
     public ClientResponse get(String path, String token){
         Client client = Client.create();
 
+        //Timeout after 5 seconds
+        client.setConnectTimeout(1000*5);
+        client.setReadTimeout(1000*5);
+
         WebResource webResource = client.resource(Config.getHost() + ":" + Config.getPort() + "/api/" + path);
         ClientResponse response = webResource
                 .header("jwt", token)
@@ -50,6 +54,10 @@ public class ServerConnection implements SnakeClient{
     public ClientResponse post(String json, String path, String token){
         Client client = Client.create();
 
+        //Timeout after 5 seconds
+        client.setConnectTimeout(1000*5);
+        client.setReadTimeout(1000*5);
+
         WebResource webResource = client.resource(Config.getHost() + ":" + Config.getPort() + "/api/" + path);
         ClientResponse response = webResource
                 .header("jwt", token)
@@ -66,6 +74,10 @@ public class ServerConnection implements SnakeClient{
     public ClientResponse put(String json, String path, String token){
         Client client = Client.create();
 
+        //Timeout after 5 seconds
+        client.setConnectTimeout(1000*5);
+        client.setReadTimeout(1000*5);
+
         WebResource webResource = client.resource(Config.getHost() + ":" + Config.getPort() + "/api/" + path);
         ClientResponse response = webResource
                 .header("jwt", token)
@@ -81,6 +93,10 @@ public class ServerConnection implements SnakeClient{
 
     public ClientResponse delete(String path, String token){
         Client client = Client.create();
+
+        //Timeout after 5 seconds
+        client.setConnectTimeout(1000*5);
+        client.setReadTimeout(1000*5);
 
         WebResource webResource = client.resource(Config.getHost() + ":" + Config.getPort() + "/api/" + path);
         ClientResponse response = webResource

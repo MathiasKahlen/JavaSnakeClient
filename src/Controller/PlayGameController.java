@@ -36,7 +36,7 @@ public class PlayGameController implements ControlledScreen{
                         finishedGame.getWinner().setUsername(PlayMenuController.selectedGame.getOpponent().getUsername());
                     }
 
-                    InformationDialogs.gameResult(mainPane, PlayMenuController.selectedGame, finishedGame);
+                    Platform.runLater(() -> InformationDialogs.gameResult(mainPane, PlayMenuController.selectedGame, finishedGame));
                     mainPane.setScreen(MainPane.PLAY_MENU_PANEL);
                 } catch (ClientHandlerException e) {
                     //Cancels the task
