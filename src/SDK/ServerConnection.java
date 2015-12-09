@@ -29,6 +29,14 @@ public class ServerConnection implements SnakeClient{
     }
 
 
+    /**
+     * Used in all methods that require get requests to the server
+     * @param path path to the endpoint after /api/
+     *             ex. "games/" will go to /api/games/
+     * @param token get the token from session's variable: "jwtToken"
+     *              token is used for authorization at some endpoints
+     * @return returns a ClientResponse which can be used in all methods that require get requests to the server
+     */
     //Set token to null in methods that don't require a token
     public ClientResponse get(String path, String token){
         Client client = Client.create();
@@ -50,6 +58,15 @@ public class ServerConnection implements SnakeClient{
         return response;
     }
 
+    /**
+     * Used in all methods that require post requests to the server
+     * @param json content of the post request
+     * @param path path to the endpoint after /api/
+     *             ex. "games/" will go to /api/games/
+     * @param token get the token from session's variable: "jwtToken"
+     *              token is used for authorization at some endpoints
+     * @return returns a ClientResponse which can be used in all methods that require post requests to the server
+     */
     //Set token to null in methods that don't require a token
     public ClientResponse post(String json, String path, String token){
         Client client = Client.create();
@@ -71,6 +88,16 @@ public class ServerConnection implements SnakeClient{
         return response;
     }
 
+    /**
+     * Used in all methods that require put requests to the server
+     * @param json content of the put request
+     * @param path path to the endpoint after /api/
+     *             ex. "games/" will go to /api/games/
+     * @param token get the token from session's variable: "jwtToken"
+     *              token is used for authorization at some endpoints
+     * @return returns a ClientResponse which can be used in all methods that require put requests to the server
+     */
+    //Set token to null in methods that don't require a token
     public ClientResponse put(String json, String path, String token){
         Client client = Client.create();
 
@@ -91,6 +118,15 @@ public class ServerConnection implements SnakeClient{
         return response;
     }
 
+    /**
+     * Used in all methods that require delete requests to the server
+     * @param path path to the endpoint after /api/
+     *             ex. "games/" will go to /api/games/
+     * @param token get the token from session's variable: "jwtToken"
+     *              token is used for authorization at some endpoints
+     * @return returns a ClientResponse which can be used in all methods that require delete requests to the server
+     */
+    //Set token to null in methods that don't require a token
     public ClientResponse delete(String path, String token){
         Client client = Client.create();
 
@@ -190,6 +226,7 @@ public class ServerConnection implements SnakeClient{
         //Sets the users controls
         game.setHost(host);
         game.getHost().setControls(hostControls);
+        //Sets game name and size of the map
         game.setName(gameName);
         game.setMapSize(mapSize);
 
@@ -311,6 +348,13 @@ public class ServerConnection implements SnakeClient{
     }
 
 
+    /**
+     * Use this method for parsing the Entity content of ClientResponses to a jsonObject
+     * From this jsonObject it is possible to get specified data from the "key" in the JSON.
+     * @param response Takes a ClientResponse as parameter
+     *                 Use the ClientResponse from which you want to be able to get data
+     * @return returns a JSONObject from which it is possible to get content of keys in the JSON string.
+     */
     //Parsing the entity of a ClientResponse to json
     public JSONObject responseToJson(ClientResponse response){
 

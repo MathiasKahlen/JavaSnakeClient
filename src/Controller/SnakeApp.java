@@ -20,7 +20,10 @@ import javafx.stage.StageStyle;
 
 public class SnakeApp extends Application {
 
+    //Static object of ServerConnection makes its methods useable in Controller classes.
+    //Also makes it possible to access the Session and CachedData objects in this.
     static ServerConnection serverConnection;
+    //Offsets used for calculating position when dragging the Scene
     private double xOffset;
     private double yOffset;
 

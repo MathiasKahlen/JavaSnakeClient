@@ -20,7 +20,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.net.URL;
 import java.util.Date;
 import java.util.ResourceBundle;
-import java.util.concurrent.Executor;
 
 /**
  * Created by Kahlen on 25-11-2015.
@@ -117,6 +116,7 @@ public class PlayMenuController implements Initializable, ControlledScreen {
         });
 
         //Colors the rows so the games the user already played are red
+        //TODO: this should be changed for finished games, I havn't figured how to do this yet.
         hostNameColumn.setCellFactory(column -> new TableCell<Game, String>() {
             @Override
             protected void updateItem(String item, boolean empty) {

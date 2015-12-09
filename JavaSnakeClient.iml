@@ -10,5 +10,6 @@
     <orderEntry type="library" name="jax-rs-jersey-1.10" level="project" />
     <orderEntry type="library" name="jax-rs-jersey-1.10" level="project" />
     <orderEntry type="library" name="com.google.code.gson:gson:2.4" level="project" />
+    <orderEntry type="library" name="com.googlecode.json-simple:json-simple:1.1.1" level="project" />
   </component>
 </module>

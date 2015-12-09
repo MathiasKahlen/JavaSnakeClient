@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0eb8f8a2-1831-4aa0-b838-963f6ceaa8c5" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/jax_rs_jersey_1_10.xml" afterPath="$PROJECT_DIR$/.idea/libraries/jax_rs_jersey_1_10.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/PlayGameController.java" afterPath="$PROJECT_DIR$/src/Controller/PlayGameController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/MainPane.java" afterPath="$PROJECT_DIR$/src/GUI/MainPane.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JavaSnakeClient.iml" afterPath="$PROJECT_DIR$/JavaSnakeClient.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/LogInController.java" afterPath="$PROJECT_DIR$/src/Controller/LogInController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/PlayMenuController.java" afterPath="$PROJECT_DIR$/src/Controller/PlayMenuController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/SnakeApp.java" afterPath="$PROJECT_DIR$/src/Controller/SnakeApp.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SDK/ServerConnection.java" afterPath="$PROJECT_DIR$/src/SDK/ServerConnection.java" />
     </list>
     <ignored path="JavaSnakeClient.iws" />
@@ -28,21 +31,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LogInController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/LogInController.java">
+      <file leaf-file-name="ControlledScreen.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GUI/ControlledScreen.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="102" column="64" selection-start-line="102" selection-start-column="64" selection-end-line="102" selection-end-column="64" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainMenuController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/MainMenuController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="34" column="36" selection-start-line="34" selection-start-column="36" selection-end-line="34" selection-end-column="36" />
+              <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -52,7 +45,7 @@
         <entry file="file://$PROJECT_DIR$/src/Controller/ThreadUtil.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <caret line="14" column="90" selection-start-line="14" selection-start-column="90" selection-end-line="14" selection-end-column="90" />
               <folding />
             </state>
           </provider>
@@ -62,37 +55,37 @@
         <entry file="file://$PROJECT_DIR$/src/Controller/SnakeApp.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="61" column="9" selection-start-line="61" selection-start-column="9" selection-end-line="61" selection-end-column="9" />
+              <caret line="84" column="11" selection-start-line="84" selection-start-column="11" selection-end-line="84" selection-end-column="11" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainPane.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GUI/MainPane.java">
+      <file leaf-file-name="Session.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SDK/Model/Session.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="59" column="6" selection-start-line="59" selection-start-column="6" selection-end-line="59" selection-end-column="6" />
+              <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SDK/SDKConfig/config.json">
+      <file leaf-file-name="CachedData.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SDK/Model/CachedData.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PlayMenuController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PlayMenuController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/PlayMenuController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5288684">
-              <caret line="187" column="21" selection-start-line="187" selection-start-column="21" selection-end-line="187" selection-end-column="21" />
+            <state vertical-scroll-proportion="-7.275862">
+              <caret line="219" column="103" selection-start-line="219" selection-start-column="23" selection-end-line="219" selection-end-column="103" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -100,33 +93,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PlayGameController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/PlayGameController.java">
+      <file leaf-file-name="LogInController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Controller/LogInController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="38" column="12" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ServerConnection.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SDK/ServerConnection.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="272" column="22" selection-start-line="272" selection-start-column="22" selection-end-line="272" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SnakeClient.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SDK/SnakeClient.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="33" column="19" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="49" />
+            <state vertical-scroll-proportion="0.5948478">
+              <caret line="108" column="14" selection-start-line="108" selection-start-column="14" selection-end-line="108" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -141,6 +112,7 @@
         <option value="Singleton" />
         <option value="CSS File" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -196,16 +168,16 @@
         <option value="$PROJECT_DIR$/src/Controller/CreateGameController.java" />
         <option value="$PROJECT_DIR$/src/Controller/CreateUserController.java" />
         <option value="$PROJECT_DIR$/src/Controller/HighScoresController.java" />
-        <option value="$PROJECT_DIR$/src/Controller/ThreadUtil.java" />
         <option value="$PROJECT_DIR$/src/GUI/fxml/PlayGamePane.fxml" />
-        <option value="$PROJECT_DIR$/src/Controller/SnakeApp.java" />
         <option value="$PROJECT_DIR$/src/GUI/CustomComponents/CustomExitButton.java" />
-        <option value="$PROJECT_DIR$/src/Controller/LogInController.java" />
         <option value="$PROJECT_DIR$/src/GUI/MainPane.java" />
         <option value="$PROJECT_DIR$/src/Controller/PlayGameController.java" />
-        <option value="$PROJECT_DIR$/src/SDK/ServerConnection.java" />
         <option value="$PROJECT_DIR$/src/SDK/SDKConfig/config.json" />
+        <option value="$PROJECT_DIR$/src/SDK/ServerConnection.java" />
         <option value="$PROJECT_DIR$/src/Controller/PlayMenuController.java" />
+        <option value="$PROJECT_DIR$/src/Controller/ThreadUtil.java" />
+        <option value="$PROJECT_DIR$/src/Controller/SnakeApp.java" />
+        <option value="$PROJECT_DIR$/src/Controller/LogInController.java" />
       </list>
     </option>
   </component>
@@ -222,10 +194,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1688" />
-    <option name="y" value="22" />
-    <option name="width" value="1696" />
-    <option name="height" value="1026" />
+    <option name="x" value="-1686" />
+    <option name="y" value="31" />
+    <option name="width" value="1692" />
+    <option name="height" value="1015" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -252,13 +224,16 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="JavaSnakeClient" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -325,20 +300,20 @@
       </pane>
       <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Documents/dis/SnakeServer" />
-    <property name="settings.editor.selected.configurable" value="editing.templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="settings.editor.selected.configurable" value="com.jpower8.idea.plugin.statictic.StatisticProjectComponent" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="FullScreen" value="false" />
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
@@ -346,13 +321,6 @@
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files (x86)\nodejs\node.exe" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/GUI/fxml" />
-      <recent name="C:\Users\Kahlen\IdeaProjects\JavaSnakeClient\src\GUI\fxml" />
-      <recent name="C:\Users\Kahlen\IdeaProjects\JavaSnakeClient\src\GUI\JavaFX" />
-      <recent name="C:\Users\Kahlen\IdeaProjects\JavaSnakeClient\src\Controller" />
-      <recent name="C:\Users\Kahlen\IdeaProjects\JavaSnakeClient\src\GUI\Swing\UserGUI" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Kahlen\IdeaProjects\JavaSnakeClient\src\SDK\SDKConfig" />
       <recent name="C:\Users\Kahlen\IdeaProjects\JavaSnakeClient\src\GUI\fxml" />
@@ -361,6 +329,13 @@
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="SDK.Model" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/GUI/fxml" />
+      <recent name="C:\Users\Kahlen\IdeaProjects\JavaSnakeClient\src\GUI\fxml" />
+      <recent name="C:\Users\Kahlen\IdeaProjects\JavaSnakeClient\src\GUI\JavaFX" />
+      <recent name="C:\Users\Kahlen\IdeaProjects\JavaSnakeClient\src\Controller" />
+      <recent name="C:\Users\Kahlen\IdeaProjects\JavaSnakeClient\src\GUI\Swing\UserGUI" />
     </key>
   </component>
   <component name="RunManager" selected="Application.SnakeApp">
@@ -909,6 +884,18 @@
     </option>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="StatisticProjectComponent">
+    <option name="excludeCompilerOutput" value="true" />
+    <option name="excludeIdea9ArtifactDirectory" value="true" />
+    <option name="excludeTargetDirectories" value="true" />
+    <option name="activateWhenOpenProject" value="false" />
+    <option name="excludedDirectories">
+      <value>
+        <list size="0" />
+      </value>
+    </option>
+    <option name="fileTypes" value="class;svn-base;svn-work;Extra;gif;png;jpg;jpeg;bmp;tga;tiff;ear;war;zip;jar;iml;iws;ipr;bz2;gz;" />
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -961,7 +948,9 @@
       <workItem from="1449482481197" duration="22557000" />
       <workItem from="1449511589759" duration="3068000" />
       <workItem from="1449563367096" duration="5140000" />
-      <workItem from="1449640362086" duration="93000" />
+      <workItem from="1449640362086" duration="12455000" />
+      <workItem from="1449655267910" duration="1253000" />
+      <workItem from="1449656534515" duration="10839000" />
     </task>
     <task id="LOCAL-00001" summary="Added JavaFX gui and functionality">
       <created>1447345506979</created>
@@ -1119,11 +1108,17 @@
       <option name="project" value="LOCAL" />
       <updated>1449501014801</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Minor fixes and added timeouts to get post put and delete methods in ServerConnection to lower the time before user gets a timeout message if there is no connection">
+      <created>1449640494413</created>
+      <option name="number" value="00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1449640494413</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="352800000" />
+    <option name="totallyTimeSpent" value="377254000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1135,8 +1130,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1688" y="22" width="1696" height="1026" extended-state="0" />
-    <editor active="false" />
+    <frame x="-1686" y="31" width="1692" height="1015" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32719395" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1145,24 +1140,26 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32719395" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31690928" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32719395" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18459658" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18504901" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32997763" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24892704" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24877751" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39761648" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32922733" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="soapUI Navigator" active="false" anchor="left" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39761648" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32719395" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39820743" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30907056" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39709172" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277849" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1178,7 +1175,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added more gui functionality and added model classes and finished some methods in the Api class.&#10;Also added a method in MainPane to fade in and out the screens" />
     <MESSAGE value="Repush - all files werent added&#10;&#10;Added more gui functionality and added model classes and finished some methods in the Api class.&#10;Also added a method in MainPane to fade in and out the screens" />
     <MESSAGE value="Started highscore methods" />
     <MESSAGE value="Minor changes:&#10;Changed login method in LogInController and added an animation to the text fields if they are empty when trying to log in.&#10;Also added PlayMenuPane" />
@@ -1203,11 +1199,12 @@
     <MESSAGE value="Revoked accidental push on unfinished work on login method" />
     <MESSAGE value="Removed a few more leftovers from accidental push" />
     <MESSAGE value="added try-catch to all server connection methods in controller classes. If there's no connection to the server the application will show a Connection Error information dialog." />
-    <option name="LAST_COMMIT_MESSAGE" value="added try-catch to all server connection methods in controller classes. If there's no connection to the server the application will show a Connection Error information dialog." />
+    <MESSAGE value="Minor fixes and added timeouts to get post put and delete methods in ServerConnection to lower the time before user gets a timeout message if there is no connection" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor fixes and added timeouts to get post put and delete methods in ServerConnection to lower the time before user gets a timeout message if there is no connection" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="15" />
+      <option name="time" value="16" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1216,32 +1213,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/GUI/MainPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/MainMenuController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="53" selection-start-line="25" selection-start-column="53" selection-end-line="25" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/fxml/MainMenuPane.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/ControlledScreen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1275,24 +1246,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/jersey-bundle-1.10.jar!/com/sun/jersey/api/client/ClientResponse.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.0505226">
-          <caret line="160" column="0" selection-start-line="160" selection-start-column="0" selection-end-line="160" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/fxml/PlayMenuPane.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.137931">
-          <caret line="38" column="111" selection-start-line="38" selection-start-column="111" selection-end-line="38" selection-end-column="111" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1331,41 +1284,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SDK/Model/Session.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="69" column="3" selection-start-line="69" selection-start-column="3" selection-end-line="69" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/CSS/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/Animation/GUIAnimations.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="39" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SDK/Model/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SDK/Model/CachedData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/SDK/SDKConfig/Config.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1373,69 +1291,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/ControlledScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/fxml/LogInPane.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.0344827">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/fxml/HighScoresPane.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.1034484">
           <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/fxml/MainMenuPane.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/fxml/MainMenuPane.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.137931">
           <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/fxml/CreateUserPane.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="308" selection-start-line="4" selection-start-column="308" selection-end-line="4" selection-end-column="308" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/fxml/CreateGamePane.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/Dialogs/ConfirmationDialogs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_45/javafx-src.zip!/javafx/scene/control/TableView.java">
@@ -1488,13 +1362,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/CustomComponents/SnakeControlsTextField.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="63" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/CustomComponents/CustomExitButton.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1502,69 +1369,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/CreateGameController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="178" column="21" selection-start-line="178" selection-start-column="21" selection-end-line="178" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/CreateUserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="62" column="21" selection-start-line="62" selection-start-column="21" selection-end-line="62" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/HighScoresController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="97" column="17" selection-start-line="97" selection-start-column="17" selection-end-line="97" selection-end-column="17" />
-          <folding>
-            <element signature="e#3461#3462#0" expanded="false" />
-            <element signature="e#3498#3499#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/fxml/PlayGamePane.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/SnakeApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="61" column="9" selection-start-line="61" selection-start-column="9" selection-end-line="61" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/LogInController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="102" column="64" selection-start-line="102" selection-start-column="64" selection-end-line="102" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/SDK/SDKConfig/config.json">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1572,22 +1380,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="34" column="36" selection-start-line="34" selection-start-column="36" selection-end-line="34" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ThreadUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/MainPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="59" column="6" selection-start-line="59" selection-start-column="6" selection-end-line="59" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -1600,31 +1392,512 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SDK/ServerConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="272" column="22" selection-start-line="272" selection-start-column="22" selection-end-line="272" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/PlayGameController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="38" column="12" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/jersey-bundle-1.10.jar!/com/sun/jersey/api/client/ClientResponse.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.8214285">
+          <caret line="45" column="24" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SDK/Model/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_65/javafx-src.zip!/javafx/application/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="304" column="27" selection-start-line="304" selection-start-column="27" selection-end-line="304" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement />
+          <nodes>
+            <node x="439.6611394557824" y="624.0">Controller.HighScoresController</node>
+            <node x="1204.1409742468418" y="425.0">GUI.CustomComponents.SnakeControlsTextField</node>
+            <node x="181.0" y="698.0">GUI.Animation</node>
+            <node x="1424.0361394557824" y="425.0">GUI.CustomComponents.NumberTextField</node>
+            <node x="361.0" y="698.0">GUI.Dialogs</node>
+            <node x="256.3486394557824" y="425.0">GUI.CustomComponents.CustomExitButton</node>
+            <node x="739.6611394557824" y="624.0">Controller.MainMenuController</node>
+            <node x="335.9736394557824" y="247.0">SDK.Model.Score</node>
+            <node x="604.6611394557824" y="624.0">Controller.LogInController</node>
+            <node x="183.33272594752185" y="624.0">Controller.SnakeApp</node>
+            <node x="0.0" y="698.0">SDK.SDKConfig</node>
+            <node x="708.6290694849368" y="425.0">GUI.MainPane</node>
+            <node x="0.0" y="326.0">SDK.SnakeClient</node>
+            <node x="524.0" y="698.0">Controller.ThreadUtil</node>
+            <node x="335.2028061224491" y="89.0">SDK.Model.Gamer</node>
+            <node x="180.4736394557824" y="0.0">SDK.Model.User</node>
+            <node x="1391.7861394557824" y="624.0">Controller.CreateGameController</node>
+            <node x="115.00000000000006" y="247.0">SDK.Model.Session</node>
+            <node x="1222.6611394557824" y="624.0">Controller.PlayGameController</node>
+            <node x="982.5" y="425.0">GUI.ControlledScreen</node>
+            <node x="902.6611394557824" y="624.0">Controller.CreateUserController</node>
+            <node x="110.3486394557824" y="425.0">SDK.ServerConnection</node>
+            <node x="1064.6611394557824" y="624.0">Controller.PlayMenuController</node>
+            <node x="301.8486394557824" y="168.0">SDK.Model.Game</node>
+            <node x="175.62500000000006" y="326.0">SDK.Model.CachedData</node>
+            <node x="565.233843537415" y="425.0">GUI.Effects.TextBlend</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="Controller.PlayGameController" target="GUI.MainPane">
+              <point x="-46.0" y="-14.5" />
+              <point x="1245.6611394557824" y="514.0" />
+              <point x="780.8790694849368" y="514.0" />
+              <point x="29.75" y="14.5" />
+            </edge>
+            <edge source="Controller.CreateUserController" target="GUI.ControlledScreen">
+              <point x="35.5" y="-14.5" />
+              <point x="1009.1611394557824" y="604.0" />
+              <point x="1044.0" y="604.0" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="SDK.Model.Score" target="SDK.Model.Gamer">
+              <point x="15.25" y="-14.5" />
+              <point x="381.7236394557824" y="143.0" />
+              <point x="368.7028061224491" y="143.0" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="Controller.PlayMenuController" target="SDK.Model.Game">
+              <point x="46.0" y="-14.5" />
+              <point x="1179.6611394557824" y="604.0" />
+              <point x="1158.6409742468418" y="604.0" />
+              <point x="1158.6409742468418" y="222.0" />
+              <point x="356.9736394557824" y="222.0" />
+              <point x="23.625" y="14.5" />
+            </edge>
+            <edge source="Controller.CreateGameController" target="GUI.CustomComponents.NumberTextField">
+              <point x="18.75" y="-14.5" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="SDK.ServerConnection" target="SDK.Model.User">
+              <point x="-39.375" y="-14.5" />
+              <point x="133.9736394557824" y="395.0" />
+              <point x="104.5" y="395.0" />
+              <point x="104.5" y="49.0" />
+              <point x="185.9736394557824" y="49.0" />
+              <point x="-22.0" y="14.5" />
+            </edge>
+            <edge source="Controller.CreateGameController" target="GUI.ControlledScreen">
+              <point x="-18.75" y="-14.5" />
+              <point x="1448.0361394557824" y="474.0" />
+              <point x="1096.7142857142858" y="474.0" />
+              <point x="52.71428571428578" y="14.5" />
+            </edge>
+            <edge source="Controller.SnakeApp" target="GUI.CustomComponents.CustomExitButton">
+              <point x="10.625" y="-14.5" />
+              <point x="236.45772594752185" y="524.0" />
+              <point x="320.8486394557824" y="524.0" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="Controller.PlayMenuController" target="GUI.MainPane">
+              <point x="-46.0" y="-14.5" />
+              <point x="1087.6611394557824" y="534.0" />
+              <point x="772.3790694849368" y="534.0" />
+              <point x="21.25" y="14.5" />
+            </edge>
+            <edge source="Controller.LogInController" target="GUI.ControlledScreen">
+              <point x="38.33333333333337" y="-14.5" />
+              <point x="700.4944727891158" y="584.0" />
+              <point x="1008.8571428571429" y="584.0" />
+              <point x="-35.14285714285711" y="14.5" />
+            </edge>
+            <edge source="Controller.MainMenuController" target="GUI.MainPane">
+              <point x="-47.66666666666663" y="-14.5" />
+              <point x="763.4944727891158" y="564.0" />
+              <point x="746.8790694849368" y="564.0" />
+              <point x="-4.25" y="14.5" />
+            </edge>
+            <edge source="Controller.SnakeApp" target="GUI.MainPane">
+              <point x="31.875" y="-14.5" />
+              <point x="257.70772594752185" y="534.0" />
+              <point x="712.8790694849368" y="534.0" />
+              <point x="-38.25" y="14.5" />
+            </edge>
+            <edge source="Controller.CreateGameController" target="SDK.Model.User">
+              <point x="56.25" y="-14.5" />
+              <point x="1523.0361394557824" y="604.0" />
+              <point x="1557.5361394557824" y="604.0" />
+              <point x="1557.5361394557824" y="59.0" />
+              <point x="229.9736394557824" y="59.0" />
+              <point x="22.0" y="14.5" />
+            </edge>
+            <edge source="Controller.MainMenuController" target="GUI.ControlledScreen">
+              <point x="47.66666666666663" y="-14.5" />
+              <point x="858.827806122449" y="594.0" />
+              <point x="1026.4285714285713" y="594.0" />
+              <point x="-17.57142857142867" y="14.5" />
+            </edge>
+            <edge source="SDK.ServerConnection" target="SDK.SnakeClient">
+              <point x="-55.125" y="-14.5" />
+              <point x="118.2236394557824" y="405.0" />
+              <point x="47.0" y="405.0" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="Controller.HighScoresController" target="SDK.Model.Score">
+              <point x="-58.0" y="-14.5" />
+              <point x="454.1611394557824" y="524.0" />
+              <point x="458.5671768707484" y="524.0" />
+              <point x="458.5671768707484" y="301.0" />
+              <point x="381.7236394557824" y="301.0" />
+              <point x="15.25" y="14.5" />
+            </edge>
+            <edge source="Controller.HighScoresController" target="GUI.MainPane">
+              <point x="0.0" y="-14.5" />
+              <point x="512.1611394557824" y="544.0" />
+              <point x="721.3790694849368" y="544.0" />
+              <point x="-29.75" y="14.5" />
+            </edge>
+            <edge source="Controller.HighScoresController" target="GUI.ControlledScreen">
+              <point x="58.0" y="-14.5" />
+              <point x="570.1611394557824" y="574.0" />
+              <point x="991.2857142857142" y="574.0" />
+              <point x="-52.71428571428578" y="14.5" />
+            </edge>
+            <edge source="SDK.Model.Game" target="SDK.Model.Gamer">
+              <point x="0.0" y="-14.5" />
+              <point x="333.3486394557824" y="143.0" />
+              <point x="346.3694727891158" y="143.0" />
+              <point x="-22.333333333333314" y="14.5" />
+            </edge>
+            <edge source="SDK.Model.Session" target="SDK.Model.User">
+              <point x="-17.75" y="-14.5" />
+              <point x="132.75000000000006" y="59.0" />
+              <point x="196.9736394557824" y="59.0" />
+              <point x="-11.0" y="14.5" />
+            </edge>
+            <edge source="Controller.CreateUserController" target="GUI.MainPane">
+              <point x="-35.5" y="-14.5" />
+              <point x="938.1611394557824" y="544.0" />
+              <point x="763.8790694849368" y="544.0" />
+              <point x="12.75" y="14.5" />
+            </edge>
+            <edge source="Controller.LogInController" target="GUI.MainPane">
+              <point x="0.0" y="-14.5" />
+              <point x="662.1611394557824" y="564.0" />
+              <point x="738.3790694849368" y="564.0" />
+              <point x="-12.75" y="14.5" />
+            </edge>
+            <edge source="SDK.Model.CachedData" target="SDK.Model.Score">
+              <point x="24.0" y="-14.5" />
+              <point x="247.62500000000006" y="301.0" />
+              <point x="351.2236394557824" y="301.0" />
+              <point x="-15.25" y="14.5" />
+            </edge>
+            <edge source="SDK.ServerConnection" target="SDK.Model.Gamer">
+              <point x="55.125" y="-14.5" />
+              <point x="228.4736394557824" y="405.0" />
+              <point x="407.4736394557824" y="405.0" />
+              <point x="407.4736394557824" y="143.0" />
+              <point x="391.0361394557824" y="143.0" />
+              <point x="22.333333333333314" y="14.5" />
+            </edge>
+            <edge source="SDK.Model.CachedData" target="SDK.Model.User">
+              <point x="-24.0" y="-14.5" />
+              <point x="199.62500000000006" y="69.0" />
+              <point x="207.9736394557824" y="69.0" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="Controller.PlayGameController" target="GUI.ControlledScreen">
+              <point x="0.0" y="-14.5" />
+              <point x="1291.6611394557824" y="504.0" />
+              <point x="1079.142857142857" y="504.0" />
+              <point x="35.14285714285711" y="14.5" />
+            </edge>
+            <edge source="Controller.LogInController" target="GUI.Effects.TextBlend">
+              <point x="-38.33333333333337" y="-14.5" />
+              <point x="623.827806122449" y="524.0" />
+              <point x="628.233843537415" y="524.0" />
+              <point x="21.0" y="14.5" />
+            </edge>
+            <edge source="Controller.CreateGameController" target="GUI.MainPane">
+              <point x="-56.25" y="-14.5" />
+              <point x="1410.5361394557824" y="484.0" />
+              <point x="789.3790694849368" y="484.0" />
+              <point x="38.25" y="14.5" />
+            </edge>
+            <edge source="Controller.SnakeApp" target="SDK.ServerConnection">
+              <point x="-10.625" y="-14.5" />
+              <point x="215.20772594752185" y="604.0" />
+              <point x="204.8486394557824" y="604.0" />
+              <point x="31.5" y="14.5" />
+            </edge>
+            <edge source="SDK.Model.Gamer" target="SDK.Model.User">
+              <point x="0.0" y="-14.5" />
+              <point x="368.7028061224491" y="69.0" />
+              <point x="218.9736394557824" y="69.0" />
+              <point x="11.0" y="14.5" />
+            </edge>
+            <edge source="SDK.ServerConnection" target="SDK.Model.Session">
+              <point x="-23.625" y="-14.5" />
+              <point x="149.7236394557824" y="405.0" />
+              <point x="145.00000000000006" y="405.0" />
+              <point x="145.00000000000006" y="301.0" />
+              <point x="132.75000000000006" y="301.0" />
+              <point x="-17.75" y="14.5" />
+            </edge>
+            <edge source="SDK.ServerConnection" target="SDK.Model.Game">
+              <point x="39.375" y="-14.5" />
+              <point x="212.7236394557824" y="395.0" />
+              <point x="325.4736394557824" y="395.0" />
+              <point x="-7.875" y="14.5" />
+            </edge>
+            <edge source="Controller.PlayGameController" target="GUI.CustomComponents.SnakeControlsTextField">
+              <point x="46.0" y="-14.5" />
+              <point x="1337.6611394557824" y="494.0" />
+              <point x="1281.6409742468418" y="494.0" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="SDK.ServerConnection" target="SDK.Model.CachedData">
+              <point x="23.625" y="-14.5" />
+              <point x="196.9736394557824" y="385.0" />
+              <point x="247.62500000000006" y="385.0" />
+              <point x="24.0" y="14.5" />
+            </edge>
+            <edge source="SDK.Model.Score" target="SDK.Model.Game">
+              <point x="-15.25" y="-14.5" />
+              <point x="351.2236394557824" y="222.0" />
+              <point x="341.2236394557824" y="222.0" />
+              <point x="7.875" y="14.5" />
+            </edge>
+            <edge source="SDK.Model.Session" target="SDK.Model.Game">
+              <point x="17.75" y="-14.5" />
+              <point x="168.25000000000006" y="222.0" />
+              <point x="309.7236394557824" y="222.0" />
+              <point x="-23.625" y="14.5" />
+            </edge>
+            <edge source="Controller.PlayMenuController" target="GUI.ControlledScreen">
+              <point x="0.0" y="-14.5" />
+              <point x="1133.6611394557824" y="524.0" />
+              <point x="1061.5714285714287" y="524.0" />
+              <point x="17.57142857142867" y="14.5" />
+            </edge>
+            <edge source="Controller.HighScoresController" target="GUI.Effects.TextBlend">
+              <point x="-29.0" y="-14.5" />
+              <point x="483.1611394557824" y="524.0" />
+              <point x="586.233843537415" y="524.0" />
+              <point x="-21.0" y="14.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.8453738910012675" x="290.0" y="232.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/Dialogs/ConfirmationDialogs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="56" selection-start-line="31" selection-start-column="56" selection-end-line="31" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/Animation/GUIAnimations.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="39" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/fxml/PlayGamePane.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/fxml/LogInPane.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.6181818">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/CreateUserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="62" column="21" selection-start-line="62" selection-start-column="21" selection-end-line="62" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/fxml/CreateUserPane.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.2545457">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/CustomComponents/SnakeControlsTextField.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="63" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/CSS/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.418181">
+          <caret line="129" column="27" selection-start-line="129" selection-start-column="27" selection-end-line="129" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/HighScoresController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="61" column="33" selection-start-line="61" selection-start-column="33" selection-end-line="61" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/fxml/CreateGamePane.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.109091">
+          <caret line="23" column="59" selection-start-line="23" selection-start-column="59" selection-end-line="23" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/fxml/PlayMenuPane.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.581819">
+          <caret line="31" column="18" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SDK/ServerConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="292" column="23" selection-start-line="292" selection-start-column="16" selection-end-line="292" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/MainPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.2771363">
+          <caret line="130" column="0" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/CreateGameController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.1016166">
+          <caret line="176" column="43" selection-start-line="176" selection-start-column="43" selection-end-line="176" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/ControlledScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SDK/Model/Session.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SDK/Model/CachedData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/PlayMenuController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5288684">
-          <caret line="187" column="21" selection-start-line="187" selection-start-column="21" selection-end-line="187" selection-end-column="21" />
+        <state vertical-scroll-proportion="-7.275862">
+          <caret line="219" column="103" selection-start-line="219" selection-start-column="23" selection-end-line="219" selection-end-column="103" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ThreadUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="90" selection-start-line="14" selection-start-column="90" selection-end-line="14" selection-end-column="90" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/SnakeApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="84" column="11" selection-start-line="84" selection-start-column="11" selection-end-line="84" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/LogInController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5948478">
+          <caret line="108" column="14" selection-start-line="108" selection-start-column="14" selection-end-line="108" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -127,7 +127,6 @@ public class LogInController implements Initializable, ControlledScreen {
                 return null;
             }
         });
-
     }
 
     /**
