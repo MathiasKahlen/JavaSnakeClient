@@ -98,6 +98,7 @@ public class HighScoresController implements Initializable, ControlledScreen{
                 try {
                     SnakeApp.serverConnection.getHighScores();
                     showHighScores();
+                    //ClientHandlerException will cancel the task if the connection is timed out
                 } catch (ClientHandlerException e) {
                     //Cancels the task
                     this.cancel(true);

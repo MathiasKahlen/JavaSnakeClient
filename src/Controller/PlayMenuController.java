@@ -222,6 +222,7 @@ public class PlayMenuController implements Initializable, ControlledScreen {
                         SnakeApp.serverConnection.getCurrentUsersGames("finished");
                         showFinishedGames();
                     }
+                    //ClientHandlerException will cancel the task if the connection is timed out
                 } catch (ClientHandlerException e) {
                     //Cancels the task
                     this.cancel(true);
@@ -251,6 +252,7 @@ public class PlayMenuController implements Initializable, ControlledScreen {
                     } else {
                         Platform.runLater(() -> InformationDialogs.joinGameErrorMessage(mainPane));
                     }
+                    //ClientHandlerException will cancel the task if the connection is timed out
                 } catch (ClientHandlerException e) {
                     //Cancels the task
                     this.cancel(true);
@@ -326,6 +328,7 @@ public class PlayMenuController implements Initializable, ControlledScreen {
                     //Next two rows updates the table locally without calling the Server after the update
                     gamesTable.getItems().remove(gamesTable.getSelectionModel().getSelectedItem());
                     gamesTable.refresh();
+                    //ClientHandlerException will cancel the task if the connection is timed out
                 } catch (ClientHandlerException e) {
                     //Cancels the task
                     this.cancel(true);

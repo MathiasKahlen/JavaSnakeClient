@@ -61,6 +61,7 @@ public class CreateUserController implements ControlledScreen {
                                 lastNameTf.getText(), eMailTf.getText(), usernameTf.getText(), passwordTf.getText());
                         Platform.runLater(() -> InformationDialogs.createUserMessage(mainPane, message));
                         clearTextFields();
+                        //ClientHandlerException will cancel the task if the connection is timed out
                     } catch (ClientHandlerException e) {
                         //Cancels the task
                         this.cancel(true);

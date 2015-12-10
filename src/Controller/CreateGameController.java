@@ -96,6 +96,7 @@ public class CreateGameController implements Initializable, ControlledScreen {
                 try {
                     SnakeApp.serverConnection.getAllUsers();
                     showUsers();
+                    //ClientHandlerException will cancel the task if the connection is timed out
                 } catch (ClientHandlerException e) {
                     //Cancels the task
                     this.cancel(true);
@@ -167,6 +168,7 @@ public class CreateGameController implements Initializable, ControlledScreen {
                             //New Runnable as lambda expression
                             Platform.runLater(() -> InformationDialogs.createGameMessage(mainPane, message));
                         }
+                        //ClientHandlerException will cancel the task if the connection is timed out
                     } catch (ClientHandlerException e) {
                         //Cancels the task
                         this.cancel(true);

@@ -114,6 +114,7 @@ public class LogInController implements Initializable, ControlledScreen {
                             //Since JavaFX is single threaded the Platform.runLater is necessary to make it possible to show the dialog box from another thread than JavaFX's main thread.
                             Platform.runLater(() -> InformationDialogs.logInErrorMessage(mainPane, message));
                         }
+                        //ClientHandlerException will cancel the task if the connection is timed out
                     } catch (ClientHandlerException e) {
                         //Cancels the task
                         this.cancel(true);

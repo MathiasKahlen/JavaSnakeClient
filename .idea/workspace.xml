@@ -1,26 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0eb8f8a2-1831-4aa0-b838-963f6ceaa8c5" name="Default" comment="push for making sure i have a backup">
+    <list default="true" id="0eb8f8a2-1831-4aa0-b838-963f6ceaa8c5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/CreateGameController.java" afterPath="$PROJECT_DIR$/src/Controller/CreateGameController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/CreateUserController.java" afterPath="$PROJECT_DIR$/src/Controller/CreateUserController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/HighScoresController.java" afterPath="$PROJECT_DIR$/src/Controller/HighScoresController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/LogInController.java" afterPath="$PROJECT_DIR$/src/Controller/LogInController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/MainMenuController.java" afterPath="$PROJECT_DIR$/src/Controller/MainMenuController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/PlayGameController.java" afterPath="$PROJECT_DIR$/src/Controller/PlayGameController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/PlayMenuController.java" afterPath="$PROJECT_DIR$/src/Controller/PlayMenuController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/CustomComponents/NumberTextField.java" afterPath="$PROJECT_DIR$/src/GUI/CustomComponents/NumberTextField.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/Dialogs/ConfirmationDialogs.java" afterPath="$PROJECT_DIR$/src/GUI/Dialogs/ConfirmationDialogs.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/Dialogs/InformationDialogs.java" afterPath="$PROJECT_DIR$/src/GUI/Dialogs/InformationDialogs.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/Effects/TextBlend.java" afterPath="$PROJECT_DIR$/src/GUI/Effects/TextBlend.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SDK/Model/CachedData.java" afterPath="$PROJECT_DIR$/src/SDK/Model/CachedData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SDK/Model/Game.java" afterPath="$PROJECT_DIR$/src/SDK/Model/Game.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SDK/Model/Score.java" afterPath="$PROJECT_DIR$/src/SDK/Model/Score.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SDK/Model/Session.java" afterPath="$PROJECT_DIR$/src/SDK/Model/Session.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SDK/Model/User.java" afterPath="$PROJECT_DIR$/src/SDK/Model/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SDK/ServerConnection.java" afterPath="$PROJECT_DIR$/src/SDK/ServerConnection.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SDK/SnakeClient.java" afterPath="$PROJECT_DIR$/src/SDK/SnakeClient.java" />
     </list>
     <ignored path="JavaSnakeClient.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -63,53 +50,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SDK/Model/User.java">
+      <file leaf-file-name="LogInController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/LogInController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+            <state vertical-scroll-proportion="-13.75862">
+              <caret line="116" column="100" selection-start-line="116" selection-start-column="100" selection-end-line="116" selection-end-column="100" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Config.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SDK/SDKConfig/Config.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="56" column="22" selection-start-line="56" selection-start-column="22" selection-end-line="56" selection-end-column="22" />
-              <folding>
-                <element signature="e#1739#1740#0" expanded="true" />
-                <element signature="e#1773#1774#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SDK/SDKConfig/config.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.9615384">
-              <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SDK/Model/Game.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ServerConnection.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ServerConnection.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SDK/ServerConnection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.27597404">
+            <state vertical-scroll-proportion="0.0">
               <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
               <folding>
                 <element signature="e#6239#6240#0" expanded="true" />
@@ -123,31 +77,63 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SnakeClient.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SDK/SnakeClient.java">
+      <file leaf-file-name="PlayMenuController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Controller/PlayMenuController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="29" column="34" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.24701874">
+              <caret line="330" column="96" selection-start-line="330" selection-start-column="96" selection-end-line="330" selection-end-column="96" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CreateGameController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/CreateGameController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.724138">
+              <caret line="92" column="27" selection-start-line="92" selection-start-column="19" selection-end-line="92" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Gamer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SDK/Model/Gamer.java">
+      <file leaf-file-name="MainMenuController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/MainMenuController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+            <state vertical-scroll-proportion="-7.9310346">
+              <caret line="26" column="17" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Score.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SDK/Model/Score.java">
+      <file leaf-file-name="PlayGameController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/PlayGameController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="46" column="5" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
+            <state vertical-scroll-proportion="-1.4482758">
+              <caret line="32" column="39" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CreateUserController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/CreateUserController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.724138">
+              <caret line="55" column="27" selection-start-line="55" selection-start-column="23" selection-end-line="55" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HighScoresController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/HighScoresController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.24138">
+              <caret line="100" column="96" selection-start-line="100" selection-start-column="96" selection-end-line="100" selection-end-column="96" />
               <folding />
             </state>
           </provider>
@@ -210,13 +196,8 @@
         <option value="$PROJECT_DIR$/src/SDK/SDKConfig/config.json" />
         <option value="$PROJECT_DIR$/src/Controller/ThreadUtil.java" />
         <option value="$PROJECT_DIR$/src/Controller/SnakeApp.java" />
-        <option value="$PROJECT_DIR$/src/Controller/CreateGameController.java" />
-        <option value="$PROJECT_DIR$/src/Controller/LogInController.java" />
-        <option value="$PROJECT_DIR$/src/Controller/CreateUserController.java" />
-        <option value="$PROJECT_DIR$/src/Controller/HighScoresController.java" />
         <option value="$PROJECT_DIR$/src/Controller/MainMenuController.java" />
         <option value="$PROJECT_DIR$/src/Controller/PlayGameController.java" />
-        <option value="$PROJECT_DIR$/src/Controller/PlayMenuController.java" />
         <option value="$PROJECT_DIR$/src/GUI/CustomComponents/NumberTextField.java" />
         <option value="$PROJECT_DIR$/src/GUI/Dialogs/InformationDialogs.java" />
         <option value="$PROJECT_DIR$/src/GUI/Dialogs/ConfirmationDialogs.java" />
@@ -228,6 +209,11 @@
         <option value="$PROJECT_DIR$/src/SDK/Model/User.java" />
         <option value="$PROJECT_DIR$/src/SDK/SnakeClient.java" />
         <option value="$PROJECT_DIR$/src/SDK/ServerConnection.java" />
+        <option value="$PROJECT_DIR$/src/Controller/CreateGameController.java" />
+        <option value="$PROJECT_DIR$/src/Controller/CreateUserController.java" />
+        <option value="$PROJECT_DIR$/src/Controller/HighScoresController.java" />
+        <option value="$PROJECT_DIR$/src/Controller/LogInController.java" />
+        <option value="$PROJECT_DIR$/src/Controller/PlayMenuController.java" />
       </list>
     </option>
   </component>
@@ -309,28 +295,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SDK" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JavaSnakeClient" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JavaSnakeClient" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GUI" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1006,7 +970,7 @@
       <workItem from="1449655267910" duration="1253000" />
       <workItem from="1449656534515" duration="12292000" />
       <workItem from="1449728154037" duration="693000" />
-      <workItem from="1449733870564" duration="5640000" />
+      <workItem from="1449733870564" duration="5878000" />
     </task>
     <task id="LOCAL-00001" summary="Added JavaFX gui and functionality">
       <created>1447345506979</created>
@@ -1176,11 +1140,17 @@
       <option name="project" value="LOCAL" />
       <updated>1449688993998</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Added a lot of comments and a few TODO's. &#10;Some of these are thoughts and ideas for future development of the application">
+      <created>1449739973319</created>
+      <option name="number" value="00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1449739973319</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="385040000" />
+    <option name="totallyTimeSpent" value="385278000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1237,7 +1207,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Started highscore methods" />
     <MESSAGE value="Minor changes:&#10;Changed login method in LogInController and added an animation to the text fields if they are empty when trying to log in.&#10;Also added PlayMenuPane" />
     <MESSAGE value="Worked on joinGame, startGame and deleteGame in ServerConnection.&#10;&#10;Also added getCurrentUsersGames functionality in ServerConnection and in the PlayMenuController and PlayMenuPane. The client now properly shows the games from the session class in the TableView depending on status of the game.&#10;&#10;Session class now contains user specific ArrayLists of games and CachedData contain only data that is not user specific." />
     <MESSAGE value="Worked on joinGame, startGame and deleteGame in ServerConnection.&#10;&#10;Also added getCurrentUsersGames functionality in ServerConnection and connected it with the PlayMenuController and PlayMenuPane. The client now properly shows the games stored in the Session class in the TableView.&#10;&#10;Session class now contains user specific ArrayLists of games and CachedData contain only data that is not user specific." />
@@ -1262,7 +1231,8 @@
     <MESSAGE value="added try-catch to all server connection methods in controller classes. If there's no connection to the server the application will show a Connection Error information dialog." />
     <MESSAGE value="Minor fixes and added timeouts to get post put and delete methods in ServerConnection to lower the time before user gets a timeout message if there is no connection" />
     <MESSAGE value="push for making sure i have a backup" />
-    <option name="LAST_COMMIT_MESSAGE" value="push for making sure i have a backup" />
+    <MESSAGE value="Added a lot of comments and a few TODO's. &#10;Some of these are thoughts and ideas for future development of the application" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a lot of comments and a few TODO's. &#10;Some of these are thoughts and ideas for future development of the application" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1742,82 +1712,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/CreateGameController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="51" column="9" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/LogInController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="49" column="76" selection-start-line="49" selection-start-column="76" selection-end-line="49" selection-end-column="76" />
-          <folding>
-            <element signature="e#5553#5554#0" expanded="true" />
-            <element signature="e#5615#5616#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/MainMenuController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5032467">
-          <caret line="25" column="53" selection-start-line="25" selection-start-column="53" selection-end-line="25" selection-end-column="53" />
-          <folding>
-            <element signature="e#1015#1016#0" expanded="true" />
-            <element signature="e#1052#1053#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/PlayGameController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0487013">
-          <caret line="47" column="96" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="96" />
-          <folding>
-            <element signature="e#2654#2655#0" expanded="true" />
-            <element signature="e#2714#2715#0" expanded="true" />
-            <element signature="e#2747#2748#0" expanded="true" />
-            <element signature="e#2807#2808#0" expanded="true" />
-            <element signature="e#2877#2878#0" expanded="true" />
-            <element signature="e#2914#2915#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/SnakeApp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="71" column="19" selection-start-line="71" selection-start-column="19" selection-end-line="71" selection-end-column="19" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/HighScoresController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35876623">
-          <caret line="76" column="43" selection-start-line="75" selection-start-column="7" selection-end-line="76" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/CreateUserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.0146103">
-          <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/PlayMenuController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="79" column="33" selection-start-line="79" selection-start-column="33" selection-end-line="79" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1970,7 +1869,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/SDK/ServerConnection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27597404">
+        <state vertical-scroll-proportion="0.0">
           <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
           <folding>
             <element signature="e#6239#6240#0" expanded="true" />
@@ -1979,6 +1878,64 @@
             <element signature="e#14773#14774#0" expanded="true" />
             <element signature="e#14814#14815#0" expanded="true" />
             <element signature="e#14847#14848#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/CreateGameController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.724138">
+          <caret line="92" column="27" selection-start-line="92" selection-start-column="19" selection-end-line="92" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/CreateUserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.724138">
+          <caret line="55" column="27" selection-start-line="55" selection-start-column="23" selection-end-line="55" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/HighScoresController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.24138">
+          <caret line="100" column="96" selection-start-line="100" selection-start-column="96" selection-end-line="100" selection-end-column="96" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/LogInController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.75862">
+          <caret line="116" column="100" selection-start-line="116" selection-start-column="100" selection-end-line="116" selection-end-column="100" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/MainMenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.9310346">
+          <caret line="26" column="17" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/PlayGameController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.4482758">
+          <caret line="32" column="39" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/PlayMenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24701874">
+          <caret line="330" column="96" selection-start-line="330" selection-start-column="96" selection-end-line="330" selection-end-column="96" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
