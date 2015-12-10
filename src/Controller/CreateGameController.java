@@ -51,13 +51,6 @@ public class CreateGameController implements Initializable, ControlledScreen {
 
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
-        assert usersTable != null : "fx:id=\"usersTable\" was not injected: check your FXML file 'CreateGamePane.fxml'.";
-        assert controlsTf != null : "fx:id=\"controlsTf\" was not injected: check your FXML file 'CreateGamePane.fxml'.";
-        assert mapSizeTf != null : "fx:id=\"mapSizeTf\" was not injected: check your FXML file 'CreateGamePane.fxml'.";
-        assert gameNameTf != null : "fx:id=\"gameNameTf\" was not injected: check your FXML file 'CreateGamePane.fxml'.";
-        assert opponentTf != null : "fx:id=\"opponentTf\" was not injected: check your FXML file 'CreateGamePane.fxml'.";
-        assert backBtn != null : "fx:id=\"backBtn\" was not injected: check your FXML file 'CreateGamePane.fxml'.";
-        assert usernameColumn != null : "fx:id=\"username\" was not injected: check your FXML file 'CreateGamePane.fxml'.";
 
         usernameColumn.setCellValueFactory(new PropertyValueFactory<>("username"));
 
@@ -168,6 +161,9 @@ public class CreateGameController implements Initializable, ControlledScreen {
                         } else if (selectedOpponent != null) {
                             String message = SnakeApp.serverConnection.createGame(gameNameTf.getText(), Integer.parseInt(mapSizeTf.getText()), selectedOpponent.getId(), controlsTf.getText());
                             clearTextFields();
+                            //Have to call uninvite or the last invited person will still be selected when creating a new game
+                            //even though the textfield is empty because it was cleared in clearTextFields method.
+                            uninvite();
                             //New Runnable as lambda expression
                             Platform.runLater(() -> InformationDialogs.createGameMessage(mainPane, message));
                         }

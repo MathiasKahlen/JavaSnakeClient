@@ -27,8 +27,12 @@ public class ConfirmationDialogs {
     }
 
 
-
-
+    /**
+     * used for creating confirm dialogs with the same styling
+     * @param mainPane shown inside mainPane
+     * @param title the title of the dialog
+     * @return returns a standardized confirm dialog
+     */
     private static Alert createAlert(MainPane mainPane, String title){
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);

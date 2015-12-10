@@ -29,8 +29,6 @@ public interface SnakeClient {
 
     String deleteGame(int gameId);
 
-    Game getGame();
-
     void getCurrentUsersGames(String gameStatus);
 
     void getOpenGames();

@@ -7,7 +7,7 @@ import java.sql.Date;
  */
 
 public class Game {
-    //Creating the variables needed for the game
+
     private int gameId;
     private Gamer winner;
     private String name;

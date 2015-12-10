@@ -34,6 +34,11 @@ public class CreateUserController implements ControlledScreen {
     private PasswordField passwordTf;
 
 
+    /**
+     * Method for called when pressing the Create User button
+     * First checks if textfields are empty, if not a new Task will be run performing the actual serverrequest
+     * for creating the user with the entered information
+     */
     public void createUser() {
         if (firstNameTf.getLength() <= 0 || lastNameTf.getLength() <= 0 || eMailTf.getLength() <= 0 || usernameTf.getLength() <= 0 || passwordTf.getLength() <= 0) {
             if (firstNameTf.getLength() <= 0)
@@ -55,6 +60,7 @@ public class CreateUserController implements ControlledScreen {
                         String message = SnakeApp.serverConnection.createUser(firstNameTf.getText(),
                                 lastNameTf.getText(), eMailTf.getText(), usernameTf.getText(), passwordTf.getText());
                         Platform.runLater(() -> InformationDialogs.createUserMessage(mainPane, message));
+                        clearTextFields();
                     } catch (ClientHandlerException e) {
                         //Cancels the task
                         this.cancel(true);
@@ -67,7 +73,16 @@ public class CreateUserController implements ControlledScreen {
         }
     }
 
+    public void clearTextFields(){
+        firstNameTf.clear();
+        lastNameTf.clear();
+        eMailTf.clear();
+        usernameTf.clear();
+        passwordTf.clear();
+    }
+
     public void goBack() {
+        clearTextFields();
         mainPane.setScreen(MainPane.LOGIN_PANEL);
     }
 

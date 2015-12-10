@@ -23,16 +23,17 @@ public class MainMenuController implements Initializable, ControlledScreen {
 
     @FXML
     public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
-
+        //Sets actionlisteners for these menu buttons
         highScoresBtn.setOnAction(event -> mainPane.setScreen(MainPane.HIGHSCORES_PANEL));
         playBtn.setOnAction(event -> mainPane.setScreen(MainPane.PLAY_MENU_PANEL));
     }
 
+    /**
+     * Calls the ServerConnection method logout() and relaods the UI.
+     */
     public void logout(){
         SnakeApp.serverConnection.logout();
         mainPane.reloadUi();
-        //The thread that was spawned in LogInController will handle the screen swapping
-//        mainPane.setScreen(MainPane.LOGIN_PANEL);
     }
 
     @Override

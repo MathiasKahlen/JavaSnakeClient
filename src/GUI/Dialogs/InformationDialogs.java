@@ -12,6 +12,11 @@ import javafx.stage.StageStyle;
 public class InformationDialogs {
 
 
+    /**
+     * This dialog is used when the Client objects in ServerConnection time out
+     * This happens in case of slow or no connection to the server
+     * @param mainPane shown inside mainPane
+     */
     public static void noConnectionError(MainPane mainPane){
         Alert alert = createAlert(mainPane, "Connection Error");
         alert.setContentText("Connection failed. Please check your internet connection.");

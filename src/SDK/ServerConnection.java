@@ -23,6 +23,7 @@ public class ServerConnection implements SnakeClient{
     private CachedData cachedData;
 
     public ServerConnection() {
+        //TODO: Perhaps it is better to instantiate new Session objects every time a user log in intead of reusing the same object?
         session = new Session();
         cachedData = new CachedData();
         Config.init();
@@ -168,10 +169,22 @@ public class ServerConnection implements SnakeClient{
         return (String)jsonObject.get("message");
     }
 
+    /**
+     * clears all variables in the Session class
+     * used when a user is logged out
+     * Read to-do in Constructor
+     */
     public void logout(){
         session.clear();
     }
 
+    /**
+     * Used for getting a specific user - currently only used in login method.
+     * Perhaps the server should be modified to return the user from the login endpoint instead of just the id.
+     * This would cause only one server-request to be needed instead of two when logging in
+     * @param id the id of the required user
+     * @return returns a User object.
+     */
     public User getUser(int id){
 
         ClientResponse response = get("users/" + Integer.toString(id), null);
@@ -179,6 +192,10 @@ public class ServerConnection implements SnakeClient{
         return new Gson().fromJson(response.getEntity(String.class), User.class);
     }
 
+    /**
+     * Requests a list of all users from the server
+     * If HTTP status code 200 is returned it will store the list in the allUsers ArrayList in the Session object
+     */
     public void getAllUsers(){
 
         String token = session.getJwtToken();
@@ -190,7 +207,15 @@ public class ServerConnection implements SnakeClient{
         }
     }
 
-
+    /**
+     * Method for creating a user
+     * @param firstName the user's first name
+     * @param lastName the user's last name
+     * @param email the user's email
+     * @param username a specified username
+     * @param password a specified password
+     * @return returns the message received in the response entity from the server
+     */
     public String createUser(String firstName, String lastName, String email, String username, String password) {
 
         User user = new User();
@@ -207,7 +232,14 @@ public class ServerConnection implements SnakeClient{
         return (String)responseToJson(response).get("message");
     }
 
-
+    /**
+     * Method for creating a new game
+     * @param gameName Name of the game
+     * @param mapSize Size of the map
+     * @param opponentId The id of the invited opponent OR 0 if game should be open
+     * @param hostControls The host's controls
+     * @return returns the message received in the response entity from the server
+     */
     public String createGame(String gameName, int mapSize, int opponentId, String hostControls) {
 
         Game game = new Game();
@@ -240,7 +272,11 @@ public class ServerConnection implements SnakeClient{
         return (String)jsonObject.get("message");
     }
 
-
+    /**
+     * Method for joining an open game
+     * @param gameId The game to be joined
+     * @return returns true if HTTP status code of the response is 200
+     */
     public boolean joinGame(int gameId) {
         //Set the token
         String token = session.getJwtToken();
@@ -255,7 +291,14 @@ public class ServerConnection implements SnakeClient{
         return response.getStatus() == 200;
     }
 
-
+    /**
+     * Method for starting (and finishing) a game that is pending
+     * Basically the method for the opponent to play it's turn in the game which also returns the result of the game
+     * @param gameId Id of the game that is played
+     * @param controls The opponent's controls
+     * @return returns a Game object containing the result of the game with scores in the Gamer objects and
+     * a winner object
+     */
     public Game startGame(int gameId, String controls) {
         //Set the token
         String token = session.getJwtToken();
@@ -273,7 +316,11 @@ public class ServerConnection implements SnakeClient{
         return new Gson().fromJson(response.getEntity(String.class), Game.class);
     }
 
-
+    /**
+     * Method for deleting a game
+     * @param gameId Id of the game to delete
+     * @return returns the message received in the response entity from the server
+     */
     public String deleteGame(int gameId) {
         //Set the token
         String token = session.getJwtToken();
@@ -284,12 +331,12 @@ public class ServerConnection implements SnakeClient{
         return (String)responseToJson(response).get("message");
     }
 
-
-    public Game getGame() {
-        return null;
-    }
-
-
+    /**
+     * Requests a list of all games of a certain type depending on the parameter
+     * If HTTP status code 200 is returned from the server the received list will be set in the associated
+     * ArrayList in the Session object
+     * @param gameStatus the status of the requested games
+     */
     public void getCurrentUsersGames(String gameStatus) {
 
         ClientResponse response;
@@ -297,6 +344,7 @@ public class ServerConnection implements SnakeClient{
 
         switch (gameStatus){
             //Shows current users pending games
+            //TODO: Could make static final Strings of the cases to simplify usage in the controllers
             case "pending":
                 response = get("games/pending", token);
                 if (response.getStatus()==200)
@@ -317,7 +365,11 @@ public class ServerConnection implements SnakeClient{
         }
     }
 
-
+    /**
+     * Method for getting all open games in which the currentUser is not the host
+     * If HTTP status code 200 is returned from the server the received list of games will be set in
+     * the Session object's ArrayList "openJoinableGames"
+     */
     public void getOpenGames() {
 
         String token = session.getJwtToken();
@@ -328,6 +380,11 @@ public class ServerConnection implements SnakeClient{
         }
     }
 
+    /**
+     * Method for getting all the high scores
+     * If HTTP status code 200 is returned from the server the received list of games will be set in
+     * the CachedData object's ArrayList "highScores"
+     */
     public void getHighScores() {
 
         String token = session.getJwtToken();

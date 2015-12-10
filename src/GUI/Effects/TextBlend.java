@@ -11,6 +11,11 @@ import javafx.scene.paint.Color;
  */
 public class TextBlend extends Blend {
 
+    /**
+     * TextBlend with chain of blends
+     * Used on JavaFX Text components
+     * This is just a test for trying out different effects and is not final
+     */
     public TextBlend(){
 
         setMode(BlendMode.MULTIPLY);

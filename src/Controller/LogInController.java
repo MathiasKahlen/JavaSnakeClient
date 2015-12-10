@@ -48,9 +48,6 @@ public class LogInController implements Initializable, ControlledScreen {
 
     @FXML
     public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
-        assert usernameTf != null : "fx:id=\"usernameTf\" was not injected: check your FXML file 'LogInPane.fxml'.";
-        assert loginBtn != null : "fx:id=\"loginBtn\" was not injected: check your FXML file 'LogInPane.fxml'.";
-        assert passwordTf != null : "fx:id=\"passwordTf\" was not injected: check your FXML file 'LogInPane.fxml'.";
 
         //Setting effect on the christmas text
         TextBlend blend = new TextBlend();

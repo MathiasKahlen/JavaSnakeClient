@@ -21,6 +21,13 @@ public class PlayGameController implements ControlledScreen{
     @FXML
     private SnakeControlsTextField controls;
 
+    /**
+     * First creates a Game object with ServerConnection's startGame method with the selected game's id and
+     * the user's controls.
+     * Then sets the username in the winner object in finishedGame and then starts a runLater for the dialog
+     * showing the results with information from finishedGame object
+     * Finally returns the user to the Play Menu
+     */
     public void playGame(){
         //Threading this method to avoid blocking the UI if the connection to the server is weak or offline
         ThreadUtil.executorService.execute(new Task() {
@@ -38,6 +45,7 @@ public class PlayGameController implements ControlledScreen{
 
                     Platform.runLater(() -> InformationDialogs.gameResult(mainPane, PlayMenuController.selectedGame, finishedGame));
                     mainPane.setScreen(MainPane.PLAY_MENU_PANEL);
+                    //ClientHandlerException will cancel the task if the connection is timed out
                 } catch (ClientHandlerException e) {
                     //Cancels the task
                     this.cancel(true);

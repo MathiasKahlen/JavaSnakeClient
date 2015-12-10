@@ -44,7 +44,6 @@ public class HighScoresController implements Initializable, ControlledScreen{
 
     @FXML
     public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
-        assert backBtn != null : "fx:id=\"backBtn\" was not injected: check your FXML file 'HighScoresPane.fxml'.";
 
         usernameColumn.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getUser().getUsername()));
         totalScoreColumn.setCellValueFactory(new PropertyValueFactory<>("score"));
@@ -73,6 +72,10 @@ public class HighScoresController implements Initializable, ControlledScreen{
 
     }
 
+    /**
+     * If highScores ArrayList in CachedData isn't null the content of the table will be set to this
+     * otherwise the table will be cleared.
+     */
     public void showHighScores(){
         if (SnakeApp.serverConnection.getCachedData().getHighScores()!=null) {
             ObservableList<Score> data = FXCollections.observableArrayList(SnakeApp.serverConnection.getCachedData().getHighScores());
@@ -82,6 +85,11 @@ public class HighScoresController implements Initializable, ControlledScreen{
         }
     }
 
+    /**
+     * Updates the highScores ArrayList in CachedData with ServerConnection's getHighScores method and sets this as
+     * the content of the table.
+     * ClientHandlerException will cancel the task if the connection is timed out
+     */
     public void updateHighScores(){
         //Threading this method to avoid blocking the UI if the connection to the server is weak or offline
         ThreadUtil.executorService.execute(new Task() {

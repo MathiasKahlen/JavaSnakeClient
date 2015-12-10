@@ -76,6 +76,7 @@ public class PlayMenuController implements Initializable, ControlledScreen {
 
         backBtn.setOnAction(event -> mainPane.setScreen(MainPane.MAIN_MENU_PANEL));
 
+        //Sets all column's values
         gameNameColumn.setCellValueFactory(new PropertyValueFactory<Game, String>("name"));
         hostNameColumn.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getHost().getUsername()));
         opponentNameColumn.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getOpponent().getUsername()));
@@ -84,6 +85,8 @@ public class PlayMenuController implements Initializable, ControlledScreen {
         mapSizeColumn.setCellValueFactory(new PropertyValueFactory<Game, Double>("mapSize"));
         winnerColumn.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getWinner().getUsername()));
 
+        //Adds ChangeListener to the combobox in order to be able to execute different methods depending on
+        //the user's selection
         gamesToShow.getSelectionModel().selectedItemProperty().addListener((selected, oldValue, newValue) -> {
             if (newValue != null) {
                 switch (newValue) {
@@ -115,7 +118,8 @@ public class PlayMenuController implements Initializable, ControlledScreen {
             }
         });
 
-        //Colors the rows so the games the user already played are red
+        //Sets the id of the rows depending on content of the Host column. If host is the currentUser the row will be red
+        //Otherwise the row will be green. This allows the user to easily see which games are playable.
         //TODO: this should be changed for finished games, I havn't figured how to do this yet.
         hostNameColumn.setCellFactory(column -> new TableCell<Game, String>() {
             @Override
@@ -138,6 +142,10 @@ public class PlayMenuController implements Initializable, ControlledScreen {
         });
     }
 
+    /**
+     * If pendingGames ArrayList in Session isn't null the content of the table will be set to this
+     * otherwise the table will be cleared.
+     */
     public void showPendingGames() {
         if (SnakeApp.serverConnection.getSession().getPendingGames() != null){
         ObservableList<Game> data = FXCollections.observableArrayList(SnakeApp.serverConnection.getSession().getPendingGames());
@@ -147,6 +155,10 @@ public class PlayMenuController implements Initializable, ControlledScreen {
         }
     }
 
+    /**
+     * If hostedGames ArrayList in Session isn't null the content of the table will be set to this
+     * otherwise the table will be cleared.
+     */
     public void showHostedGames() {
         if (SnakeApp.serverConnection.getSession().getHostedGames()!=null) {
             ObservableList<Game> data = FXCollections.observableArrayList(SnakeApp.serverConnection.getSession().getHostedGames());
@@ -157,6 +169,10 @@ public class PlayMenuController implements Initializable, ControlledScreen {
         }
     }
 
+    /**
+     * If openJoinableGames ArrayList in Session isn't null the content of the table will be set to this
+     * otherwise the table will be cleared.
+     */
     public void showOpenGames() {
         if (SnakeApp.serverConnection.getSession().getOpenJoinableGames()!=null) {
             ObservableList<Game> data = FXCollections.observableArrayList(SnakeApp.serverConnection.getSession().getOpenJoinableGames());
@@ -166,6 +182,10 @@ public class PlayMenuController implements Initializable, ControlledScreen {
         }
     }
 
+    /**
+     * If finishedGames ArrayList in Session isn't null the content of the table will be set to this
+     * otherwise the table will be cleared.
+     */
     public void showFinishedGames() {
         if (SnakeApp.serverConnection.getSession().getFinishedGames()!=null) {
             ObservableList<Game> data = FXCollections.observableArrayList(SnakeApp.serverConnection.getSession().getFinishedGames());
@@ -175,6 +195,10 @@ public class PlayMenuController implements Initializable, ControlledScreen {
         }
     }
 
+    /**
+     * Updates Session's ArrayLists depending on the selection of the ComboBox and sets the content of the table
+     * accordingly
+     */
     public void refreshSelectedGamesList() {
         //Threading this method to avoid blocking the UI if the connection to the server is weak or offline
         ThreadUtil.executorService.execute(new Task() {
@@ -209,6 +233,11 @@ public class PlayMenuController implements Initializable, ControlledScreen {
         });
     }
 
+    /**
+     * Executes the ServerConnecton's joinGame method with the selected game from the table.
+     * If game is successfully joined the game will be removed from the table, otherwise a dialog box will be
+     * called in a runLater method telling the user, that the game is no longer available
+     */
     public void joinGame(){
         //Threading this method to avoid blocking the UI if the connection to the server is weak or offline
         ThreadUtil.executorService.execute(new Task() {
@@ -220,7 +249,7 @@ public class PlayMenuController implements Initializable, ControlledScreen {
                         gamesTable.getItems().remove(gamesTable.getSelectionModel().getSelectedItem());
                         gamesTable.refresh();
                     } else {
-                        InformationDialogs.joinGameErrorMessage(mainPane);
+                        Platform.runLater(() -> InformationDialogs.joinGameErrorMessage(mainPane));
                     }
                 } catch (ClientHandlerException e) {
                     //Cancels the task
@@ -233,16 +262,28 @@ public class PlayMenuController implements Initializable, ControlledScreen {
         });
     }
 
+    /**
+     * If currentUser's id and Host id in the selected game is not the same the user will be redirected to the
+     * PlayGamePane
+     * Otherwise nothing currently happens as it is not possible to join games in which you are the host since
+     * you already played the game
+     */
     public void playGame(){
         if (gamesTable.getSelectionModel().getSelectedItem().getHost().getId()!= SnakeApp.serverConnection.getSession().getCurrentUser().getId()){
             selectedGame = gamesTable.getSelectionModel().getSelectedItem();
             mainPane.setScreen(MainPane.PLAY_GAME_PANEL);
         } else {
+            //TODO: Maybe a dialog box here? Or find a way to disable play button when a hosted game is selected
             System.out.println("YOU'RE THE HOST OF THIS GAME");
         }
     }
 
+    /**
+     * If the game isn't finished and if the currentUser is either the host or the opponent in the game then
+     * deletGameAndUpdateTable method in the bottom of this class will be called.
+     */
     public void deleteGame(){
+        //This seems redundant as the delete button is disabled on the list of finished games, but keeping it for now.
         if (!gamesTable.getSelectionModel().getSelectedItem().getStatus().equals("finished")) {
             //If current user is the host in the game
             if (gamesTable.getSelectionModel().getSelectedItem().getHost().getUsername().equals(SnakeApp.serverConnection.getSession().getCurrentUser().getUsername()))
@@ -260,9 +301,12 @@ public class PlayMenuController implements Initializable, ControlledScreen {
                     ThreadUtil.executorService.execute(deleteGameAndUpdateTable());
                 }
             } else {
+                //This will never happen since the button for deleting games is disabled on lists where you are
+                //not allowed to delete games
                 System.out.println("You are not a player in this game.");
             }
         } else {
+            //This will never happen either, since the button is also disabled here
             System.out.println("You can't delete finished games");
         }
     }

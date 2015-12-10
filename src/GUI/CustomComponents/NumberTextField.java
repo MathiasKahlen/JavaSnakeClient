@@ -4,7 +4,7 @@ import javafx.scene.control.TextField;
 
 /**
  * Created by Kahlen on 04-12-2015.
- * Custom TextField than can only contain numbers
+ * Custom TextField that can only contain numbers
  */
 public class NumberTextField extends TextField {
 

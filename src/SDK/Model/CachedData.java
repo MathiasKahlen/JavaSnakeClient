@@ -16,11 +16,9 @@ public class CachedData {
     public ArrayList<User> getAllUsers() {
         return allUsers;
     }
-
     public void setHighScores(ArrayList<Score> highScores) {
         this.highScores = highScores;
     }
-
     public ArrayList<Score> getHighScores() {
         return highScores;
     }
