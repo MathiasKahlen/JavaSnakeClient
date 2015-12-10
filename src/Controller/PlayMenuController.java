@@ -349,6 +349,4 @@ public class PlayMenuController implements Initializable, ControlledScreen {
     public void setScreenParent(MainPane parentPane) {
         mainPane = parentPane;
     }
-
-
 }
